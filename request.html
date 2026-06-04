@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Free Quote — SAIGON CLEAN · Ho Chi Minh City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & ROOT ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: #F7F4EE;
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    :root {
+      --bg:     #F7F4EE;
+      --bg2:    #111111;
+      --text:   #0a0a0a;
+      --muted:  rgba(0,0,0,0.42);
+      --accent: #1F7A50;
+      --border: rgba(0,0,0,0.09);
+      --card:   #FFFFFF;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 26px 52px;
+      transition: background 0.4s, border 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav, nav a, .nav-logo, .nav-links a { color: #fff; }
+    .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-logo-rule { width: 52px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .nav-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .nav-logo-saigon { color: #D4AF37; }
+    .nav-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .nav-logo-clean { color: rgba(255,255,255,0.92); }
+    .nav-logo-sub { font-size: 8px; font-weight: 500; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #D4AF37; }
+    .nav-cta {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 26px;
+      background: #c8ff57; color: #0a0a0a;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── SHARED UTILS ─────────────────────────────────────── */
+    .label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-style: italic;
+      line-height: 1.04; letter-spacing: -0.015em;
+    }
+
+    /* ─── HERO (HALF HEIGHT) ───────────────────────────────── */
+    .hero {
+      position: relative; height: 60vh; min-height: 460px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') center 35%/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.88) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 760px; padding: 0 24px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6.5vw, 88px);
+      font-weight: 300; font-style: italic;
+      line-height: 0.98; color: #fff; margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .hero-title em { font-style: normal; color: #D4AF37; }
+    .hero-sub {
+      font-size: 13.5px; color: rgba(255,255,255,0.68);
+      line-height: 1.7; max-width: 480px; margin: 0 auto;
+    }
+
+    /* ─── FORM SECTION ─────────────────────────────────────── */
+    .form-section {
+      display: grid; grid-template-columns: 1fr 440px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-left { padding: 80px 64px; border-right: 1px solid var(--border); }
+    .form-right { padding: 72px 52px; background: var(--card); }
+
+    /* Left — intro + reassurance */
+    .form-intro-title { font-size: clamp(34px, 3.8vw, 58px); margin-bottom: 18px; }
+    .form-intro-desc { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 440px; margin-bottom: 52px; }
+
+    .trust-items { display: flex; flex-direction: column; gap: 0; }
+    .trust-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .trust-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+    .trust-title {
+      font-size: 14px; font-weight: 600; margin-bottom: 4px;
+    }
+    .trust-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* Form styles */
+    .form-header { margin-bottom: 36px; padding-left: 18px; border-left: 2px solid #D4AF37; }
+    .form-header-eyebrow {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 8px;
+    }
+    .form-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 300; font-style: italic;
+      line-height: 1.2; color: #0a0a0a;
+    }
+
+    .form-group-label {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.38em; text-transform: uppercase;
+      color: rgba(0,0,0,0.28);
+      padding: 20px 0 12px;
+      border-top: 1px solid var(--border);
+      margin-top: 8px; margin-bottom: 8px;
+    }
+    .form-group-label:first-of-type { border-top: none; padding-top: 0; }
+
+    .fg { margin-bottom: 22px; }
+    .fl {
+      display: block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 8px;
+    }
+    .fi, .fsel, .fta {
+      width: 100%; background: transparent;
+      border: none; border-bottom: 1px solid var(--border);
+      color: #0a0a0a; font-weight: 500; font-family: 'Inter', sans-serif;
+      font-size: 14px; padding: 11px 0;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .fi::placeholder, .fta::placeholder { color: rgba(0,0,0,0.22); }
+    .fi:focus, .fsel:focus, .fta:focus { border-bottom-color: var(--accent); }
+    .fsel option { background: #F7F4EE; color: #0a0a0a; }
+    .fta { resize: none; height: 100px; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    .form-submit {
+      width: 100%; padding: 18px;
+      background: #D4AF37; color: #0a0a0a;
+      border: none; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+      margin-top: 8px;
+    }
+    .form-submit:hover { background: #0a0a0a; color: #D4AF37; }
+    .form-note {
+      font-size: 11px; color: rgba(0,0,0,0.3);
+      text-align: center; margin-top: 14px; line-height: 1.6;
+    }
+
+    /* ─── WHAT HAPPENS NEXT ─────────────────────────────────── */
+    .next-section {
+      padding: 88px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .next-head { text-align: center; margin-bottom: 64px; }
+    .next-head h2 { font-size: clamp(36px, 4vw, 60px); margin-bottom: 12px; }
+    .next-head p { font-size: 14px; color: var(--muted); max-width: 440px; margin: 0 auto; line-height: 1.75; }
+    .next-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .next-step {
+      background: var(--bg); padding: 52px 44px;
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .next-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px; font-weight: 300; line-height: 1;
+      color: rgba(0,0,0,0.06); margin-bottom: 16px;
+    }
+    .next-icon { font-size: 36px; margin-bottom: 18px; }
+    .next-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400; font-style: italic;
+      margin-bottom: 12px;
+    }
+    .next-desc { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+    .next-timing {
+      margin-top: 16px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--accent);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .next-timing::before { content: '◆'; font-size: 6px; }
+
+    /* ─── CONTACT STRIP ─────────────────────────────────────── */
+    .contact-strip {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 40px;
+      padding: 48px 52px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .cs-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-style: italic; font-weight: 300;
+      color: rgba(255,255,255,0.85); max-width: 480px;
+    }
+    .cs-contacts { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+    .cs-contact {
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .cs-lbl {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.38em; text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .cs-val {
+      font-size: 16px; font-weight: 600; color: #fff;
+      transition: color 0.2s;
+    }
+    .cs-val:hover { color: #c8ff57; }
+
+    /* ─── LIVE CHAT BUTTON ──────────────────────────────────── */
+    .live-chat {
+      position: fixed; bottom: 32px; right: 32px; z-index: 300;
+      display: flex; align-items: center; gap: 10px;
+      background: var(--accent); color: #fff;
+      padding: 14px 22px;
+      box-shadow: 0 8px 32px rgba(31,122,80,0.35);
+      transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+      cursor: pointer; border: none;
+    }
+    .live-chat:hover {
+      background: #165f3e;
+      box-shadow: 0 12px 40px rgba(31,122,80,0.45);
+      transform: translateY(-2px);
+    }
+    .live-chat-icon { font-size: 20px; }
+    .live-chat-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    @media (max-width: 640px) {
+      .live-chat-label { display: none; }
+      .live-chat { padding: 14px; border-radius: 0; }
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 40px 52px;
+      border-top: 1px solid var(--border);
+    }
+    .f-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .f-logo-rule { width: 60px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .f-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .f-logo-saigon { color: #D4AF37; }
+    .f-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .f-logo-clean { color: #0a0a0a; }
+    .f-logo-sub { font-size: 9px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(0,0,0,0.35); }
+    .f-links { display: flex; gap: 28px; list-style: none; }
+    .f-links a {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .f-links a:hover { color: #0a0a0a; }
+    .f-copy { font-size: 11px; color: rgba(0,0,0,0.28); letter-spacing: 0.08em; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 22px 28px; }
+      .nav-links { gap: 24px; }
+      .form-section { grid-template-columns: 1fr; }
+      .form-left { border-right: none; border-bottom: 1px solid var(--border); padding: 56px 28px; }
+      .form-right { padding: 56px 28px; }
+      .next-section { padding: 64px 28px; }
+      .next-grid { grid-template-columns: 1fr; }
+      .contact-strip { flex-direction: column; gap: 28px; padding: 44px 28px; text-align: center; }
+      .cs-contacts { justify-content: center; }
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      nav { padding: 18px 22px; }
+      .fg-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-rule"></div>
+    <div class="nav-logo-wordmark"><span class="nav-logo-saigon">Saigon</span><span class="nav-logo-gem">◆</span><span class="nav-logo-clean">Clean</span></div>
+    <div class="nav-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="nav-logo-rule"></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="request.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Request · Free Site Visit &amp; Proposal</div>
+    <h1 class="hero-title display">
+      Request Your<br><em>Free Quote</em>
+    </h1>
+    <p class="hero-sub">
+      We'll visit your space and send a tailored proposal within 24 hours. No obligation, no pressure.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ FORM SECTION ══════════════════════════════════════════════ -->
+<div class="form-section">
+
+  <div class="form-left">
+    <div class="label">Why Saigon Clean</div>
+    <h2 class="display form-intro-title">
+      A spotless space,<br>guaranteed
+    </h2>
+    <p class="form-intro-desc">
+      Every quote starts with a free site visit. We learn your space, understand your requirements, and build a cleaning plan that fits exactly — no generic packages, no surprises on the invoice.
+    </p>
+
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">🏢</div>
+        <div>
+          <div class="trust-title">Free site visit within 24 hours</div>
+          <p class="trust-desc">We come to you. One of our senior team members visits your property to assess the space and understand your exact needs before quoting.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📄</div>
+        <div>
+          <div class="trust-title">Tailored proposal — no templates</div>
+          <p class="trust-desc">Every quote is built around your actual space, frequency, and standards. You'll receive a clear, itemised proposal with no hidden charges.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div>
+          <div class="trust-title">Fully insured, vetted teams</div>
+          <p class="trust-desc">All Saigon Clean staff pass background checks and are covered by full liability insurance. Your property and privacy are always protected.</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✨</div>
+        <div>
+          <div class="trust-title">100% satisfaction guarantee</div>
+          <p class="trust-desc">Not satisfied with your first clean? We'll return and redo it — free of charge. We stand behind every job our team completes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-right">
+    <div class="form-header">
+      <div class="form-header-eyebrow">✦ Free Quote Request</div>
+      <div class="form-header-title">Tell us about<br><em>your space</em></div>
+    </div>
+
+    <form onsubmit="return false;">
+
+      <div class="form-group-label">Contact Details</div>
+
+      <div class="fg-row">
+        <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+        <div class="fg"><label class="fl">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
+      </div>
+
+      <div class="fg-row">
+        <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
+      </div>
+
+      <div class="form-group-label">Property Details</div>
+
+      <div class="fg"><label class="fl">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
+
+      <div class="fg-row">
+        <div class="fg">
+          <label class="fl">District</label>
+          <select class="fsel">
+            <option value="">Select district…</option>
+            <option>Quận 1 — Bến Nghé / Sài Gòn</option>
+            <option>Quận 2 / Thủ Đức — Thảo Điền</option>
+            <option>Quận 3</option>
+            <option>Quận 4</option>
+            <option>Quận 5</option>
+            <option>Quận 7 — Phú Mỹ Hưng</option>
+            <option>Bình Thạnh</option>
+            <option>Phú Nhuận</option>
+            <option>Other / Multiple Districts</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Property Type</label>
+          <select class="fsel">
+            <option value="">Select type…</option>
+            <option>Office / Corporate</option>
+            <option>Hotel</option>
+            <option>Serviced Apartment</option>
+            <option>Coworking Space</option>
+            <option>Luxury Apartment / Condo</option>
+            <option>Property Portfolio</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="fg"><label class="fl">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
+
+      <div class="form-group-label">Service Details</div>
+
+      <div class="fg">
+        <label class="fl">Service Type</label>
+        <select class="fsel">
+          <option value="">Select a service…</option>
+          <option>Office &amp; Corporate Cleaning</option>
+          <option>Hotel &amp; Serviced Apartment</option>
+          <option>Coworking Space</option>
+          <option>Luxury Apartment / Condo</option>
+          <option>Property Management &amp; Turnover</option>
+          <option>One-Off Deep Clean</option>
+          <option>Post-Construction / Post-Event</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="fg-row">
+        <div class="fg">
+          <label class="fl">Preferred Frequency</label>
+          <select class="fsel">
+            <option value="">Select frequency…</option>
+            <option>Daily</option>
+            <option>Several times per week</option>
+            <option>Weekly</option>
+            <option>Fortnightly</option>
+            <option>Monthly</option>
+            <option>One-Off</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Preferred Start Date</label>
+          <input class="fi" type="date">
+        </div>
+      </div>
+
+      <div class="fg"><label class="fl">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
+
+      <button type="submit" class="form-submit">Send My Request →</button>
+      <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
+
+    </form>
+  </div>
+</div>
+
+<!-- ═══ WHAT HAPPENS NEXT ══════════════════════════════════════════ -->
+<div class="next-section">
+  <div class="next-head">
+    <div class="label">What Happens Next</div>
+    <h2 class="display">From request to spotless<br>— in three steps</h2>
+    <p>We keep it simple. No unnecessary back-and-forth, no waiting around.</p>
+  </div>
+  <div class="next-grid">
+
+    <div class="next-step">
+      <div class="next-num">01</div>
+      <div class="next-icon">📬</div>
+      <div class="next-title">We review your request</div>
+      <p class="next-desc">Our team reads your request the same day. We'll confirm receipt and reach out to confirm your site visit time — usually within a few hours.</p>
+      <div class="next-timing">Same day</div>
+    </div>
+
+    <div class="next-step">
+      <div class="next-num">02</div>
+      <div class="next-icon">🏢</div>
+      <div class="next-title">Site visit &amp; tailored quote</div>
+      <p class="next-desc">One of our senior team visits your property, walks through the space with you, and builds a precise cleaning plan. You receive a written proposal within 24 hours of the visit.</p>
+      <div class="next-timing">Within 24 hours</div>
+    </div>
+
+    <div class="next-step">
+      <div class="next-num">03</div>
+      <div class="next-icon">✨</div>
+      <div class="next-title">First clean at your convenience</div>
+      <p class="next-desc">Once you approve the proposal, we schedule your first clean. Most clients are up and running within 48 hours of sign-off — on your schedule, at your preferred time.</p>
+      <div class="next-timing">Within 48 hours of approval</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ CONTACT STRIP ══════════════════════════════════════════════ -->
+<div class="contact-strip">
+  <p class="cs-text">"Prefer to talk it through? We're here Mon–Sat, 7 AM to 8 PM."</p>
+  <div class="cs-contacts">
+    <div class="cs-contact">
+      <span class="cs-lbl">☎ Call or WhatsApp</span>
+      <a href="tel:+84904915240" class="cs-val">+84 904 915 240</a>
+    </div>
+    <div class="cs-contact">
+      <span class="cs-lbl">✉ Email</span>
+      <a href="mailto:hello@saigonclean.vn" class="cs-val">hello@saigonclean.vn</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LIVE CHAT BUTTON ═══════════════════════════════════════════ -->
+<a href="https://wa.me/84904915240" target="_blank" class="live-chat" aria-label="Chat with us on WhatsApp">
+  <span class="live-chat-icon">💬</span>
+  <span class="live-chat-label">Chat with us</span>
+</a>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-rule"></div>
+    <div class="f-logo-wordmark"><span class="f-logo-saigon">Saigon</span><span class="f-logo-gem">◆</span><span class="f-logo-clean">Clean</span></div>
+    <div class="f-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="f-logo-rule"></div>
+  </div>
+  <ul class="f-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
