@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — SAIGON CLEAN · Ho Chi Minh City</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & ROOT ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: #F7F4EE;
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    :root {
+      --bg:     #F7F4EE;
+      --bg2:    #111111;
+      --text:   #0a0a0a;
+      --muted:  rgba(0,0,0,0.42);
+      --accent: #1F7A50;
+      --border: rgba(0,0,0,0.09);
+      --card:   #FFFFFF;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 26px 52px;
+      transition: background 0.4s, border 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav, nav a, .nav-logo, .nav-links a { color: #fff; }
+    .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-logo-rule { width: 52px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .nav-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .nav-logo-saigon { color: #D4AF37; }
+    .nav-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .nav-logo-clean { color: rgba(255,255,255,0.92); }
+    .nav-logo-sub { font-size: 8px; font-weight: 500; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #D4AF37; }
+    .nav-cta {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 26px;
+      background: #c8ff57; color: #0a0a0a;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── SHARED UTILS ─────────────────────────────────────── */
+    .label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-style: italic;
+      line-height: 1.04; letter-spacing: -0.015em;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 13px 34px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn-dark {
+      border: 1px solid #0a0a0a; color: #0a0a0a; background: transparent;
+    }
+    .btn-dark:hover { background: #0a0a0a; color: #fff; }
+    .btn-fill {
+      border: 1px solid var(--accent); background: var(--accent); color: #fff;
+    }
+    .btn-fill:hover { background: transparent; color: var(--accent); }
+    .btn-white {
+      border: 1px solid rgba(255,255,255,0.7); color: #fff; background: transparent;
+    }
+    .btn-white:hover { background: #fff; color: #000; border-color: #fff; }
+    .btn-whatsapp {
+      border: 1px solid #25D366; background: #25D366; color: #fff;
+    }
+    .btn-whatsapp:hover { background: transparent; color: #25D366; }
+
+    /* ─── HERO (HALF HEIGHT) ───────────────────────────────── */
+    .hero {
+      position: relative; height: 60vh; min-height: 440px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') center 40%/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.58) 60%, rgba(0,0,0,0.85) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; padding: 0 24px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 6.5vw, 88px);
+      font-weight: 300; font-style: italic;
+      line-height: 0.98; color: #fff; margin-bottom: 20px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .hero-title em { font-style: normal; color: #D4AF37; }
+    .hero-sub {
+      font-size: 13.5px; color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    /* ─── CONTACT SPLIT ────────────────────────────────────── */
+    .contact-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-info-col { padding: 80px 60px; border-right: 1px solid var(--border); }
+    .contact-form-col { padding: 80px 60px; background: var(--card); }
+
+    .contact-title { font-size: clamp(36px, 4vw, 60px); margin-bottom: 16px; }
+    .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 400px; margin-bottom: 48px; }
+
+    .ci { padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .ci:first-of-type { border-top: 1px solid var(--border); }
+    .ci-lbl {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 5px;
+    }
+    .ci-val { font-size: 16px; font-weight: 500; }
+    .ci-val a { transition: color 0.2s; }
+    .ci-val a:hover { color: var(--accent); }
+
+    /* Map placeholder */
+    .map-placeholder {
+      margin-top: 44px; height: 260px;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      color: var(--muted);
+    }
+    .map-placeholder-icon { font-size: 36px; }
+    .map-placeholder-text { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+    .map-link {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--accent); margin-top: 4px; transition: opacity 0.2s;
+    }
+    .map-link:hover { opacity: 0.7; }
+
+    /* Form styles */
+    .form-header { margin-bottom: 36px; padding-left: 18px; border-left: 2px solid #D4AF37; }
+    .form-header-eyebrow {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 8px;
+    }
+    .form-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px; font-weight: 300; font-style: italic;
+      line-height: 1.2; color: #0a0a0a;
+    }
+    .fg { margin-bottom: 26px; }
+    .fl {
+      display: block; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 8px;
+    }
+    .fi, .fsel, .fta {
+      width: 100%; background: transparent;
+      border: none; border-bottom: 1px solid var(--border);
+      color: #0a0a0a; font-weight: 500; font-family: 'Inter', sans-serif;
+      font-size: 14px; padding: 11px 0;
+      outline: none; transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .fi::placeholder, .fta::placeholder { color: rgba(0,0,0,0.22); }
+    .fi:focus, .fsel:focus, .fta:focus { border-bottom-color: var(--accent); }
+    .fsel option { background: #F7F4EE; color: #0a0a0a; }
+    .fta { resize: none; height: 120px; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    .form-submit {
+      width: 100%; padding: 18px;
+      background: #D4AF37; color: #0a0a0a;
+      border: none; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.28em; text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+    }
+    .form-submit:hover { background: #0a0a0a; color: #D4AF37; }
+    .form-note { font-size: 11px; color: rgba(0,0,0,0.3); text-align: center; margin-top: 14px; line-height: 1.6; }
+
+    /* ─── DIRECT CONTACT CARD ───────────────────────────────── */
+    .direct-contact {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .dc-card {
+      background: var(--bg2); padding: 72px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .dc-card.light { background: #fff; }
+    .dc-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: #c8ff57; margin-bottom: 18px;
+    }
+    .dc-card.light .dc-label { color: var(--accent); }
+    .dc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.15; color: #fff; margin-bottom: 12px;
+    }
+    .dc-card.light .dc-title { color: #0a0a0a; }
+    .dc-sub { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 36px; }
+    .dc-card.light .dc-sub { color: var(--muted); }
+    .dc-phone {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4vw, 60px); font-weight: 300;
+      color: #c8ff57; line-height: 1;
+      margin-bottom: 28px; display: block;
+      transition: opacity 0.2s;
+    }
+    .dc-phone:hover { opacity: 0.8; }
+    .dc-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ─── FEEDBACK / MAILBOX ─────────────────────────────────── */
+    .feedback-section {
+      padding: 80px 52px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 48px;
+    }
+    .feedback-left { max-width: 520px; }
+    .feedback-title { font-size: clamp(32px, 3.5vw, 52px); margin-bottom: 14px; }
+    .feedback-desc { font-size: 14px; color: var(--muted); line-height: 1.8; }
+    .feedback-email {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-style: italic; font-weight: 300;
+      color: var(--accent); border-bottom: 1px solid rgba(31,122,80,0.25);
+      padding-bottom: 4px; transition: border-color 0.2s;
+    }
+    .feedback-email:hover { border-color: var(--accent); }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 40px 52px;
+      border-top: 1px solid var(--border);
+    }
+    .f-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .f-logo-rule { width: 60px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .f-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .f-logo-saigon { color: #D4AF37; }
+    .f-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .f-logo-clean { color: #0a0a0a; }
+    .f-logo-sub { font-size: 9px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(0,0,0,0.35); }
+    .f-links { display: flex; gap: 28px; list-style: none; }
+    .f-links a {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .f-links a:hover { color: #0a0a0a; }
+    .f-copy { font-size: 11px; color: rgba(0,0,0,0.28); letter-spacing: 0.08em; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 22px 28px; }
+      .nav-links { gap: 24px; }
+      .contact-split { grid-template-columns: 1fr; }
+      .contact-info-col { border-right: none; border-bottom: 1px solid var(--border); padding: 56px 28px; }
+      .contact-form-col { padding: 56px 28px; }
+      .direct-contact { grid-template-columns: 1fr; }
+      .dc-card { padding: 56px 28px; }
+      .feedback-section { flex-direction: column; padding: 60px 28px; gap: 32px; }
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      nav { padding: 18px 22px; }
+      .fg-row { grid-template-columns: 1fr; }
+      .dc-btns { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-rule"></div>
+    <div class="nav-logo-wordmark"><span class="nav-logo-saigon">Saigon</span><span class="nav-logo-gem">◆</span><span class="nav-logo-clean">Clean</span></div>
+    <div class="nav-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="nav-logo-rule"></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="request.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Contact · Ho Chi Minh City</div>
+    <h1 class="hero-title display">
+      <em>Get</em> In Touch
+    </h1>
+    <p class="hero-sub">We're here Mon–Sat, 7:00 AM – 8:00 PM. Reach us by phone, email, or fill in the form below.</p>
+  </div>
+</section>
+
+<!-- ═══ CONTACT SPLIT ══════════════════════════════════════════════ -->
+<div class="contact-split">
+
+  <div class="contact-info-col">
+    <div class="label">Find Us</div>
+    <h2 class="display contact-title">
+      We serve all of<br><em>Ho Chi Minh City</em>
+    </h2>
+    <p class="contact-desc">
+      Our cleaning teams operate across every district in HCMC. Reach out by phone, email, or WhatsApp — or fill in the form and we'll get back to you the same day.
+    </p>
+
+    <div class="ci">
+      <div class="ci-lbl">☎ Phone &amp; WhatsApp</div>
+      <div class="ci-val"><a href="tel:+84904915240">+84 904 915 240</a></div>
+    </div>
+    <div class="ci">
+      <div class="ci-lbl">✉ Email</div>
+      <div class="ci-val"><a href="mailto:hello@saigonclean.vn">hello@saigonclean.vn</a></div>
+    </div>
+    <div class="ci">
+      <div class="ci-lbl">◎ Service Area</div>
+      <div class="ci-val">All Districts, Ho Chi Minh City</div>
+    </div>
+    <div class="ci">
+      <div class="ci-lbl">◷ Office Hours</div>
+      <div class="ci-val">Mon – Sat, 7:00 AM – 8:00 PM</div>
+    </div>
+    <div class="ci" style="border-bottom:none;">
+      <div class="ci-lbl">◈ Cleaning Hours</div>
+      <div class="ci-val">24/7 by arrangement</div>
+    </div>
+
+    <div class="map-placeholder">
+      <div class="map-placeholder-icon">📍</div>
+      <div class="map-placeholder-text">Ho Chi Minh City, Vietnam</div>
+      <a href="https://maps.google.com/?q=Ho+Chi+Minh+City,+Vietnam" target="_blank" class="map-link">Open in Google Maps ↗</a>
+    </div>
+  </div>
+
+  <div class="contact-form-col">
+    <div class="form-header">
+      <div class="form-header-eyebrow">✦ Send a Message</div>
+      <div class="form-header-title">We read every<br><em>message personally</em></div>
+    </div>
+
+    <form onsubmit="return false;">
+      <div class="fg-row">
+        <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
+      </div>
+      <div class="fg"><label class="fl">Company / Property</label><input class="fi" type="text" placeholder="Your business or property name"></div>
+      <div class="fg">
+        <label class="fl">Subject</label>
+        <select class="fsel">
+          <option value="">Select a topic…</option>
+          <option>Request a Quote</option>
+          <option>Existing Client — Service Query</option>
+          <option>Partnership Enquiry</option>
+          <option>Feedback or Complaint</option>
+          <option>Careers &amp; Employment</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="How can we help? Describe your space, needs, or any questions you have…"></textarea></div>
+      <button type="submit" class="form-submit">Send Message →</button>
+      <p class="form-note">We respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
+    </form>
+  </div>
+
+</div>
+
+<!-- ═══ DIRECT CONTACT ════════════════════════════════════════════ -->
+<div class="direct-contact">
+
+  <div class="dc-card">
+    <div class="dc-label">◆ Call or WhatsApp</div>
+    <div class="dc-title">Prefer to talk<br>to a real person?</div>
+    <p class="dc-sub">Our team is available Monday to Saturday, 7 AM to 8 PM. For urgent cleaning requests or large-scale quotes, a call is the fastest route.</p>
+    <a href="tel:+84904915240" class="dc-phone">+84 904 915 240</a>
+    <div class="dc-btns">
+      <a href="tel:+84904915240" class="btn btn-white">Call Now</a>
+      <a href="https://wa.me/84904915240" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="dc-card light">
+    <div class="dc-label">◆ Request a Quote</div>
+    <div class="dc-title">Ready to get<br><em>your space spotless?</em></div>
+    <p class="dc-sub">Fill in our detailed quote form and we'll visit your space within 24 hours to assess your needs and send a tailored proposal — free of charge.</p>
+    <div style="margin-bottom:28px;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Site visit within</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1;color:var(--accent);">24 hrs</div>
+    </div>
+    <div class="dc-btns">
+      <a href="request.html" class="btn btn-fill">Request Free Quote</a>
+      <a href="services.html" class="btn btn-dark">View Services</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FEEDBACK MAILBOX ══════════════════════════════════════════ -->
+<div class="feedback-section">
+  <div class="feedback-left">
+    <div class="label">Feedback</div>
+    <h2 class="display feedback-title">
+      Your feedback<br>shapes our service
+    </h2>
+    <p class="feedback-desc">
+      Whether it's a compliment, a concern, or a suggestion — we want to hear it. Every piece of client feedback is reviewed by our operations team within 48 hours. We take quality seriously, and your experience matters.
+    </p>
+  </div>
+  <div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.75;">Send feedback directly to our operations inbox:</p>
+    <a href="mailto:feedback@saigonclean.vn" class="feedback-email">feedback@saigonclean.vn</a>
+    <p style="font-size:12px;color:rgba(0,0,0,0.28);margin-top:12px;">Response within 48 hours · All feedback is confidential</p>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-rule"></div>
+    <div class="f-logo-wordmark"><span class="f-logo-saigon">Saigon</span><span class="f-logo-gem">◆</span><span class="f-logo-clean">Clean</span></div>
+    <div class="f-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="f-logo-rule"></div>
+  </div>
+  <ul class="f-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
