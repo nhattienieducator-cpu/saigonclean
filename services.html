@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — SAIGON CLEAN · Premium Commercial Cleaning HCMC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ─── RESET & ROOT ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body {
+      background: #F7F4EE;
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    :root {
+      --bg:     #F7F4EE;
+      --bg2:    #111111;
+      --text:   #0a0a0a;
+      --muted:  rgba(0,0,0,0.42);
+      --accent: #1F7A50;
+      --border: rgba(0,0,0,0.09);
+      --card:   #FFFFFF;
+    }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ─── NAV ──────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 26px 52px;
+      transition: background 0.4s, border 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,10,10,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    nav, nav a, .nav-logo, .nav-links a { color: #fff; }
+    .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-logo-rule { width: 52px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .nav-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 9px;
+    }
+    .nav-logo-saigon { color: #D4AF37; }
+    .nav-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .nav-logo-clean { color: rgba(255,255,255,0.92); }
+    .nav-logo-sub { font-size: 8px; font-weight: 500; letter-spacing: 0.38em; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.72); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #D4AF37; }
+    .nav-cta {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 26px;
+      background: #c8ff57; color: #0a0a0a;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── SHARED UTILS ─────────────────────────────────────── */
+    .label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 14px;
+    }
+    .display {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300; font-style: italic;
+      line-height: 1.04; letter-spacing: -0.015em;
+    }
+    .btn {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      padding: 13px 34px;
+      border: 1px solid rgba(0,0,0,0.5); color: #0a0a0a;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .btn:hover { background: #0a0a0a; color: #fff; border-color: #0a0a0a; }
+    .btn-white {
+      border-color: rgba(255,255,255,0.7); color: #fff;
+    }
+    .btn-white:hover { background: #fff; color: #000; border-color: #fff; }
+    .btn-fill {
+      background: var(--accent); border-color: var(--accent); color: #fff;
+    }
+    .btn-fill:hover { background: transparent; color: var(--accent); border-color: var(--accent); }
+    .btn-lime {
+      background: #c8ff57; border-color: #c8ff57; color: #0a0a0a;
+    }
+    .btn-lime:hover { background: transparent; color: #c8ff57; border-color: #c8ff57; }
+
+    /* ─── HERO (HALF HEIGHT) ───────────────────────────────── */
+    .hero {
+      position: relative; height: 70vh; min-height: 520px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.58) 50%, rgba(0,0,0,0.82) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 0 24px; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 7vw, 96px);
+      font-weight: 300; font-style: italic;
+      line-height: 0.98; letter-spacing: -0.02em;
+      color: #fff; margin-bottom: 28px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+    }
+    .hero-title em { font-style: normal; color: #D4AF37; }
+    .hero-sub {
+      font-size: 13px; color: rgba(255,255,255,0.7);
+      line-height: 1.7; max-width: 540px; margin: 0 auto 40px;
+    }
+
+    /* ─── SERVICES DETAIL ──────────────────────────────────── */
+    .sd-section {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .sd-section:nth-child(even) { direction: rtl; }
+    .sd-section:nth-child(even) > * { direction: ltr; }
+    .sd-photo { height: 540px; overflow: hidden; position: relative; }
+    .sd-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .sd-section:hover .sd-photo img { transform: scale(1.04); }
+    .sd-body {
+      padding: 72px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .sd-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.42em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .sd-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.1; margin-bottom: 20px;
+      color: #0a0a0a;
+    }
+    .sd-desc {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.8; margin-bottom: 28px; max-width: 420px;
+    }
+    .sd-list {
+      list-style: none; margin-bottom: 36px;
+    }
+    .sd-list li {
+      font-size: 13px; color: #0a0a0a; font-weight: 500;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .sd-list li::before {
+      content: '◆'; font-size: 6px; color: #D4AF37; flex-shrink: 0;
+    }
+
+    /* ─── PRICING ──────────────────────────────────────────── */
+    .pricing-section {
+      padding: 96px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-head {
+      text-align: center; margin-bottom: 64px;
+    }
+    .pricing-head h2 { font-size: clamp(38px, 4.5vw, 64px); margin-bottom: 16px; }
+    .pricing-head p { font-size: 14px; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.75; }
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .pricing-card {
+      background: var(--bg); padding: 52px 44px;
+      display: flex; flex-direction: column;
+      transition: background 0.25s;
+    }
+    .pricing-card:hover { background: var(--card); }
+    .pricing-card.featured {
+      background: var(--bg2); color: #fff;
+    }
+    .pricing-card.featured .pricing-name,
+    .pricing-card.featured .pricing-freq,
+    .pricing-card.featured .pricing-feature { color: rgba(255,255,255,0.8); }
+    .pricing-card.featured .pricing-feature::before { color: #c8ff57; }
+    .pricing-badge {
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.38em; text-transform: uppercase;
+      color: #c8ff57; margin-bottom: 12px;
+    }
+    .pricing-name {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .pricing-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px; font-weight: 300; line-height: 1;
+      margin-bottom: 6px;
+    }
+    .pricing-card.featured .pricing-amount { color: #fff; }
+    .pricing-freq {
+      font-size: 12px; color: var(--muted);
+      margin-bottom: 36px; padding-bottom: 36px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-features { list-style: none; flex: 1; margin-bottom: 40px; }
+    .pricing-feature {
+      font-size: 13px; font-weight: 400;
+      padding: 10px 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+      color: #0a0a0a;
+    }
+    .pricing-feature::before {
+      content: '✓'; font-size: 11px;
+      font-weight: 700; color: var(--accent); flex-shrink: 0;
+    }
+
+    /* ─── PROCESS ──────────────────────────────────────────── */
+    .process-section {
+      padding: 96px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .process-head { margin-bottom: 64px; }
+    .process-head h2 { font-size: clamp(36px, 4vw, 60px); max-width: 500px; }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+    }
+    .process-step {
+      background: var(--bg); padding: 48px 36px;
+      transition: background 0.2s;
+    }
+    .process-step:hover { background: var(--card); }
+    .process-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px; font-weight: 300;
+      line-height: 1; color: rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+    }
+    .process-icon { font-size: 32px; margin-bottom: 16px; }
+    .process-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 400; font-style: italic;
+      margin-bottom: 12px;
+    }
+    .process-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── INCLUSIONS RAIL ──────────────────────────────────── */
+    .included-head { padding: 76px 52px 48px; }
+    .included-head h2 { font-size: clamp(36px, 4vw, 60px); max-width: 480px; }
+    .included-rail {
+      display: flex; overflow-x: auto; scrollbar-width: none;
+      border-top: 1px solid var(--border);
+    }
+    .included-rail::-webkit-scrollbar { display: none; }
+    .inc-item {
+      flex: 0 0 auto; min-width: 200px; padding: 52px 40px;
+      border-right: 1px solid var(--border); text-align: center;
+    }
+    .inc-icon { font-size: 44px; margin-bottom: 20px; }
+    .inc-name {
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(0,0,0,0.78);
+    }
+
+    /* ─── FAQ ──────────────────────────────────────────────── */
+    .faq-section {
+      padding: 96px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-head { margin-bottom: 56px; }
+    .faq-head h2 { font-size: clamp(36px, 4vw, 58px); max-width: 420px; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
+    .faq-item { padding: 32px 0; border-bottom: 1px solid var(--border); }
+    .faq-q {
+      font-size: 15px; font-weight: 600;
+      line-height: 1.4; margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .faq-q::before {
+      content: 'Q'; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.15em; color: var(--accent);
+      background: rgba(31,122,80,0.08);
+      padding: 4px 8px; margin-top: 1px; flex-shrink: 0;
+    }
+    .faq-a { font-size: 13.5px; color: var(--muted); line-height: 1.75; padding-left: 36px; }
+
+    /* ─── CTA BANNER ───────────────────────────────────────── */
+    .cta-banner {
+      background: var(--bg2); padding: 96px 52px;
+      text-align: center;
+    }
+    .cta-banner .label { color: #c8ff57; }
+    .cta-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 76px);
+      font-weight: 300; font-style: italic;
+      line-height: 1.08; color: #fff;
+      margin-bottom: 14px;
+    }
+    .cta-banner p {
+      font-size: 14px; color: rgba(255,255,255,0.52);
+      margin-bottom: 44px; max-width: 440px; margin-left: auto; margin-right: auto;
+      line-height: 1.75;
+    }
+    .cta-banner-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 40px 52px;
+      border-top: 1px solid var(--border);
+    }
+    .f-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .f-logo-rule { width: 60px; height: 1px; background: linear-gradient(to right, #D4AF37, transparent); }
+    .f-logo-wordmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px; font-weight: 300; letter-spacing: 0.46em; text-transform: uppercase;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .f-logo-saigon { color: #D4AF37; }
+    .f-logo-gem { font-size: 7px; color: #D4AF37; letter-spacing: 0; opacity: 0.85; }
+    .f-logo-clean { color: #0a0a0a; }
+    .f-logo-sub { font-size: 9px; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(0,0,0,0.35); }
+    .f-links { display: flex; gap: 28px; list-style: none; }
+    .f-links a {
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); transition: color 0.2s;
+    }
+    .f-links a:hover { color: #0a0a0a; }
+    .f-copy { font-size: 11px; color: rgba(0,0,0,0.28); letter-spacing: 0.08em; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      nav { padding: 22px 28px; }
+      .nav-links { gap: 24px; }
+      .sd-section { grid-template-columns: 1fr; direction: ltr; }
+      .sd-section:nth-child(even) { direction: ltr; }
+      .sd-photo { height: 380px; }
+      .sd-body { padding: 48px 28px; }
+      .pricing-section, .process-section, .faq-section { padding: 64px 28px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .faq-grid { grid-template-columns: 1fr; gap: 0; }
+      .included-head { padding: 56px 28px 36px; }
+      .cta-banner { padding: 72px 28px; }
+      footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      nav { padding: 18px 22px; }
+      .process-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-rule"></div>
+    <div class="nav-logo-wordmark"><span class="nav-logo-saigon">Saigon</span><span class="nav-logo-gem">◆</span><span class="nav-logo-clean">Clean</span></div>
+    <div class="nav-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="nav-logo-rule"></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="request.html" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">What We Offer · Ho Chi Minh City</div>
+    <h1 class="hero-title display">
+      <em>Five-Star Cleaning</em><br>
+      for Saigon's Finest Spaces
+    </h1>
+    <p class="hero-sub">
+      From executive boardrooms to luxury hotel suites — we deliver immaculate results, every time, on your schedule.
+    </p>
+    <a href="request.html" class="btn btn-white">Get a Free Quote</a>
+  </div>
+</section>
+
+<!-- ═══ SERVICES DETAIL ═══════════════════════════════════════════ -->
+
+<!-- 1 — Office -->
+<div class="sd-section">
+  <div class="sd-photo">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Office Cleaning HCMC">
+  </div>
+  <div class="sd-body">
+    <div class="sd-tag">Commercial</div>
+    <h2 class="sd-title">Office &amp; Corporate Spaces</h2>
+    <p class="sd-desc">
+      We deliver consistent, professional cleaning for open-plan offices, executive suites, meeting rooms, lobbies, and server rooms across every district in Ho Chi Minh City. Daily, weekly, or custom frequencies — always around your team's schedule.
+    </p>
+    <ul class="sd-list">
+      <li>Open-plan &amp; private office deep cleans</li>
+      <li>Meeting room sanitisation between sessions</li>
+      <li>Reception &amp; lobby presentation polish</li>
+      <li>Pantry &amp; breakroom hygiene maintenance</li>
+      <li>Restroom deep-clean &amp; restocking</li>
+      <li>After-hours scheduling available</li>
+    </ul>
+    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+  </div>
+</div>
+
+<!-- 2 — Hotels -->
+<div class="sd-section">
+  <div class="sd-photo">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80" alt="Hotel Room Cleaning">
+  </div>
+  <div class="sd-body">
+    <div class="sd-tag">Hospitality</div>
+    <h2 class="sd-title">Hotels &amp; Serviced Apartments</h2>
+    <p class="sd-desc">
+      Five-star turnover service and daily room servicing for hotels, boutique guesthouses, and serviced apartment complexes. Our trained hospitality teams work to your brand standards with precision and discretion.
+    </p>
+    <ul class="sd-list">
+      <li>Full room turnover between guests</li>
+      <li>Daily servicing &amp; bed-making</li>
+      <li>Bathroom deep-clean &amp; amenity replenishment</li>
+      <li>Corridor, lift &amp; common-area maintenance</li>
+      <li>Linen coordination support</li>
+      <li>Laundry management &amp; folding</li>
+    </ul>
+    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+  </div>
+</div>
+
+<!-- 3 — Coworking -->
+<div class="sd-section">
+  <div class="sd-photo">
+    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Coworking Space Cleaning">
+  </div>
+  <div class="sd-body">
+    <div class="sd-tag">Coworking</div>
+    <h2 class="sd-title">Coworking &amp; Shared Workspaces</h2>
+    <p class="sd-desc">
+      High-traffic shared environments demand high-frequency cleaning. We specialise in coworking spaces, innovation hubs, and hot-desking floors — keeping every surface ready for the next member who sits down.
+    </p>
+    <ul class="sd-list">
+      <li>Hot-desk &amp; pod sanitisation between users</li>
+      <li>Phone booth &amp; pod deep-clean</li>
+      <li>Event space reset &amp; post-event clean</li>
+      <li>Kitchen &amp; lounge area daily service</li>
+      <li>High-touch point disinfection protocols</li>
+      <li>Flexible same-day scheduling</li>
+    </ul>
+    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+  </div>
+</div>
+
+<!-- 4 — Luxury Apartments -->
+<div class="sd-section">
+  <div class="sd-photo">
+    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Luxury Apartment Cleaning">
+  </div>
+  <div class="sd-body">
+    <div class="sd-tag">Residential</div>
+    <h2 class="sd-title">Luxury Apartments &amp; Condos</h2>
+    <p class="sd-desc">
+      White-glove cleaning for premium residential properties in Thảo Điền, Phú Mỹ Hưng, Vinhomes, and HCMC's finest towers. Our teams respect your home and your privacy — every visit leaves your space spotless.
+    </p>
+    <ul class="sd-list">
+      <li>Full-unit deep clean or regular service</li>
+      <li>Kitchen appliance cleaning inside &amp; out</li>
+      <li>Bathroom &amp; wet area sanitisation</li>
+      <li>Balcony &amp; terrace cleaning</li>
+      <li>Wardrobe &amp; storage area tidying</li>
+      <li>Move-in / move-out clean packages</li>
+    </ul>
+    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+  </div>
+</div>
+
+<!-- 5 — Property Management -->
+<div class="sd-section">
+  <div class="sd-photo">
+    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80" alt="Property Management Cleaning">
+  </div>
+  <div class="sd-body">
+    <div class="sd-tag">Property</div>
+    <h2 class="sd-title">Property Management &amp; Turnover</h2>
+    <p class="sd-desc">
+      End-of-tenancy, between-lease, and ongoing maintenance cleaning for property management companies and landlords overseeing multiple units across HCMC. One point of contact for your entire portfolio.
+    </p>
+    <ul class="sd-list">
+      <li>End-of-tenancy deep clean &amp; photo-ready finish</li>
+      <li>Between-guest or between-tenant turnover</li>
+      <li>Portfolio-wide recurring schedules</li>
+      <li>Damage inspection checklist support</li>
+      <li>Common-area &amp; carpark cleaning</li>
+      <li>Dedicated account manager</li>
+    </ul>
+    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+  </div>
+</div>
+
+<!-- ═══ PRICING ═══════════════════════════════════════════════════ -->
+<div class="pricing-section">
+  <div class="pricing-head">
+    <div class="label">Transparent Pricing</div>
+    <h2 class="display">Simple, fair rates for<br>every type of space</h2>
+    <p>All plans include insured staff, eco-safe products, and a completion checklist. Custom quotes available for larger portfolios.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- Essentials -->
+    <div class="pricing-card">
+      <div class="pricing-name">Essentials</div>
+      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>800K</div>
+      <div class="pricing-freq">per session · small spaces up to 100 m²</div>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Dusting &amp; sweeping</li>
+        <li class="pricing-feature">Floor mopping</li>
+        <li class="pricing-feature">Surface wipe-down</li>
+        <li class="pricing-feature">Waste removal</li>
+        <li class="pricing-feature">Bathroom clean</li>
+        <li class="pricing-feature">Completion checklist</li>
+      </ul>
+      <a href="request.html" class="btn">Get Started</a>
+    </div>
+
+    <!-- Professional (featured) -->
+    <div class="pricing-card featured">
+      <div class="pricing-badge">◆ Most Popular</div>
+      <div class="pricing-name">Professional</div>
+      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>2.2M</div>
+      <div class="pricing-freq">per session · offices &amp; serviced spaces up to 400 m²</div>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Everything in Essentials</li>
+        <li class="pricing-feature">Window &amp; glass cleaning</li>
+        <li class="pricing-feature">Deep bathroom sanitisation</li>
+        <li class="pricing-feature">Pantry &amp; appliance clean</li>
+        <li class="pricing-feature">High-touch point disinfection</li>
+        <li class="pricing-feature">Eco-safe products included</li>
+        <li class="pricing-feature">Priority scheduling</li>
+      </ul>
+      <a href="request.html" class="btn btn-lime">Get Started</a>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="pricing-card">
+      <div class="pricing-name">Enterprise</div>
+      <div class="pricing-amount display">Custom</div>
+      <div class="pricing-freq">tailored quote · hotels, portfolios &amp; large properties</div>
+      <ul class="pricing-features">
+        <li class="pricing-feature">Everything in Professional</li>
+        <li class="pricing-feature">Dedicated account manager</li>
+        <li class="pricing-feature">Portfolio-wide scheduling</li>
+        <li class="pricing-feature">Linen &amp; laundry coordination</li>
+        <li class="pricing-feature">Event &amp; post-event cleans</li>
+        <li class="pricing-feature">SLA &amp; quality guarantee</li>
+        <li class="pricing-feature">Monthly performance report</li>
+      </ul>
+      <a href="request.html" class="btn">Get a Custom Quote</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ PROCESS ════════════════════════════════════════════════════ -->
+<div class="process-section">
+  <div class="process-head">
+    <div class="label">How It Works</div>
+    <h2 class="display">From first call to<br>spotless space — in four steps</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="process-num">01</div>
+      <div class="process-icon">💬</div>
+      <div class="process-title">Enquire</div>
+      <p class="process-desc">Fill in our quick quote form or call us directly. Tell us about your space, size, and cleaning needs. Takes under 2 minutes.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">02</div>
+      <div class="process-icon">🏢</div>
+      <div class="process-title">Site Visit &amp; Quote</div>
+      <p class="process-desc">We visit your property within 24 hours, assess your space, and send a detailed tailored quote — no surprises, no obligations.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">03</div>
+      <div class="process-icon">📅</div>
+      <div class="process-title">Schedule First Clean</div>
+      <p class="process-desc">Once you're happy with the quote, we agree a start date. Your first clean can begin within 48 hours of sign-off.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">04</div>
+      <div class="process-icon">✨</div>
+      <div class="process-title">Ongoing Service</div>
+      <p class="process-desc">We show up on time, every time. After each visit you receive a completed checklist and a direct line to your account manager.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WHAT'S INCLUDED ════════════════════════════════════════════ -->
+<div id="included">
+  <div class="included-head">
+    <div class="label">Every Service Includes</div>
+    <h2 class="display" style="font-size:clamp(36px,4vw,58px);max-width:500px;line-height:1.1;">
+      What comes with<br>every clean
+    </h2>
+  </div>
+  <div class="included-rail">
+    <div class="inc-item"><div class="inc-icon">🧹</div><div class="inc-name">Dusting &amp; Sweeping</div></div>
+    <div class="inc-item"><div class="inc-icon">🪣</div><div class="inc-name">Floor Mopping</div></div>
+    <div class="inc-item"><div class="inc-icon">🧴</div><div class="inc-name">Surface Sanitizing</div></div>
+    <div class="inc-item"><div class="inc-icon">🚿</div><div class="inc-name">Bathroom Deep Clean</div></div>
+    <div class="inc-item"><div class="inc-icon">🪟</div><div class="inc-name">Window Cleaning</div></div>
+    <div class="inc-item"><div class="inc-icon">🗑️</div><div class="inc-name">Waste Removal</div></div>
+    <div class="inc-item"><div class="inc-icon">✨</div><div class="inc-name">Streak-Free Finish</div></div>
+    <div class="inc-item"><div class="inc-icon">🌿</div><div class="inc-name">Eco-Safe Products</div></div>
+    <div class="inc-item"><div class="inc-icon">🔒</div><div class="inc-name">Insured Staff</div></div>
+    <div class="inc-item"><div class="inc-icon">📋</div><div class="inc-name">Checklist Report</div></div>
+  </div>
+</div>
+
+<!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
+<div class="faq-section">
+  <div class="faq-head">
+    <div class="label">FAQ</div>
+    <h2 class="display">Common questions,<br>honest answers</h2>
+  </div>
+  <div class="faq-grid">
+
+    <div class="faq-item">
+      <div class="faq-q">Is there a minimum contract period?</div>
+      <p class="faq-a">No lock-in contracts. We offer month-to-month agreements for recurring services. One-off and event cleans are always available with no commitment required.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are your staff insured?</div>
+      <p class="faq-a">Yes. All Saigon Clean staff carry full liability insurance. We are also covered for accidental damage during service, so your property and contents are protected.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do you supply cleaning products and equipment?</div>
+      <p class="faq-a">We supply all products and professional-grade equipment. Our products are eco-safe, non-toxic, and approved for use in hospitality and food-service environments.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can you clean outside of business hours?</div>
+      <p class="faq-a">Absolutely. We offer early-morning, evening, and weekend scheduling. Most of our commercial clients prefer after-hours or before-open cleans to avoid disruption.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What is your cancellation policy?</div>
+      <p class="faq-a">We ask for 24 hours notice to reschedule or cancel a session without charge. For recurring contracts, a 7-day notice is required to pause or end service.</p>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Which districts do you cover?</div>
+      <p class="faq-a">We cover all districts in Ho Chi Minh City including Quận 1, 2, 3, 4, 7, Bình Thạnh, Thủ Đức, and Phú Mỹ Hưng. Contact us for outlying areas — we'll do our best to accommodate.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ CTA BANNER ════════════════════════════════════════════════ -->
+<div class="cta-banner">
+  <div class="label">Start Today</div>
+  <h2>Ready to get started?</h2>
+  <p>Get a tailored quote for your space within 24 hours — no obligation, no pressure.</p>
+  <div class="cta-banner-btns">
+    <a href="request.html" class="btn btn-lime">Request a Free Quote</a>
+    <a href="contact.html" class="btn btn-white">Talk to the Team</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-rule"></div>
+    <div class="f-logo-wordmark"><span class="f-logo-saigon">Saigon</span><span class="f-logo-gem">◆</span><span class="f-logo-clean">Clean</span></div>
+    <div class="f-logo-sub">Ho Chi Minh City · Est. 2020</div>
+    <div class="f-logo-rule"></div>
+  </div>
+  <ul class="f-links">
+    <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#clients">Clients</a></li>
+    <li><a href="index.html#included">Included</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
