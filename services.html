@@ -469,6 +469,23 @@
       text-decoration: none;
     }
     .back-home:hover { background: #D4AF37; color: #0a0a0a; border-color: #D4AF37; }
+    .chat-float { position:fixed; bottom:28px; right:28px; z-index:500; display:flex; flex-direction:column; align-items:flex-end; }
+    .chat-fab { display:flex; align-items:center; gap:9px; background:#0068FF; color:#fff; border:none; border-radius:50px; padding:13px 20px 13px 15px; font-family:inherit; font-size:13px; font-weight:600; box-shadow:0 4px 20px rgba(0,104,255,0.38); cursor:pointer; transition:transform 0.2s, box-shadow 0.2s; }
+    .chat-fab:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(0,104,255,0.5); }
+    .chat-z-icon { width:22px; height:22px; background:rgba(255,255,255,0.22); border-radius:5px; display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; font-style:italic; flex-shrink:0; }
+    .chat-popup { position:absolute; bottom:58px; right:0; width:268px; background:#fff; border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,0.15); overflow:hidden; display:none; transform-origin:bottom right; }
+    .chat-popup.open { display:block; animation:chatPop 0.22s cubic-bezier(0.175,0.885,0.32,1.275); }
+    @keyframes chatPop { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+    .chat-popup-hd { background:#0068FF; color:#fff; padding:13px 16px 11px; display:flex; align-items:center; justify-content:space-between; }
+    .chat-popup-hd-left { display:flex; align-items:center; gap:8px; font-size:13px; font-weight:600; }
+    .chat-close-btn { background:none; border:none; color:rgba(255,255,255,0.65); font-size:18px; cursor:pointer; line-height:1; transition:color 0.15s; }
+    .chat-close-btn:hover { color:#fff; }
+    .chat-popup-body { padding:18px 18px 20px; text-align:center; }
+    .chat-qr { width:156px; height:156px; border-radius:8px; display:block; margin:0 auto 10px; }
+    .chat-scan-hint { font-size:12px; color:rgba(0,0,0,0.42); margin-bottom:14px; line-height:1.5; }
+    .chat-open-btn { display:block; width:100%; padding:11px; background:#0068FF; color:#fff; border-radius:8px; text-decoration:none; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; transition:background 0.2s; }
+    .chat-open-btn:hover { background:#0055cc; }
+    @media (max-width:640px) { .chat-float { bottom:20px; right:20px; } .chat-fab { padding:14px; border-radius:50%; } .chat-fab-label { display:none; } }
   </style>
 </head>
 <body>
@@ -821,6 +838,25 @@
   <div class="f-copy" data-i18n="ft.copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
+<!-- ═══ ZALO CHAT FLOAT ════════════════════════════════════════════ -->
+<div class="chat-float" id="chatFloat">
+  <div class="chat-popup" id="chatPopup">
+    <div class="chat-popup-hd">
+      <div class="chat-popup-hd-left"><span class="chat-z-icon">Z</span><span data-i18n="chat.title">Chat on Zalo</span></div>
+      <button class="chat-close-btn" onclick="document.getElementById('chatPopup').classList.remove('open')">✕</button>
+    </div>
+    <div class="chat-popup-body">
+      <img class="chat-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https%3A%2F%2Fzalo.me%2F0904915240&color=0068FF&bgcolor=ffffff" alt="Zalo QR" loading="lazy">
+      <p class="chat-scan-hint" data-i18n="chat.scan">Scan with Zalo app to message us directly</p>
+      <a href="https://zalo.me/0904915240" target="_blank" class="chat-open-btn" data-i18n="chat.open">Open Zalo ↗</a>
+    </div>
+  </div>
+  <button class="chat-fab" onclick="toggleZaloChat()" aria-label="Chat on Zalo">
+    <span class="chat-z-icon">Z</span>
+    <span class="chat-fab-label" data-i18n="chat.btn">Chat Zalo</span>
+  </button>
+</div>
+
 <script>
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -884,6 +920,8 @@
       'cta.desc':'Get a tailored quote for your space within 24 hours — no obligation, no pressure.',
       'cta.btn1':'Request a Free Quote','cta.btn2':'Talk to the Team',
       'ft.copy':'© 2026 Saigon Clean · Ho Chi Minh City, Vietnam',
+      'chat.btn':'Chat Zalo','chat.title':'Chat on Zalo',
+      'chat.scan':'Scan QR with Zalo app to message us directly','chat.open':'Open Zalo ↗',
     },
     vi: {
       'nav.services':'Dịch Vụ','nav.clients':'Khách Hàng','nav.included':'Bao Gồm',
@@ -935,6 +973,8 @@
       'cta.desc':'Nhận báo giá phù hợp cho không gian của bạn trong vòng 24 giờ — không ràng buộc, không áp lực.',
       'cta.btn1':'Yêu Cầu Báo Giá Miễn Phí','cta.btn2':'Nói Chuyện Với Đội Ngũ',
       'ft.copy':'© 2026 Saigon Clean · Thành Phố Hồ Chí Minh, Việt Nam',
+      'chat.btn':'Nhắn tin','chat.title':'Liên hệ qua Zalo',
+      'chat.scan':'Quét mã QR bằng Zalo để nhắn tin với chúng tôi','chat.open':'Mở Zalo ↗',
     }
   };
   function setLang(lang) {
@@ -948,6 +988,14 @@
   }
   document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
   setLang(localStorage.getItem('sc_lang') || 'en');
+  function toggleZaloChat() {
+    if (window.innerWidth <= 640) { window.open('https://zalo.me/0904915240','_blank'); return; }
+    document.getElementById('chatPopup').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    if (!document.getElementById('chatFloat')?.contains(e.target))
+      document.getElementById('chatPopup')?.classList.remove('open');
+  });
 </script>
 
 <a href="index.html" class="back-home">← Home</a>
