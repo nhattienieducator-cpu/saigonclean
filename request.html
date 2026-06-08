@@ -551,7 +551,7 @@
             <div class="fg-row">
               <div class="fg">
                 <label class="fl" data-i18n="l.district">District</label>
-                <select class="fsel" id="districtSel" onchange="toggleDistrictOther(this)">
+                <select class="fsel" id="districtSel" name="district" onchange="toggleDistrictOther(this)">
                   <option value="">Select district…</option>
                   <option>Quận 1 — Bến Nghé / Sài Gòn</option>
                   <option>Quận 3</option>
@@ -798,7 +798,10 @@
     btn.textContent = lang === 'vi' ? 'Đang gửi…' : 'Sending…';
 
     try {
-      const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'request_quote' });
+      await new Promise(r => (typeof grecaptcha !== 'undefined' ? grecaptcha.ready(r) : r()));
+      const token = typeof grecaptcha !== 'undefined'
+        ? await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'request_quote' })
+        : '';
       const fd = new FormData(form);
       const district = document.getElementById('districtSel').value === 'other'
         ? document.getElementById('districtOther').value

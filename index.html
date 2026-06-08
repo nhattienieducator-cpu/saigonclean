@@ -1029,7 +1029,10 @@
     btn.textContent = lang === 'vi' ? 'Đang gửi…' : 'Sending…';
 
     try {
-      const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'homepage_quote' });
+      await new Promise(r => (typeof grecaptcha !== 'undefined' ? grecaptcha.ready(r) : r()));
+      const token = typeof grecaptcha !== 'undefined'
+        ? await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'homepage_quote' })
+        : '';
       const fd = new FormData(form);
       const payload = {
         source: 'homepage',
