@@ -103,6 +103,10 @@
       background: #c8ff57; border-color: #c8ff57; color: #0a0a0a;
     }
     .btn-lime:hover { background: transparent; color: #c8ff57; border-color: #c8ff57; }
+    .btn-blue {
+      background: #4FC3F7; border-color: #4FC3F7; color: #0a0a0a;
+    }
+    .btn-blue:hover { background: transparent; color: #29B6F6; border-color: #29B6F6; }
 
     /* ─── HERO (HALF HEIGHT) ───────────────────────────────── */
     .hero {
@@ -166,14 +170,14 @@
       color: #0a0a0a;
     }
     .sd-desc {
-      font-size: 14px; color: var(--muted);
+      font-size: 15px; color: var(--muted);
       line-height: 1.8; margin-bottom: 28px; max-width: 420px;
     }
     .sd-list {
       list-style: none; margin-bottom: 36px;
     }
     .sd-list li {
-      font-size: 13px; color: #0a0a0a; font-weight: 500;
+      font-size: 15px; color: #0a0a0a; font-weight: 500;
       padding: 10px 0; border-bottom: 1px solid var(--border);
       display: flex; align-items: center; gap: 12px;
     }
@@ -183,24 +187,37 @@
 
     /* ─── PRICING ──────────────────────────────────────────── */
     .pricing-section {
-      padding: 96px 52px;
+      padding: 72px 52px;
       border-bottom: 1px solid var(--border);
     }
     .pricing-head {
-      text-align: center; margin-bottom: 64px;
+      text-align: center; margin-bottom: 48px;
     }
     .pricing-head h2 { font-size: clamp(38px, 4.5vw, 64px); margin-bottom: 16px; }
     .pricing-head p { font-size: 14px; color: var(--muted); max-width: 480px; margin: 0 auto; line-height: 1.75; }
     .pricing-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: var(--border);
+      max-width: 1100px; margin: 0 auto;
     }
     .pricing-card {
-      background: var(--bg); padding: 52px 44px;
+      background: var(--bg); padding: 40px 44px;
       display: flex; flex-direction: column;
+      align-items: center; text-align: center;
       transition: background 0.25s;
     }
     .pricing-card:hover { background: var(--card); }
+    .pricing-card.essentials { background: #DBEAFE; }
+    .pricing-card.essentials:hover { background: #C7E5FF; }
+    .pricing-card.enterprise { background: #1A120A; }
+    .pricing-card.enterprise:hover { background: #211608; }
+    .pricing-card.enterprise .pricing-name { color: rgba(212,175,55,0.6); }
+    .pricing-card.enterprise .pricing-amount { color: #D4AF37; }
+    .pricing-card.enterprise .pricing-freq { color: rgba(212,175,55,0.52); border-bottom-color: rgba(212,175,55,0.18); }
+    .pricing-card.enterprise .pricing-feature { color: rgba(212,175,55,0.82); border-bottom-color: rgba(212,175,55,0.15); }
+    .pricing-card.enterprise .pricing-feature::before { color: #D4AF37; }
+    .pricing-card.enterprise .btn { border-color: #D4AF37; color: #D4AF37; background: transparent; }
+    .pricing-card.enterprise .btn:hover { background: #D4AF37; color: #1A120A; border-color: #D4AF37; }
     .pricing-card.featured {
       background: var(--bg2); color: #fff;
     }
@@ -226,10 +243,10 @@
     .pricing-card.featured .pricing-amount { color: #fff; }
     .pricing-freq {
       font-size: 12px; color: var(--muted);
-      margin-bottom: 36px; padding-bottom: 36px;
+      margin-bottom: 20px; padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
     }
-    .pricing-features { list-style: none; flex: 1; margin-bottom: 40px; }
+    .pricing-features { list-style: none; flex: 1; margin-bottom: 28px; text-align: left; width: 100%; }
     .pricing-feature {
       font-size: 13px; font-weight: 400;
       padding: 10px 0; border-bottom: 1px solid var(--border);
@@ -243,17 +260,17 @@
 
     /* ─── PROCESS ──────────────────────────────────────────── */
     .process-section {
-      padding: 96px 52px;
+      padding: 36px 52px;
       border-bottom: 1px solid var(--border);
     }
-    .process-head { margin-bottom: 64px; }
+    .process-head { margin-bottom: 28px; }
     .process-head h2 { font-size: clamp(36px, 4vw, 60px); max-width: 500px; }
     .process-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
       gap: 1px; background: var(--border);
     }
     .process-step {
-      background: var(--bg); padding: 48px 36px;
+      background: var(--bg); padding: 28px 32px;
       transition: background 0.2s;
     }
     .process-step:hover { background: var(--card); }
@@ -261,18 +278,22 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 72px; font-weight: 300;
       line-height: 1; color: rgba(0,0,0,0.07);
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
-    .process-icon { font-size: 32px; margin-bottom: 16px; }
+    .process-step:nth-child(1) .process-num { color: #E07B54; }
+    .process-step:nth-child(2) .process-num { color: #3ABFA8; }
+    .process-step:nth-child(3) .process-num { color: #5B8BD4; }
+    .process-step:nth-child(4) .process-num { color: #D4AF37; }
+    .process-icon { font-size: 28px; margin-bottom: 10px; }
     .process-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 24px; font-weight: 400; font-style: italic;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     .process-desc { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
     /* ─── INCLUSIONS RAIL ──────────────────────────────────── */
-    .included-head { padding: 76px 52px 48px; }
+    .included-head { padding: 32px 52px 20px; }
     .included-head h2 { font-size: clamp(36px, 4vw, 60px); max-width: 480px; }
     .included-rail {
       display: flex; overflow-x: auto; scrollbar-width: none;
@@ -280,10 +301,10 @@
     }
     .included-rail::-webkit-scrollbar { display: none; }
     .inc-item {
-      flex: 0 0 auto; min-width: 200px; padding: 52px 40px;
+      flex: 0 0 auto; min-width: 180px; padding: 32px 32px;
       border-right: 1px solid var(--border); text-align: center;
     }
-    .inc-icon { font-size: 44px; margin-bottom: 20px; }
+    .inc-icon { font-size: 36px; margin-bottom: 12px; }
     .inc-name {
       font-size: 12px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
@@ -292,10 +313,10 @@
 
     /* ─── FAQ ──────────────────────────────────────────────── */
     .faq-section {
-      padding: 96px 52px;
+      padding: 48px 52px;
       border-bottom: 1px solid var(--border);
     }
-    .faq-head { margin-bottom: 56px; }
+    .faq-head { margin-bottom: 36px; }
     .faq-head h2 { font-size: clamp(36px, 4vw, 58px); max-width: 420px; }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; }
     .faq-item { padding: 32px 0; border-bottom: 1px solid var(--border); }
@@ -314,7 +335,7 @@
 
     /* ─── CTA BANNER ───────────────────────────────────────── */
     .cta-banner {
-      background: var(--bg2); padding: 96px 52px;
+      background: var(--bg2); padding: 56px 52px;
       text-align: center;
     }
     .cta-banner .label { color: #c8ff57; }
@@ -367,11 +388,12 @@
       .sd-section:nth-child(even) { direction: ltr; }
       .sd-photo { height: 380px; }
       .sd-body { padding: 48px 28px; }
-      .pricing-section, .process-section, .faq-section { padding: 64px 28px; }
+      .pricing-section { padding: 48px 28px; }
+      .process-section, .faq-section { padding: 32px 28px; }
       .pricing-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .faq-grid { grid-template-columns: 1fr; gap: 0; }
-      .included-head { padding: 56px 28px 36px; }
+      .included-head { padding: 28px 28px 16px; }
       .cta-banner { padding: 72px 28px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
     }
@@ -380,6 +402,19 @@
       nav { padding: 18px 22px; }
       .process-grid { grid-template-columns: 1fr; }
     }
+    .back-home {
+      position: fixed; bottom: 32px; left: 32px; z-index: 300;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 22px;
+      background: rgba(10,10,10,0.85); color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-home:hover { background: #D4AF37; color: #0a0a0a; border-color: #D4AF37; }
   </style>
 </head>
 <body>
@@ -407,7 +442,7 @@
   <div class="hero-content">
     <div class="hero-eyebrow">What We Offer · Ho Chi Minh City</div>
     <h1 class="hero-title display">
-      <em>Five-Star Cleaning</em><br>
+      <em>Five–Star Cleaning</em><br>
       for Saigon's Finest Spaces
     </h1>
     <p class="hero-sub">
@@ -438,7 +473,7 @@
       <li>Restroom deep-clean &amp; restocking</li>
       <li>After-hours scheduling available</li>
     </ul>
-    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue">Request a Quote</a>
   </div>
 </div>
 
@@ -461,7 +496,7 @@
       <li>Linen coordination support</li>
       <li>Laundry management &amp; folding</li>
     </ul>
-    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue">Request a Quote</a>
   </div>
 </div>
 
@@ -484,7 +519,7 @@
       <li>High-touch point disinfection protocols</li>
       <li>Flexible same-day scheduling</li>
     </ul>
-    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue">Request a Quote</a>
   </div>
 </div>
 
@@ -507,7 +542,7 @@
       <li>Wardrobe &amp; storage area tidying</li>
       <li>Move-in / move-out clean packages</li>
     </ul>
-    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue">Request a Quote</a>
   </div>
 </div>
 
@@ -530,7 +565,7 @@
       <li>Common-area &amp; carpark cleaning</li>
       <li>Dedicated account manager</li>
     </ul>
-    <a href="request.html" class="btn btn-fill">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue">Request a Quote</a>
   </div>
 </div>
 
@@ -544,17 +579,19 @@
   <div class="pricing-grid">
 
     <!-- Essentials -->
-    <div class="pricing-card">
+    <div class="pricing-card essentials">
       <div class="pricing-name">Essentials</div>
-      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>800K</div>
-      <div class="pricing-freq">per session · small spaces up to 100 m²</div>
+      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>329K ~ <small style="font-size:0.55em;">$</small>12.99</div>
+      <div class="pricing-freq">per session · For individuals, apartments, and small spaces up to 100 m²</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Dusting &amp; sweeping</li>
         <li class="pricing-feature">Floor mopping</li>
         <li class="pricing-feature">Surface wipe-down</li>
         <li class="pricing-feature">Waste removal</li>
+        <li class="pricing-feature">Kitchen and bedroom cleaning</li>
         <li class="pricing-feature">Bathroom clean</li>
         <li class="pricing-feature">Completion checklist</li>
+        <li class="pricing-feature">Sofa cleaning <span style="font-size:11px;opacity:0.6;">(additional cost depending on quantity and size)</span></li>
       </ul>
       <a href="request.html" class="btn">Get Started</a>
     </div>
@@ -563,12 +600,12 @@
     <div class="pricing-card featured">
       <div class="pricing-badge">◆ Most Popular</div>
       <div class="pricing-name">Professional</div>
-      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>2.2M</div>
-      <div class="pricing-freq">per session · offices &amp; serviced spaces up to 400 m²</div>
+      <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>829K ~ <small style="font-size:0.55em;">$</small>31.99</div>
+      <div class="pricing-freq">per session · For offices &amp; serviced, events, restaurants… spaces up to 400 m²</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Everything in Essentials</li>
         <li class="pricing-feature">Window &amp; glass cleaning</li>
-        <li class="pricing-feature">Deep bathroom sanitisation</li>
+        <li class="pricing-feature">Deep sanitisation</li>
         <li class="pricing-feature">Pantry &amp; appliance clean</li>
         <li class="pricing-feature">High-touch point disinfection</li>
         <li class="pricing-feature">Eco-safe products included</li>
@@ -578,15 +615,14 @@
     </div>
 
     <!-- Enterprise -->
-    <div class="pricing-card">
+    <div class="pricing-card enterprise">
       <div class="pricing-name">Enterprise</div>
       <div class="pricing-amount display">Custom</div>
-      <div class="pricing-freq">tailored quote · hotels, portfolios &amp; large properties</div>
+      <div class="pricing-freq">tailored quote · hotels, portfolios &amp; large properties, events</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Everything in Professional</li>
         <li class="pricing-feature">Dedicated account manager</li>
         <li class="pricing-feature">Portfolio-wide scheduling</li>
-        <li class="pricing-feature">Linen &amp; laundry coordination</li>
         <li class="pricing-feature">Event &amp; post-event cleans</li>
         <li class="pricing-feature">SLA &amp; quality guarantee</li>
         <li class="pricing-feature">Monthly performance report</li>
@@ -728,6 +764,8 @@
     nav.classList.toggle('scrolled', window.scrollY > 70);
   }, { passive: true });
 </script>
+
+<a href="index.html" class="back-home">← Home</a>
 
 </body>
 </html>

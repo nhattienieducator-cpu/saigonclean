@@ -279,15 +279,21 @@
     }
 
     /* ─── CLIENTS ───────────────────────────────────────────── */
+    #clients { max-width: 1300px; margin: 0 auto; }
     .clients-head {
-      padding: 88px 52px 52px;
-      display: flex; align-items: flex-end; justify-content: space-between; gap: 32px;
+      padding: 72px 80px 48px;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px;
     }
-    .clients-head h2 { font-size: clamp(40px, 4.5vw, 64px); max-width: 520px; }
+    .clients-head h2 { font-size: clamp(40px, 4.5vw, 64px); max-width: 560px; }
+    .clients-head .btn { border-color: rgba(0,0,0,0.45); color: #0a0a0a; }
+    .clients-head .btn:hover { background: #0a0a0a; color: #fff; border-color: #0a0a0a; }
+    .clients-more .btn { border-color: rgba(0,0,0,0.45); color: #0a0a0a; }
+    .clients-more .btn:hover { background: #0a0a0a; color: #fff; border-color: #0a0a0a; }
 
     .clients-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: var(--border);
+      border-left: 1px solid var(--border); border-right: 1px solid var(--border);
     }
     .cl-card {
       background: var(--bg); padding: 36px 40px;
@@ -328,11 +334,11 @@
 
     /* ─── CONTACT ───────────────────────────────────────────── */
     .contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
-    .contact-left { padding: 80px 60px; border-right: 1px solid var(--border); }
-    .contact-right { padding: 80px 60px; background: #fff; }
+    .contact-left { padding: 60px 80px; border-right: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .contact-right { padding: 48px 70px; background: #fff; }
     .contact-title { font-size: clamp(40px, 4vw, 64px); margin-bottom: 22px; }
-    .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 400px; }
-    .contact-info { margin-top: 44px; }
+    .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.75; max-width: 380px; }
+    .contact-info { margin-top: 44px; width: 100%; max-width: 380px; text-align: left; }
     .ci { padding: 18px 0; border-bottom: 1px solid var(--border); }
     .ci-lbl {
       font-size: 10.5px; font-weight: 700;
@@ -342,7 +348,7 @@
     .ci-val { font-size: 16px; font-weight: 500; }
 
     /* Form */
-    .fg { margin-bottom: 26px; }
+    .fg { margin-bottom: 16px; }
     .fl {
       display: block; font-size: 10.5px; font-weight: 700;
       letter-spacing: 0.32em; text-transform: uppercase;
@@ -352,16 +358,16 @@
       width: 100%; background: transparent;
       border: none; border-bottom: 1px solid var(--border);
       color: #0a0a0a; font-weight: 500; font-family: 'Inter', sans-serif;
-      font-size: 14px; padding: 11px 0;
+      font-size: 14px; padding: 8px 0;
       outline: none; transition: border-color 0.2s;
       -webkit-appearance: none;
     }
     .fi::placeholder, .fta::placeholder { color: rgba(0,0,0,0.22); }
     .fi:focus, .fsel:focus, .fta:focus { border-bottom-color: var(--accent); }
     .fsel option { background: #F7F4EE; color: #0a0a0a; }
-    .fta { resize: none; height: 96px; }
+    .fta { resize: none; height: 70px; }
     .form-submit {
-      width: 100%; padding: 18px;
+      width: 100%; padding: 14px;
       background: #D4AF37; color: #0a0a0a;
       border: none; font-size: 12px; font-weight: 700;
       letter-spacing: 0.28em; text-transform: uppercase;
@@ -373,7 +379,7 @@
     footer {
       display: flex; align-items: center;
       justify-content: space-between;
-      padding: 40px 52px;
+      padding: 40px 80px;
       border-top: 1px solid var(--border);
     }
     .f-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
@@ -395,9 +401,15 @@
     }
     .f-links a:hover { color: #0a0a0a; }
     .f-copy { font-size: 11px; color: rgba(0,0,0,0.28); letter-spacing: 0.08em; }
-    .form-header { margin-bottom: 36px; padding-left: 18px; border-left: 2px solid #D4AF37; }
-    .form-header-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase; color: #D4AF37; margin-bottom: 8px; }
-    .form-header-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; font-style: italic; line-height: 1.2; color: #0a0a0a; }
+    .form-header { margin-bottom: 24px; text-align: center; padding-bottom: 16px; border-bottom: 1px solid rgba(212,175,55,0.3); }
+    .form-header-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.42em; text-transform: uppercase; color: #D4AF37; margin-bottom: 6px; }
+    .form-header-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 300; font-style: italic; line-height: 1.2; color: #0a0a0a; }
+    .fg-row { display: flex; gap: 20px; }
+    .fg-half { flex: 1; min-width: 0; }
+    input[type="date"].fi { -webkit-appearance: auto; appearance: auto; cursor: pointer; }
+    .time-sel-row { display: flex; gap: 8px; }
+    .time-sel-hour { flex: 0 0 58px; }
+    .time-sel-period { flex: 0 0 68px; }
 
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 1024px) {
@@ -438,12 +450,12 @@
     <div class="nav-logo-rule"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
+    <li><a href="services.html">Services</a></li>
     <li><a href="#clients">Clients</a></li>
     <li><a href="#included">Included</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get a Quote</a>
+  <a href="request.html" class="nav-cta">Get a Quote</a>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
@@ -597,7 +609,7 @@
         Trusted by Saigon's<br>leading businesses
       </h2>
     </div>
-    <a href="#contact" class="btn" style="flex-shrink:0;">Become a Client</a>
+    <a href="#contact" class="btn">Become a Client</a>
   </div>
 
   <div class="clients-grid">
@@ -744,11 +756,52 @@
           <option>Coworking Space</option>
           <option>Property Management</option>
           <option>Luxury Apartment / Condo</option>
+          <option>Housing</option>
+          <option>Apartments</option>
+          <option>Centers</option>
           <option>Other</option>
         </select>
       </div>
+      <div class="fg">
+        <label class="fl">Preferred Date</label>
+        <input class="fi" type="date">
+      </div>
+      <div class="fg fg-row">
+        <div class="fg-half">
+          <label class="fl">Start Time</label>
+          <div class="time-sel-row">
+            <select class="fsel time-sel-hour">
+              <option>00</option><option>01</option><option>02</option><option>03</option>
+              <option>04</option><option>05</option><option>06</option><option>07</option>
+              <option>08</option><option>09</option><option>10</option><option>11</option>
+              <option>12</option>
+            </select>
+            <select class="fsel time-sel-period">
+              <option value="">AM/PM</option>
+              <option>AM</option>
+              <option>PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg-half">
+          <label class="fl">End Time</label>
+          <div class="time-sel-row">
+            <select class="fsel time-sel-hour">
+              <option>00</option><option>01</option><option>02</option><option>03</option>
+              <option>04</option><option>05</option><option>06</option><option>07</option>
+              <option>08</option><option>09</option><option>10</option><option>11</option>
+              <option>12</option>
+            </select>
+            <select class="fsel time-sel-period">
+              <option value="">AM/PM</option>
+              <option>AM</option>
+              <option>PM</option>
+            </select>
+          </div>
+        </div>
+      </div>
       <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Tell us about your space and cleaning needs…"></textarea></div>
-      <button type="submit" class="form-submit">Request Free Quote →</button>
+      <button type="submit" class="form-submit">Send My Request →</button>
     </form>
   </div>
 </div>

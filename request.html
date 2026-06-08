@@ -10,7 +10,7 @@
   <style>
     /* ─── RESET & ROOT ─────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 16px; scroll-behavior: smooth; }
+    html { font-size: 17px; scroll-behavior: smooth; }
     body {
       background: #F7F4EE;
       color: #0a0a0a;
@@ -98,7 +98,7 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.88) 100%);
     }
-    .hero-content { position: relative; z-index: 1; max-width: 760px; padding: 0 24px; }
+    .hero-content { position: relative; z-index: 1; max-width: 920px; padding: 0 24px; }
     .hero-eyebrow {
       font-size: 11px; font-weight: 500;
       letter-spacing: 0.4em; text-transform: uppercase;
@@ -109,40 +109,47 @@
       font-size: clamp(40px, 6.5vw, 88px);
       font-weight: 300; font-style: italic;
       line-height: 0.98; color: #fff; margin-bottom: 20px;
+      letter-spacing: 0.01em;
       text-shadow: 0 2px 20px rgba(0,0,0,0.4);
     }
     .hero-title em { font-style: normal; color: #D4AF37; }
     .hero-sub {
-      font-size: 13.5px; color: rgba(255,255,255,0.68);
-      line-height: 1.7; max-width: 480px; margin: 0 auto;
+      font-size: 15.5px; color: rgba(255,255,255,0.68);
+      line-height: 1.75; max-width: 520px; margin: 0 auto;
     }
 
     /* ─── FORM SECTION ─────────────────────────────────────── */
+    .form-section-outer { border-bottom: 1px solid var(--border); }
     .form-section {
-      display: grid; grid-template-columns: 1fr 440px;
-      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr 520px;
+      max-width: 1320px; margin: 0 auto;
     }
-    .form-left { padding: 80px 64px; border-right: 1px solid var(--border); }
-    .form-right { padding: 72px 52px; background: var(--card); }
+    .form-left { padding: 88px 72px 88px 60px; border-right: 1px solid var(--border); }
+    .form-right { padding: 60px 52px; background: var(--card); }
 
-    /* Left — intro + reassurance */
-    .form-intro-title { font-size: clamp(34px, 3.8vw, 58px); margin-bottom: 18px; }
-    .form-intro-desc { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 440px; margin-bottom: 52px; }
+    /* Left — Why Saigon Clean */
+    .form-intro-title { font-size: clamp(36px, 3.8vw, 58px); margin-bottom: 20px; }
+    .form-intro-desc { font-size: 16px; color: var(--muted); line-height: 1.85; max-width: 460px; margin-bottom: 56px; }
 
     .trust-items { display: flex; flex-direction: column; gap: 0; }
     .trust-item {
-      padding: 24px 0;
+      padding: 28px 0;
       border-bottom: 1px solid var(--border);
-      display: flex; align-items: flex-start; gap: 20px;
+      display: flex; align-items: flex-start; gap: 24px;
     }
-    .trust-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
-    .trust-title {
-      font-size: 14px; font-weight: 600; margin-bottom: 4px;
+    .trust-item:last-child { border-bottom: none; }
+    .trust-icon {
+      width: 64px; height: 64px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px;
+      background: rgba(31,122,80,0.07);
+      border: 1px solid rgba(31,122,80,0.16);
     }
-    .trust-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+    .trust-title { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    .trust-desc { font-size: 15px; color: var(--muted); line-height: 1.7; }
 
-    /* Form styles */
-    .form-header { margin-bottom: 36px; padding-left: 18px; border-left: 2px solid #D4AF37; }
+    /* ─── FORM RIGHT HEADER ─────────────────────────────────── */
+    .form-header { margin-bottom: 24px; padding-left: 20px; border-left: 3px solid #D4AF37; }
     .form-header-eyebrow {
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.42em; text-transform: uppercase;
@@ -150,21 +157,32 @@
     }
     .form-header-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px; font-weight: 300; font-style: italic;
+      font-size: 30px; font-weight: 300; font-style: italic;
       line-height: 1.2; color: #0a0a0a;
     }
 
-    .form-group-label {
-      font-size: 9px; font-weight: 700;
-      letter-spacing: 0.38em; text-transform: uppercase;
-      color: rgba(0,0,0,0.28);
-      padding: 20px 0 12px;
-      border-top: 1px solid var(--border);
-      margin-top: 8px; margin-bottom: 8px;
+    /* ─── FORM GROUP CARDS ──────────────────────────────────── */
+    .fgroup {
+      margin-bottom: 18px;
+      border: 1px solid rgba(212,175,55,0.22);
+      border-top: 3px solid #D4AF37;
     }
-    .form-group-label:first-of-type { border-top: none; padding-top: 0; }
+    .fgroup-hd {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 18px;
+      background: linear-gradient(to right, rgba(212,175,55,0.07), transparent);
+      border-bottom: 1px solid rgba(212,175,55,0.14);
+    }
+    .fgroup-ico { font-size: 18px; line-height: 1; }
+    .fgroup-ttl {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px; font-weight: 400; font-style: italic;
+      color: #0a0a0a; letter-spacing: 0.01em;
+    }
+    .fgroup-bd { padding: 14px 18px 2px; }
 
-    .fg { margin-bottom: 22px; }
+    /* Form field styles */
+    .fg { margin-bottom: 14px; }
     .fl {
       display: block; font-size: 10.5px; font-weight: 700;
       letter-spacing: 0.32em; text-transform: uppercase;
@@ -174,37 +192,41 @@
       width: 100%; background: transparent;
       border: none; border-bottom: 1px solid var(--border);
       color: #0a0a0a; font-weight: 500; font-family: 'Inter', sans-serif;
-      font-size: 14px; padding: 11px 0;
+      font-size: 15px; padding: 8px 0;
       outline: none; transition: border-color 0.2s;
       -webkit-appearance: none;
     }
     .fi::placeholder, .fta::placeholder { color: rgba(0,0,0,0.22); }
     .fi:focus, .fsel:focus, .fta:focus { border-bottom-color: var(--accent); }
     .fsel option { background: #F7F4EE; color: #0a0a0a; }
-    .fta { resize: none; height: 100px; }
-    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; }
+    .fta { resize: none; height: 80px; }
+    .fg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+    .time-sel-row { display: flex; gap: 8px; }
+    .time-sel-hour { flex: 0 0 58px; }
+    .time-sel-period { flex: 0 0 68px; }
     .form-submit {
-      width: 100%; padding: 18px;
+      width: 100%; padding: 19px;
       background: #D4AF37; color: #0a0a0a;
       border: none; font-size: 12px; font-weight: 700;
       letter-spacing: 0.28em; text-transform: uppercase;
       transition: background 0.25s, color 0.25s;
-      margin-top: 8px;
+      margin-top: 10px;
     }
     .form-submit:hover { background: #0a0a0a; color: #D4AF37; }
     .form-note {
-      font-size: 11px; color: rgba(0,0,0,0.3);
+      font-size: 12px; color: rgba(0,0,0,0.3);
       text-align: center; margin-top: 14px; line-height: 1.6;
     }
 
     /* ─── WHAT HAPPENS NEXT ─────────────────────────────────── */
     .next-section {
-      padding: 88px 52px;
+      padding: 96px 0;
       border-bottom: 1px solid var(--border);
     }
+    .next-inner { max-width: 1320px; margin: 0 auto; padding: 0 60px; }
     .next-head { text-align: center; margin-bottom: 64px; }
-    .next-head h2 { font-size: clamp(36px, 4vw, 60px); margin-bottom: 12px; }
-    .next-head p { font-size: 14px; color: var(--muted); max-width: 440px; margin: 0 auto; line-height: 1.75; }
+    .next-head h2 { font-size: clamp(36px, 4vw, 60px); margin-bottom: 14px; }
+    .next-head p { font-size: 16px; color: var(--muted); max-width: 440px; margin: 0 auto; line-height: 1.8; }
     .next-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 1px; background: var(--border);
@@ -216,17 +238,17 @@
     .next-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 80px; font-weight: 300; line-height: 1;
-      color: rgba(0,0,0,0.06); margin-bottom: 16px;
+      color: rgba(212,175,55,0.55); margin-bottom: 16px;
     }
-    .next-icon { font-size: 36px; margin-bottom: 18px; }
+    .next-icon { font-size: 40px; margin-bottom: 18px; }
     .next-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 26px; font-weight: 400; font-style: italic;
-      margin-bottom: 12px;
+      font-size: 27px; font-weight: 400; font-style: italic;
+      margin-bottom: 13px;
     }
-    .next-desc { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+    .next-desc { font-size: 15px; color: var(--muted); line-height: 1.8; }
     .next-timing {
-      margin-top: 16px;
+      margin-top: 18px;
       font-size: 10px; font-weight: 700;
       letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--accent);
@@ -235,31 +257,24 @@
     .next-timing::before { content: '◆'; font-size: 6px; }
 
     /* ─── CONTACT STRIP ─────────────────────────────────────── */
-    .contact-strip {
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 40px;
-      padding: 48px 52px;
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
+    .contact-strip { border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .contact-strip-inner {
+      max-width: 1320px; margin: 0 auto; padding: 52px 60px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
     }
     .cs-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px; font-style: italic; font-weight: 300;
-      color: rgba(255,255,255,0.85); max-width: 480px;
+      font-size: 32px; font-style: italic; font-weight: 300;
+      color: rgba(255,255,255,0.85); max-width: 500px;
     }
     .cs-contacts { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-    .cs-contact {
-      display: flex; flex-direction: column; gap: 4px;
-    }
+    .cs-contact { display: flex; flex-direction: column; gap: 4px; }
     .cs-lbl {
       font-size: 9px; font-weight: 700;
       letter-spacing: 0.38em; text-transform: uppercase;
       color: rgba(255,255,255,0.35);
     }
-    .cs-val {
-      font-size: 16px; font-weight: 600; color: #fff;
-      transition: color 0.2s;
-    }
+    .cs-val { font-size: 19px; font-weight: 600; color: #fff; transition: color 0.2s; }
     .cs-val:hover { color: #c8ff57; }
 
     /* ─── LIVE CHAT BUTTON ──────────────────────────────────── */
@@ -270,22 +285,33 @@
       padding: 14px 22px;
       box-shadow: 0 8px 32px rgba(31,122,80,0.35);
       transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-      cursor: pointer; border: none;
+      cursor: pointer; border: none; text-decoration: none;
     }
     .live-chat:hover {
       background: #165f3e;
       box-shadow: 0 12px 40px rgba(31,122,80,0.45);
       transform: translateY(-2px);
     }
-    .live-chat-icon { font-size: 20px; }
+    .live-chat-icon { font-size: 22px; }
     .live-chat-label {
       font-size: 11px; font-weight: 700;
       letter-spacing: 0.18em; text-transform: uppercase;
     }
-    @media (max-width: 640px) {
-      .live-chat-label { display: none; }
-      .live-chat { padding: 14px; border-radius: 0; }
+
+    /* ─── BACK HOME ─────────────────────────────────────────── */
+    .back-home {
+      position: fixed; bottom: 32px; left: 32px; z-index: 300;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 22px;
+      background: rgba(10,10,10,0.85); color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      text-decoration: none;
     }
+    .back-home:hover { background: #D4AF37; color: #0a0a0a; border-color: #D4AF37; }
 
     /* ─── FOOTER ────────────────────────────────────────────── */
     footer {
@@ -319,11 +345,12 @@
       nav { padding: 22px 28px; }
       .nav-links { gap: 24px; }
       .form-section { grid-template-columns: 1fr; }
-      .form-left { border-right: none; border-bottom: 1px solid var(--border); padding: 56px 28px; }
-      .form-right { padding: 56px 28px; }
-      .next-section { padding: 64px 28px; }
+      .form-left { border-right: none; border-bottom: 1px solid var(--border); padding: 60px 32px; }
+      .form-right { padding: 60px 32px; }
+      .next-section { padding: 64px 0; }
+      .next-inner { padding: 0 28px; }
       .next-grid { grid-template-columns: 1fr; }
-      .contact-strip { flex-direction: column; gap: 28px; padding: 44px 28px; text-align: center; }
+      .contact-strip-inner { flex-direction: column; gap: 28px; padding: 44px 28px; text-align: center; }
       .cs-contacts { justify-content: center; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
     }
@@ -331,6 +358,8 @@
       .nav-links { display: none; }
       nav { padding: 18px 22px; }
       .fg-row { grid-template-columns: 1fr; }
+      .live-chat-label { display: none; }
+      .live-chat { padding: 14px; }
     }
   </style>
 </head>
@@ -368,207 +397,278 @@
 </section>
 
 <!-- ═══ FORM SECTION ══════════════════════════════════════════════ -->
-<div class="form-section">
+<div class="form-section-outer">
+  <div class="form-section">
 
-  <div class="form-left">
-    <div class="label">Why Saigon Clean</div>
-    <h2 class="display form-intro-title">
-      A spotless space,<br>guaranteed
-    </h2>
-    <p class="form-intro-desc">
-      Every quote starts with a free site visit. We learn your space, understand your requirements, and build a cleaning plan that fits exactly — no generic packages, no surprises on the invoice.
-    </p>
+    <!-- Left: Why Saigon Clean -->
+    <div class="form-left">
+      <div class="label">Why Saigon Clean</div>
+      <h2 class="display form-intro-title">
+        A spotless space,<br>guaranteed
+      </h2>
+      <p class="form-intro-desc">
+        Every quote starts with a free site visit. We learn your space, understand your requirements, and build a cleaning plan that fits exactly — no generic packages, no surprises on the invoice.
+      </p>
 
-    <div class="trust-items">
-      <div class="trust-item">
-        <div class="trust-icon">🏢</div>
-        <div>
-          <div class="trust-title">Free site visit within 24 hours</div>
-          <p class="trust-desc">We come to you. One of our senior team members visits your property to assess the space and understand your exact needs before quoting.</p>
+      <div class="trust-items">
+        <div class="trust-item">
+          <div class="trust-icon">🏢</div>
+          <div>
+            <div class="trust-title">Free site visit within 24 hours</div>
+            <p class="trust-desc">We come to you. One of our senior team members visits your property to assess the space and understand your exact needs before quoting.</p>
+          </div>
         </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">📄</div>
-        <div>
-          <div class="trust-title">Tailored proposal — no templates</div>
-          <p class="trust-desc">Every quote is built around your actual space, frequency, and standards. You'll receive a clear, itemised proposal with no hidden charges.</p>
+        <div class="trust-item">
+          <div class="trust-icon">📋</div>
+          <div>
+            <div class="trust-title">Tailored proposal — no templates</div>
+            <p class="trust-desc">Every quote is built around your actual space, frequency, and standards. You'll receive a clear, itemised proposal with no hidden charges.</p>
+          </div>
         </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">🔒</div>
-        <div>
-          <div class="trust-title">Fully insured, vetted teams</div>
-          <p class="trust-desc">All Saigon Clean staff pass background checks and are covered by full liability insurance. Your property and privacy are always protected.</p>
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          <div>
+            <div class="trust-title">Fully insured, vetted teams</div>
+            <p class="trust-desc">All Saigon Clean staff pass background checks and are covered by full liability insurance. Your property and privacy are always protected.</p>
+          </div>
         </div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-icon">✨</div>
-        <div>
-          <div class="trust-title">100% satisfaction guarantee</div>
-          <p class="trust-desc">Not satisfied with your first clean? We'll return and redo it — free of charge. We stand behind every job our team completes.</p>
+        <div class="trust-item">
+          <div class="trust-icon">⭐</div>
+          <div>
+            <div class="trust-title">100% satisfaction guarantee</div>
+            <p class="trust-desc">Not satisfied with your first clean? We'll return and redo it — free of charge. We stand behind every job our team completes.</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="form-right">
-    <div class="form-header">
-      <div class="form-header-eyebrow">✦ Free Quote Request</div>
-      <div class="form-header-title">Tell us about<br><em>your space</em></div>
+    <!-- Right: Form -->
+    <div class="form-right">
+      <div class="form-header">
+        <div class="form-header-eyebrow">✦ Free Quote Request</div>
+        <div class="form-header-title">Tell us about<br><em>your space</em></div>
+      </div>
+
+      <form onsubmit="return false;">
+
+        <!-- Contact Details -->
+        <div class="fgroup">
+          <div class="fgroup-hd">
+            <span class="fgroup-ico">👤</span>
+            <span class="fgroup-ttl">Contact Details</span>
+          </div>
+          <div class="fgroup-bd">
+            <div class="fg-row">
+              <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+              <div class="fg"><label class="fl">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
+            </div>
+            <div class="fg-row">
+              <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
+              <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property Details -->
+        <div class="fgroup">
+          <div class="fgroup-hd">
+            <span class="fgroup-ico">🏙️</span>
+            <span class="fgroup-ttl">Property Details</span>
+          </div>
+          <div class="fgroup-bd">
+            <div class="fg"><label class="fl">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
+            <div class="fg-row">
+              <div class="fg">
+                <label class="fl">District</label>
+                <select class="fsel" id="districtSel" onchange="toggleDistrictOther(this)">
+                  <option value="">Select district…</option>
+                  <option>Quận 1 — Bến Nghé / Sài Gòn</option>
+                  <option>Quận 3</option>
+                  <option>Quận 4</option>
+                  <option>Quận 5</option>
+                  <option>Quận 6</option>
+                  <option>Quận 7 — Phú Mỹ Hưng</option>
+                  <option>Quận 8</option>
+                  <option>Quận 10</option>
+                  <option>Quận 11</option>
+                  <option>Quận 12</option>
+                  <option>Thành phố Thủ Đức (Quận 2 / 9)</option>
+                  <option>Bình Chánh</option>
+                  <option>Bình Tân</option>
+                  <option>Bình Thạnh</option>
+                  <option>Gò Vấp</option>
+                  <option>Hóc Môn</option>
+                  <option>Củ Chi</option>
+                  <option>Nhà Bè</option>
+                  <option>Cần Giờ</option>
+                  <option>Phú Nhuận</option>
+                  <option>Tân Bình</option>
+                  <option>Tân Phú</option>
+                  <option>Multiple Districts</option>
+                  <option value="other">Other</option>
+                </select>
+                <input class="fi" type="text" id="districtOther" placeholder="Please specify your district…" style="display:none;margin-top:8px;">
+              </div>
+              <div class="fg">
+                <label class="fl">Property Type</label>
+                <select class="fsel">
+                  <option value="">Select type…</option>
+                  <option>Office / Corporate</option>
+                  <option>Hotel</option>
+                  <option>Serviced Apartment</option>
+                  <option>Coworking Space</option>
+                  <option>Luxury Apartment / Condo</option>
+                  <option>Housing</option>
+                  <option>Apartments</option>
+                  <option>Centers</option>
+                  <option>Property Portfolio</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="fg"><label class="fl">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
+          </div>
+        </div>
+
+        <!-- Service Details -->
+        <div class="fgroup">
+          <div class="fgroup-hd">
+            <span class="fgroup-ico">🧹</span>
+            <span class="fgroup-ttl">Service Details</span>
+          </div>
+          <div class="fgroup-bd">
+            <div class="fg">
+              <label class="fl">Service Package</label>
+              <select class="fsel">
+                <option value="">Select a package…</option>
+                <option>Essentials</option>
+                <option>Professional</option>
+                <option>Custom</option>
+              </select>
+            </div>
+            <div class="fg-row">
+              <div class="fg">
+                <label class="fl">Preferred Frequency</label>
+                <select class="fsel">
+                  <option value="">Select frequency…</option>
+                  <option>Daily</option>
+                  <option>Several times per week</option>
+                  <option>Weekly</option>
+                  <option>Fortnightly</option>
+                  <option>Monthly</option>
+                  <option>One-Off</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label class="fl">Preferred Start Date</label>
+                <input class="fi" type="date">
+              </div>
+            </div>
+            <div class="fg-row">
+              <div class="fg">
+                <label class="fl">Start Time</label>
+                <div class="time-sel-row">
+                  <select class="fsel time-sel-hour">
+                    <option>00</option><option>01</option><option>02</option><option>03</option>
+                    <option>04</option><option>05</option><option>06</option><option>07</option>
+                    <option>08</option><option>09</option><option>10</option><option>11</option>
+                    <option>12</option>
+                  </select>
+                  <select class="fsel time-sel-period">
+                    <option value="">AM/PM</option>
+                    <option>AM</option>
+                    <option>PM</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fg">
+                <label class="fl">End Time</label>
+                <div class="time-sel-row">
+                  <select class="fsel time-sel-hour">
+                    <option>00</option><option>01</option><option>02</option><option>03</option>
+                    <option>04</option><option>05</option><option>06</option><option>07</option>
+                    <option>08</option><option>09</option><option>10</option><option>11</option>
+                    <option>12</option>
+                  </select>
+                  <select class="fsel time-sel-period">
+                    <option value="">AM/PM</option>
+                    <option>AM</option>
+                    <option>PM</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="fg"><label class="fl">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
+          </div>
+        </div>
+
+        <button type="submit" class="form-submit">Send My Request →</button>
+        <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
+
+      </form>
     </div>
 
-    <form onsubmit="return false;">
-
-      <div class="form-group-label">Contact Details</div>
-
-      <div class="fg-row">
-        <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-        <div class="fg"><label class="fl">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
-      </div>
-
-      <div class="fg-row">
-        <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
-        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
-      </div>
-
-      <div class="form-group-label">Property Details</div>
-
-      <div class="fg"><label class="fl">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
-
-      <div class="fg-row">
-        <div class="fg">
-          <label class="fl">District</label>
-          <select class="fsel">
-            <option value="">Select district…</option>
-            <option>Quận 1 — Bến Nghé / Sài Gòn</option>
-            <option>Quận 2 / Thủ Đức — Thảo Điền</option>
-            <option>Quận 3</option>
-            <option>Quận 4</option>
-            <option>Quận 5</option>
-            <option>Quận 7 — Phú Mỹ Hưng</option>
-            <option>Bình Thạnh</option>
-            <option>Phú Nhuận</option>
-            <option>Other / Multiple Districts</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label class="fl">Property Type</label>
-          <select class="fsel">
-            <option value="">Select type…</option>
-            <option>Office / Corporate</option>
-            <option>Hotel</option>
-            <option>Serviced Apartment</option>
-            <option>Coworking Space</option>
-            <option>Luxury Apartment / Condo</option>
-            <option>Property Portfolio</option>
-            <option>Other</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="fg"><label class="fl">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
-
-      <div class="form-group-label">Service Details</div>
-
-      <div class="fg">
-        <label class="fl">Service Type</label>
-        <select class="fsel">
-          <option value="">Select a service…</option>
-          <option>Office &amp; Corporate Cleaning</option>
-          <option>Hotel &amp; Serviced Apartment</option>
-          <option>Coworking Space</option>
-          <option>Luxury Apartment / Condo</option>
-          <option>Property Management &amp; Turnover</option>
-          <option>One-Off Deep Clean</option>
-          <option>Post-Construction / Post-Event</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="fg-row">
-        <div class="fg">
-          <label class="fl">Preferred Frequency</label>
-          <select class="fsel">
-            <option value="">Select frequency…</option>
-            <option>Daily</option>
-            <option>Several times per week</option>
-            <option>Weekly</option>
-            <option>Fortnightly</option>
-            <option>Monthly</option>
-            <option>One-Off</option>
-          </select>
-        </div>
-        <div class="fg">
-          <label class="fl">Preferred Start Date</label>
-          <input class="fi" type="date">
-        </div>
-      </div>
-
-      <div class="fg"><label class="fl">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
-
-      <button type="submit" class="form-submit">Send My Request →</button>
-      <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
-
-    </form>
   </div>
 </div>
 
 <!-- ═══ WHAT HAPPENS NEXT ══════════════════════════════════════════ -->
 <div class="next-section">
-  <div class="next-head">
-    <div class="label">What Happens Next</div>
-    <h2 class="display">From request to spotless<br>— in three steps</h2>
-    <p>We keep it simple. No unnecessary back-and-forth, no waiting around.</p>
-  </div>
-  <div class="next-grid">
-
-    <div class="next-step">
-      <div class="next-num">01</div>
-      <div class="next-icon">📬</div>
-      <div class="next-title">We review your request</div>
-      <p class="next-desc">Our team reads your request the same day. We'll confirm receipt and reach out to confirm your site visit time — usually within a few hours.</p>
-      <div class="next-timing">Same day</div>
+  <div class="next-inner">
+    <div class="next-head">
+      <div class="label">What Happens Next</div>
+      <h2 class="display">From request to spotless<br>— in three steps</h2>
+      <p>We keep it simple. No unnecessary back-and-forth, no waiting around.</p>
     </div>
+    <div class="next-grid">
 
-    <div class="next-step">
-      <div class="next-num">02</div>
-      <div class="next-icon">🏢</div>
-      <div class="next-title">Site visit &amp; tailored quote</div>
-      <p class="next-desc">One of our senior team visits your property, walks through the space with you, and builds a precise cleaning plan. You receive a written proposal within 24 hours of the visit.</p>
-      <div class="next-timing">Within 24 hours</div>
+      <div class="next-step">
+        <div class="next-num">01</div>
+        <div class="next-icon">📬</div>
+        <div class="next-title">We review your request</div>
+        <p class="next-desc">Our team reads your request the same day. We'll confirm receipt and reach out to confirm your site visit time — usually within a few hours.</p>
+        <div class="next-timing">Same day</div>
+      </div>
+
+      <div class="next-step">
+        <div class="next-num">02</div>
+        <div class="next-icon">🏢</div>
+        <div class="next-title">Site visit &amp; tailored quote</div>
+        <p class="next-desc">One of our senior team visits your property, walks through the space with you, and builds a precise cleaning plan. You receive a written proposal within 24 hours of the visit.</p>
+        <div class="next-timing">Within 24 hours</div>
+      </div>
+
+      <div class="next-step">
+        <div class="next-num">03</div>
+        <div class="next-icon">✨</div>
+        <div class="next-title">First clean at your convenience</div>
+        <p class="next-desc">Once you approve the proposal, we schedule your first clean. Most clients are up and running within 48 hours of sign-off — on your schedule, at your preferred time.</p>
+        <div class="next-timing">Within 48 hours of approval</div>
+      </div>
+
     </div>
-
-    <div class="next-step">
-      <div class="next-num">03</div>
-      <div class="next-icon">✨</div>
-      <div class="next-title">First clean at your convenience</div>
-      <p class="next-desc">Once you approve the proposal, we schedule your first clean. Most clients are up and running within 48 hours of sign-off — on your schedule, at your preferred time.</p>
-      <div class="next-timing">Within 48 hours of approval</div>
-    </div>
-
   </div>
 </div>
 
 <!-- ═══ CONTACT STRIP ══════════════════════════════════════════════ -->
 <div class="contact-strip">
-  <p class="cs-text">"Prefer to talk it through? We're here Mon–Sat, 7 AM to 8 PM."</p>
-  <div class="cs-contacts">
-    <div class="cs-contact">
-      <span class="cs-lbl">☎ Call or WhatsApp</span>
-      <a href="tel:+84904915240" class="cs-val">+84 904 915 240</a>
-    </div>
-    <div class="cs-contact">
-      <span class="cs-lbl">✉ Email</span>
-      <a href="mailto:hello@saigonclean.vn" class="cs-val">hello@saigonclean.vn</a>
+  <div class="contact-strip-inner">
+    <p class="cs-text">"Prefer to talk it through? We're here Mon–Sat, 7 AM to 8 PM."</p>
+    <div class="cs-contacts">
+      <div class="cs-contact">
+        <span class="cs-lbl">☎ Call or WhatsApp</span>
+        <a href="tel:+84904915240" class="cs-val">+84 904 915 240</a>
+      </div>
+      <div class="cs-contact">
+        <span class="cs-lbl">💬 Zalo</span>
+        <a href="https://zalo.me/0904915240" target="_blank" class="cs-val">+84 904 915 240</a>
+      </div>
+      <div class="cs-contact">
+        <span class="cs-lbl">✉ Email</span>
+        <a href="mailto:hello@saigonclean.vn" class="cs-val">hello@saigonclean.vn</a>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- ═══ LIVE CHAT BUTTON ═══════════════════════════════════════════ -->
-<a href="https://wa.me/84904915240" target="_blank" class="live-chat" aria-label="Chat with us on WhatsApp">
-  <span class="live-chat-icon">💬</span>
-  <span class="live-chat-label">Chat with us</span>
-</a>
 
 <!-- ═══ FOOTER ═════════════════════════════════════════════════════ -->
 <footer>
@@ -587,11 +687,24 @@
   <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
+<!-- ═══ FLOATING BUTTONS ═══════════════════════════════════════════ -->
+<a href="https://wa.me/84904915240" target="_blank" class="live-chat" aria-label="Chat with us on WhatsApp">
+  <span class="live-chat-icon">💬</span>
+  <span class="live-chat-label">Chat with us</span>
+</a>
+
+<a href="index.html" class="back-home">← Home</a>
+
 <script>
   const nav = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 70);
   }, { passive: true });
+
+  function toggleDistrictOther(sel) {
+    const otherInput = document.getElementById('districtOther');
+    otherInput.style.display = sel.value === 'other' ? 'block' : 'none';
+  }
 </script>
 
 </body>
