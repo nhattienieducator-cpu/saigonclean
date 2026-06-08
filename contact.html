@@ -79,6 +79,19 @@
       padding: 0;
     }
     .nav-links .mobile-cta { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-sw { display: flex; align-items: center; }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.42);
+      padding: 5px 7px; cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      font-family: inherit; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-btn.active { color: #D4AF37; }
+    .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    .lang-sep { color: rgba(255,255,255,0.18); font-size: 10px; pointer-events: none; }
 
     /* ─── SHARED UTILS ─────────────────────────────────────── */
     .label {
@@ -460,25 +473,32 @@
     <div class="nav-logo-rule"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="mobile-cta"><a href="request.html">Get a Quote</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li class="mobile-cta"><a href="request.html" data-i18n="nav.cta">Get a Quote</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
-  <a href="request.html" class="nav-cta">Get a Quote</a>
+  <div class="nav-right">
+    <div class="lang-sw">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
+    <a href="request.html" class="nav-cta" data-i18n="nav.cta">Get a Quote</a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Contact · Ho Chi Minh City</div>
-    <h1 class="hero-title display">
+    <div class="hero-eyebrow" data-i18n="hero.ey">Contact · Ho Chi Minh City</div>
+    <h1 class="hero-title display" data-i18n="hero.title">
       <span style="color:#D4AF37;">Get</span> <span style="color:#c8ff57;">In</span> <span style="color:#ffffff;">Touch</span>
     </h1>
-    <p class="hero-sub">We're here Mon–Sat, 7:00 AM – 8:00 PM. Reach us by phone, email, or fill in the form below.</p>
+    <p class="hero-sub" data-i18n="hero.sub">We're here Mon–Sat, 7:00 AM – 8:00 PM. Reach us by phone, email, or fill in the form below.</p>
   </div>
 </section>
 
@@ -511,41 +531,41 @@
 <div class="contact-split">
 
   <div class="contact-info-col">
-    <div class="label">Find Us</div>
-    <h2 class="display contact-title">
+    <div class="label" data-i18n="info.label">Find Us</div>
+    <h2 class="display contact-title" data-i18n="info.title">
       We serve all of<br><em>Ho Chi Minh City</em>
     </h2>
-    <p class="contact-desc">
+    <p class="contact-desc" data-i18n="info.desc">
       Our cleaning teams operate across every district in HCMC. Reach out by phone, email, or WhatsApp — or fill in the form and we'll get back to you the same day.
     </p>
 
     <div class="ci">
-      <div class="ci-lbl">☎ Phone &amp; WhatsApp</div>
+      <div class="ci-lbl" data-i18n="ci.phone">☎ Phone &amp; WhatsApp</div>
       <div class="ci-val"><a href="tel:+84904915240">+84 904 915 240</a></div>
     </div>
     <div class="ci">
-      <div class="ci-lbl">💬 Zalo</div>
+      <div class="ci-lbl" data-i18n="ci.zalo">💬 Zalo</div>
       <div class="ci-val"><a href="https://zalo.me/0904915240" target="_blank">+84 904 915 240</a></div>
     </div>
     <div class="ci">
-      <div class="ci-lbl">✉ Email</div>
+      <div class="ci-lbl" data-i18n="ci.email">✉ Email</div>
       <div class="ci-val"><a href="mailto:hello@saigonclean.vn">hello@saigonclean.vn</a></div>
     </div>
     <div class="ci">
-      <div class="ci-lbl">📍 Address</div>
-      <div class="ci-val">Vinhomes Grand Park, District 9, Ho Chi Minh City</div>
+      <div class="ci-lbl" data-i18n="ci.addr">📍 Address</div>
+      <div class="ci-val" data-i18n="ci.adrv">Vinhomes Grand Park, District 9, Ho Chi Minh City</div>
     </div>
     <div class="ci">
-      <div class="ci-lbl">◎ Service Area</div>
-      <div class="ci-val">All Districts, Ho Chi Minh City</div>
+      <div class="ci-lbl" data-i18n="ci.area">◎ Service Area</div>
+      <div class="ci-val" data-i18n="ci.aval">All Districts, Ho Chi Minh City</div>
     </div>
     <div class="ci">
-      <div class="ci-lbl">◷ Office Hours</div>
-      <div class="ci-val">Mon – Sat, 7:00 AM – 8:00 PM</div>
+      <div class="ci-lbl" data-i18n="ci.ohours">◷ Office Hours</div>
+      <div class="ci-val" data-i18n="ci.hval">Mon – Sat, 7:00 AM – 8:00 PM</div>
     </div>
     <div class="ci" style="border-bottom:none;">
-      <div class="ci-lbl">◈ Cleaning Hours</div>
-      <div class="ci-val">24/7 by arrangement</div>
+      <div class="ci-lbl" data-i18n="ci.chours">◈ Cleaning Hours</div>
+      <div class="ci-val" data-i18n="ci.cval">24/7 by arrangement</div>
     </div>
 
     <div class="map-embed">
@@ -563,31 +583,31 @@
   <div class="contact-form-col">
     <div class="form-inner">
       <div class="form-header">
-        <div class="form-header-eyebrow">✦ Send a Message</div>
-        <div class="form-header-title">We read every<br><em>message personally</em></div>
+        <div class="form-header-eyebrow" data-i18n="fm.ey">✦ Send a Message</div>
+        <div class="form-header-title" data-i18n="fm.title">We read every<br><em>message personally</em></div>
       </div>
 
       <form onsubmit="return false;">
         <div class="fg-row">
-          <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-          <div class="fg"><label class="fl">Phone or Email</label><input class="fi" type="text" placeholder="+84 900 000 000 or you@company.com"></div>
+          <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+          <div class="fg"><label class="fl" data-i18n="l.phoneemail">Phone or Email</label><input class="fi" type="text" placeholder="+84 900 000 000 or you@company.com"></div>
         </div>
-        <div class="fg"><label class="fl">Company / Property</label><input class="fi" type="text" placeholder="Your business or property name"></div>
+        <div class="fg"><label class="fl" data-i18n="l.company">Company / Property</label><input class="fi" type="text" placeholder="Your business or property name"></div>
         <div class="fg">
-          <label class="fl">Subject</label>
+          <label class="fl" data-i18n="l.subject">Subject</label>
           <select class="fsel">
-            <option value="">Select a topic…</option>
-            <option>Request a Quote</option>
-            <option>Existing Client — Service Query</option>
-            <option>Partnership Enquiry</option>
-            <option>Feedback or Complaint</option>
-            <option>Careers &amp; Employment</option>
-            <option>Other</option>
+            <option value="" data-i18n="o.topic">Select a topic…</option>
+            <option data-i18n="o.quote">Request a Quote</option>
+            <option data-i18n="o.existing">Existing Client — Service Query</option>
+            <option data-i18n="o.partner">Partnership Enquiry</option>
+            <option data-i18n="o.feedback">Feedback or Complaint</option>
+            <option data-i18n="o.careers">Careers &amp; Employment</option>
+            <option data-i18n="o.other">Other</option>
           </select>
         </div>
-        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="How can we help? Describe your space, needs, or any questions you have…"></textarea></div>
-        <button type="submit" class="form-submit">Send Message →</button>
-        <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM<br>Or reach us on Zalo: <a href="https://zalo.me/0904915240" target="_blank" style="color:var(--accent);">+84 904 915 240</a></p>
+        <div class="fg"><label class="fl" data-i18n="l.msg">Message</label><textarea class="fta" placeholder="How can we help? Describe your space, needs, or any questions you have…"></textarea></div>
+        <button type="submit" class="form-submit" data-i18n="fm.submit">Send Message →</button>
+        <p class="form-note" data-i18n="fm.note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM<br>Or reach us on Zalo: <a href="https://zalo.me/0904915240" target="_blank" style="color:var(--accent);">+84 904 915 240</a></p>
       </form>
     </div>
     <div class="form-img">
@@ -627,28 +647,28 @@
 <div class="direct-contact">
 
   <div class="dc-card">
-    <div class="dc-label">◆ Call, WhatsApp or Zalo</div>
-    <div class="dc-title">Prefer to talk<br>to a real person?</div>
-    <p class="dc-sub">Our team is available Monday to Saturday, 7 AM to 8 PM. For urgent cleaning requests or large-scale quotes, a call is the fastest route.</p>
+    <div class="dc-label" data-i18n="dc1.label">◆ Call, WhatsApp or Zalo</div>
+    <div class="dc-title" data-i18n="dc1.title">Prefer to talk<br>to a real person?</div>
+    <p class="dc-sub" data-i18n="dc1.sub">Our team is available Monday to Saturday, 7 AM to 8 PM. For urgent cleaning requests or large-scale quotes, a call is the fastest route.</p>
     <a href="tel:+84904915240" class="dc-phone">+84 904 915 240</a>
     <div class="dc-btns">
-      <a href="tel:+84904915240" class="btn btn-white">Call Now</a>
+      <a href="tel:+84904915240" class="btn btn-white" data-i18n="dc1.call">Call Now</a>
       <a href="https://wa.me/84904915240" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
       <a href="https://zalo.me/0904915240" target="_blank" class="btn btn-zalo">Zalo</a>
     </div>
   </div>
 
   <div class="dc-card light">
-    <div class="dc-label">◆ Request a Quote</div>
-    <div class="dc-title">Ready to get<br><em>your space spotless?</em></div>
-    <p class="dc-sub">Fill in our detailed quote form and we'll visit your space within 24 hours to assess your needs and send a tailored proposal — free of charge.</p>
+    <div class="dc-label" data-i18n="dc2.label">◆ Request a Quote</div>
+    <div class="dc-title" data-i18n="dc2.title">Ready to get<br><em>your space spotless?</em></div>
+    <p class="dc-sub" data-i18n="dc2.sub">Fill in our detailed quote form and we'll visit your space within 24 hours to assess your needs and send a tailored proposal — free of charge.</p>
     <div style="margin-bottom:28px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;">Site visit within</div>
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;" data-i18n="dc2.visit">Site visit within</div>
       <div style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1;color:var(--accent);">24 hrs</div>
     </div>
     <div class="dc-btns">
-      <a href="request.html" class="btn btn-fill">Request Free Quote</a>
-      <a href="services.html" class="btn btn-dark">View Services</a>
+      <a href="request.html" class="btn btn-fill" data-i18n="dc2.cta1">Request Free Quote</a>
+      <a href="services.html" class="btn btn-dark" data-i18n="dc2.cta2">View Services</a>
     </div>
   </div>
 
@@ -657,18 +677,18 @@
 <!-- ═══ FEEDBACK MAILBOX ══════════════════════════════════════════ -->
 <div class="feedback-section">
   <div class="feedback-left">
-    <div class="label">Feedback</div>
-    <h2 class="display feedback-title">
+    <div class="label" data-i18n="fb.label">Feedback</div>
+    <h2 class="display feedback-title" data-i18n="fb.title">
       Your feedback<br>shapes our service
     </h2>
-    <p class="feedback-desc">
+    <p class="feedback-desc" data-i18n="fb.desc">
       Whether it's a compliment, a concern, or a suggestion — we want to hear it. Every piece of client feedback is reviewed by our operations team within 48 hours. We take quality seriously, and your experience matters.
     </p>
   </div>
   <div style="text-align:center;">
-    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.75;">Send feedback directly to our operations inbox:</p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.75;" data-i18n="fb.send">Send feedback directly to our operations inbox:</p>
     <a href="mailto:feedback@saigonclean.vn" class="feedback-email">feedback@saigonclean.vn</a>
-    <p style="font-size:12px;color:rgba(0,0,0,0.28);margin-top:12px;">Response within 48 hours · All feedback is confidential</p>
+    <p style="font-size:12px;color:rgba(0,0,0,0.28);margin-top:12px;" data-i18n="fb.note">Response within 48 hours · All feedback is confidential</p>
   </div>
 </div>
 
@@ -681,12 +701,12 @@
     <div class="f-logo-rule"></div>
   </div>
   <ul class="f-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+  <div class="f-copy" data-i18n="ft.copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
 <script>
@@ -700,6 +720,89 @@
     const isOpen = navLinks.classList.toggle('open');
     hamburger.textContent = isOpen ? '✕' : '☰';
   });
+
+  /* ── i18n ──────────────────────────────────────────────────── */
+  const T = {
+    en: {
+      'nav.services':'Services','nav.clients':'Clients','nav.included':'Included',
+      'nav.contact':'Contact','nav.cta':'Get a Quote',
+      'hero.ey':'Contact · Ho Chi Minh City',
+      'hero.title':'<span style="color:#D4AF37;">Get</span> <span style="color:#c8ff57;">In</span> <span style="color:#ffffff;">Touch</span>',
+      'hero.sub':'We\'re here Mon–Sat, 7:00 AM – 8:00 PM. Reach us by phone, email, or fill in the form below.',
+      'info.label':'Find Us',
+      'info.title':'We serve all of<br><em>Ho Chi Minh City</em>',
+      'info.desc':'Our cleaning teams operate across every district in HCMC. Reach out by phone, email, or WhatsApp — or fill in the form and we\'ll get back to you the same day.',
+      'ci.phone':'☎ Phone &amp; WhatsApp','ci.zalo':'💬 Zalo','ci.email':'✉ Email',
+      'ci.addr':'📍 Address','ci.adrv':'Vinhomes Grand Park, District 9, Ho Chi Minh City',
+      'ci.area':'◎ Service Area','ci.aval':'All Districts, Ho Chi Minh City',
+      'ci.ohours':'◷ Office Hours','ci.hval':'Mon – Sat, 7:00 AM – 8:00 PM',
+      'ci.chours':'◈ Cleaning Hours','ci.cval':'24/7 by arrangement',
+      'fm.ey':'✦ Send a Message','fm.title':'We read every<br><em>message personally</em>',
+      'l.name':'Your Name','l.phoneemail':'Phone or Email','l.company':'Company / Property',
+      'l.subject':'Subject','l.msg':'Message',
+      'o.topic':'Select a topic…','o.quote':'Request a Quote',
+      'o.existing':'Existing Client — Service Query','o.partner':'Partnership Enquiry',
+      'o.feedback':'Feedback or Complaint','o.careers':'Careers &amp; Employment','o.other':'Other',
+      'fm.submit':'Send Message →',
+      'fm.note':'We\'ll respond within a few hours · Mon–Sat, 7 AM–8 PM<br>Or reach us on Zalo: <a href="https://zalo.me/0904915240" target="_blank" style="color:var(--accent);">+84 904 915 240</a>',
+      'dc1.label':'◆ Call, WhatsApp or Zalo','dc1.title':'Prefer to talk<br>to a real person?',
+      'dc1.sub':'Our team is available Monday to Saturday, 7 AM to 8 PM. For urgent cleaning requests or large-scale quotes, a call is the fastest route.',
+      'dc1.call':'Call Now',
+      'dc2.label':'◆ Request a Quote','dc2.title':'Ready to get<br><em>your space spotless?</em>',
+      'dc2.sub':'Fill in our detailed quote form and we\'ll visit your space within 24 hours to assess your needs and send a tailored proposal — free of charge.',
+      'dc2.visit':'Site visit within','dc2.cta1':'Request Free Quote','dc2.cta2':'View Services',
+      'fb.label':'Feedback','fb.title':'Your feedback<br>shapes our service',
+      'fb.desc':'Whether it\'s a compliment, a concern, or a suggestion — we want to hear it. Every piece of client feedback is reviewed by our operations team within 48 hours. We take quality seriously, and your experience matters.',
+      'fb.send':'Send feedback directly to our operations inbox:',
+      'fb.note':'Response within 48 hours · All feedback is confidential',
+      'ft.copy':'© 2026 Saigon Clean · Ho Chi Minh City, Vietnam',
+    },
+    vi: {
+      'nav.services':'Dịch Vụ','nav.clients':'Khách Hàng','nav.included':'Bao Gồm',
+      'nav.contact':'Liên Hệ','nav.cta':'Nhận Báo Giá',
+      'hero.ey':'Liên Hệ · Hồ Chí Minh',
+      'hero.title':'<span style="color:#D4AF37;">Liên</span> <span style="color:#c8ff57;">Hệ</span> <span style="color:#ffffff;">Ngay</span>',
+      'hero.sub':'Chúng tôi có mặt Thứ Hai–Thứ Bảy, 7:00 SA – 8:00 CH. Liên hệ qua điện thoại, email hoặc điền vào biểu mẫu bên dưới.',
+      'info.label':'Tìm Chúng Tôi',
+      'info.title':'Chúng tôi phục vụ toàn bộ<br><em>Thành Phố Hồ Chí Minh</em>',
+      'info.desc':'Đội ngũ vệ sinh của chúng tôi hoạt động trên khắp mọi quận tại TP.HCM. Liên hệ qua điện thoại, email hoặc WhatsApp — hoặc điền vào biểu mẫu và chúng tôi sẽ phản hồi trong ngày.',
+      'ci.phone':'☎ Điện Thoại &amp; WhatsApp','ci.zalo':'💬 Zalo','ci.email':'✉ Email',
+      'ci.addr':'📍 Địa Chỉ','ci.adrv':'Vinhomes Grand Park, Quận 9, Thành Phố Hồ Chí Minh',
+      'ci.area':'◎ Khu Vực Phục Vụ','ci.aval':'Tất Cả Các Quận, Thành Phố Hồ Chí Minh',
+      'ci.ohours':'◷ Giờ Văn Phòng','ci.hval':'Thứ Hai – Thứ Bảy, 7:00 SA – 8:00 CH',
+      'ci.chours':'◈ Giờ Vệ Sinh','ci.cval':'24/7 theo thỏa thuận',
+      'fm.ey':'✦ Gửi Tin Nhắn','fm.title':'Chúng tôi đọc từng<br><em>tin nhắn cá nhân</em>',
+      'l.name':'Họ và Tên','l.phoneemail':'Điện Thoại hoặc Email','l.company':'Công Ty / Bất Động Sản',
+      'l.subject':'Chủ Đề','l.msg':'Tin Nhắn',
+      'o.topic':'Chọn chủ đề…','o.quote':'Yêu Cầu Báo Giá',
+      'o.existing':'Khách Hàng Hiện Tại — Hỏi Về Dịch Vụ','o.partner':'Hỏi Về Hợp Tác',
+      'o.feedback':'Phản Hồi hoặc Khiếu Nại','o.careers':'Tuyển Dụng &amp; Việc Làm','o.other':'Khác',
+      'fm.submit':'Gửi Tin Nhắn →',
+      'fm.note':'Chúng tôi sẽ phản hồi trong vài giờ · Thứ Hai–Thứ Bảy, 7 SA–8 CH<br>Hoặc liên hệ qua Zalo: <a href="https://zalo.me/0904915240" target="_blank" style="color:var(--accent);">+84 904 915 240</a>',
+      'dc1.label':'◆ Gọi, WhatsApp hoặc Zalo','dc1.title':'Bạn muốn nói chuyện<br>với người thật?',
+      'dc1.sub':'Đội ngũ của chúng tôi có mặt từ Thứ Hai đến Thứ Bảy, 7 SA đến 8 CH. Với các yêu cầu vệ sinh khẩn cấp hoặc báo giá quy mô lớn, gọi điện là con đường nhanh nhất.',
+      'dc1.call':'Gọi Ngay',
+      'dc2.label':'◆ Yêu Cầu Báo Giá','dc2.title':'Sẵn sàng để có<br><em>không gian sạch bóng?</em>',
+      'dc2.sub':'Điền vào biểu mẫu báo giá chi tiết và chúng tôi sẽ đến thăm không gian của bạn trong vòng 24 giờ để đánh giá nhu cầu và gửi đề xuất phù hợp — miễn phí.',
+      'dc2.visit':'Khảo sát trong','dc2.cta1':'Yêu Cầu Báo Giá Miễn Phí','dc2.cta2':'Xem Dịch Vụ',
+      'fb.label':'Phản Hồi','fb.title':'Phản hồi của bạn<br>định hình dịch vụ của chúng tôi',
+      'fb.desc':'Dù là lời khen, mối quan ngại hay gợi ý — chúng tôi muốn nghe. Mỗi phản hồi của khách hàng được đội ngũ vận hành xem xét trong vòng 48 giờ. Chúng tôi coi trọng chất lượng, và trải nghiệm của bạn quan trọng với chúng tôi.',
+      'fb.send':'Gửi phản hồi trực tiếp đến hộp thư vận hành của chúng tôi:',
+      'fb.note':'Phản hồi trong vòng 48 giờ · Tất cả phản hồi đều được bảo mật',
+      'ft.copy':'© 2026 Saigon Clean · Thành Phố Hồ Chí Minh, Việt Nam',
+    }
+  };
+  function setLang(lang) {
+    localStorage.setItem('sc_lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('sc_lang') || 'en');
 </script>
 
 <a href="index.html" class="back-home">← Home</a>

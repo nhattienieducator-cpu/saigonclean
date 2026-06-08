@@ -79,6 +79,19 @@
       padding: 0;
     }
     .nav-links .mobile-cta { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-sw { display: flex; align-items: center; }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.42);
+      padding: 5px 7px; cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      font-family: inherit; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-btn.active { color: #D4AF37; }
+    .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    .lang-sep { color: rgba(255,255,255,0.18); font-size: 10px; pointer-events: none; }
 
     /* ─── SHARED UTILS ─────────────────────────────────────── */
     .label {
@@ -400,25 +413,32 @@
     <div class="nav-logo-rule"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="mobile-cta"><a href="request.html">Get a Quote</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li class="mobile-cta"><a href="request.html" data-i18n="nav.cta">Get a Quote</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
-  <a href="request.html" class="nav-cta">Get a Quote</a>
+  <div class="nav-right">
+    <div class="lang-sw">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
+    <a href="request.html" class="nav-cta" data-i18n="nav.cta">Get a Quote</a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Request · Free Site Visit &amp; Proposal</div>
-    <h1 class="hero-title display">
+    <div class="hero-eyebrow" data-i18n="hero.ey">Request · Free Site Visit &amp; Proposal</div>
+    <h1 class="hero-title display" data-i18n="hero.title">
       Request Your<br><em>Free Quote</em>
     </h1>
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero.sub">
       We'll visit your space and send a tailored proposal within 24 hours. No obligation, no pressure.
     </p>
   </div>
@@ -430,11 +450,11 @@
 
     <!-- Left: Why Saigon Clean -->
     <div class="form-left">
-      <div class="label">Why Saigon Clean</div>
-      <h2 class="display form-intro-title">
+      <div class="label" data-i18n="wsc.label">Why Saigon Clean</div>
+      <h2 class="display form-intro-title" data-i18n="wsc.title">
         A spotless space,<br>guaranteed
       </h2>
-      <p class="form-intro-desc">
+      <p class="form-intro-desc" data-i18n="wsc.desc">
         Every quote starts with a free site visit. We learn your space, understand your requirements, and build a cleaning plan that fits exactly — no generic packages, no surprises on the invoice.
       </p>
 
@@ -442,29 +462,29 @@
         <div class="trust-item">
           <div class="trust-icon">🏢</div>
           <div>
-            <div class="trust-title">Free site visit within 24 hours</div>
-            <p class="trust-desc">We come to you. One of our senior team members visits your property to assess the space and understand your exact needs before quoting.</p>
+            <div class="trust-title" data-i18n="tr1.t">Free site visit within 24 hours</div>
+            <p class="trust-desc" data-i18n="tr1.d">We come to you. One of our senior team members visits your property to assess the space and understand your exact needs before quoting.</p>
           </div>
         </div>
         <div class="trust-item">
           <div class="trust-icon">📋</div>
           <div>
-            <div class="trust-title">Tailored proposal — no templates</div>
-            <p class="trust-desc">Every quote is built around your actual space, frequency, and standards. You'll receive a clear, itemised proposal with no hidden charges.</p>
+            <div class="trust-title" data-i18n="tr2.t">Tailored proposal — no templates</div>
+            <p class="trust-desc" data-i18n="tr2.d">Every quote is built around your actual space, frequency, and standards. You'll receive a clear, itemised proposal with no hidden charges.</p>
           </div>
         </div>
         <div class="trust-item">
           <div class="trust-icon">🔒</div>
           <div>
-            <div class="trust-title">Fully insured, vetted teams</div>
-            <p class="trust-desc">All Saigon Clean staff pass background checks and are covered by full liability insurance. Your property and privacy are always protected.</p>
+            <div class="trust-title" data-i18n="tr3.t">Fully insured, vetted teams</div>
+            <p class="trust-desc" data-i18n="tr3.d">All Saigon Clean staff pass background checks and are covered by full liability insurance. Your property and privacy are always protected.</p>
           </div>
         </div>
         <div class="trust-item">
           <div class="trust-icon">⭐</div>
           <div>
-            <div class="trust-title">100% satisfaction guarantee</div>
-            <p class="trust-desc">Not satisfied with your first clean? We'll return and redo it — free of charge. We stand behind every job our team completes.</p>
+            <div class="trust-title" data-i18n="tr4.t">100% satisfaction guarantee</div>
+            <p class="trust-desc" data-i18n="tr4.d">Not satisfied with your first clean? We'll return and redo it — free of charge. We stand behind every job our team completes.</p>
           </div>
         </div>
       </div>
@@ -473,8 +493,8 @@
     <!-- Right: Form -->
     <div class="form-right">
       <div class="form-header">
-        <div class="form-header-eyebrow">✦ Free Quote Request</div>
-        <div class="form-header-title">Tell us about<br><em>your space</em></div>
+        <div class="form-header-eyebrow" data-i18n="f.ey">✦ Free Quote Request</div>
+        <div class="form-header-title" data-i18n="f.title">Tell us about<br><em>your space</em></div>
       </div>
 
       <form onsubmit="return false;">
@@ -483,16 +503,16 @@
         <div class="fgroup">
           <div class="fgroup-hd">
             <span class="fgroup-ico">👤</span>
-            <span class="fgroup-ttl">Contact Details</span>
+            <span class="fgroup-ttl" data-i18n="fg1.ttl">Contact Details</span>
           </div>
           <div class="fgroup-bd">
             <div class="fg-row">
-              <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-              <div class="fg"><label class="fl">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
+              <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+              <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
             </div>
             <div class="fg-row">
-              <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
-              <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
+              <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
+              <div class="fg"><label class="fl" data-i18n="l.email">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
             </div>
           </div>
         </div>
@@ -501,13 +521,13 @@
         <div class="fgroup">
           <div class="fgroup-hd">
             <span class="fgroup-ico">🏙️</span>
-            <span class="fgroup-ttl">Property Details</span>
+            <span class="fgroup-ttl" data-i18n="fg2.ttl">Property Details</span>
           </div>
           <div class="fgroup-bd">
-            <div class="fg"><label class="fl">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
+            <div class="fg"><label class="fl" data-i18n="l.addr">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
             <div class="fg-row">
               <div class="fg">
-                <label class="fl">District</label>
+                <label class="fl" data-i18n="l.district">District</label>
                 <select class="fsel" id="districtSel" onchange="toggleDistrictOther(this)">
                   <option value="">Select district…</option>
                   <option>Quận 1 — Bến Nghé / Sài Gòn</option>
@@ -538,7 +558,7 @@
                 <input class="fi" type="text" id="districtOther" placeholder="Please specify your district…" style="display:none;margin-top:8px;">
               </div>
               <div class="fg">
-                <label class="fl">Property Type</label>
+                <label class="fl" data-i18n="l.proptype">Property Type</label>
                 <select class="fsel">
                   <option value="">Select type…</option>
                   <option>Office / Corporate</option>
@@ -554,7 +574,7 @@
                 </select>
               </div>
             </div>
-            <div class="fg"><label class="fl">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
+            <div class="fg"><label class="fl" data-i18n="l.size">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
           </div>
         </div>
 
@@ -562,11 +582,11 @@
         <div class="fgroup">
           <div class="fgroup-hd">
             <span class="fgroup-ico">🧹</span>
-            <span class="fgroup-ttl">Service Details</span>
+            <span class="fgroup-ttl" data-i18n="fg3.ttl">Service Details</span>
           </div>
           <div class="fgroup-bd">
             <div class="fg">
-              <label class="fl">Service Package</label>
+              <label class="fl" data-i18n="l.pkg">Service Package</label>
               <select class="fsel">
                 <option value="">Select a package…</option>
                 <option>Essentials</option>
@@ -576,7 +596,7 @@
             </div>
             <div class="fg-row">
               <div class="fg">
-                <label class="fl">Preferred Frequency</label>
+                <label class="fl" data-i18n="l.freq">Preferred Frequency</label>
                 <select class="fsel">
                   <option value="">Select frequency…</option>
                   <option>Daily</option>
@@ -588,13 +608,13 @@
                 </select>
               </div>
               <div class="fg">
-                <label class="fl">Preferred Start Date</label>
+                <label class="fl" data-i18n="l.sdate">Preferred Start Date</label>
                 <input class="fi" type="date">
               </div>
             </div>
             <div class="fg-row">
               <div class="fg">
-                <label class="fl">Start Time</label>
+                <label class="fl" data-i18n="l.start">Start Time</label>
                 <div class="time-sel-row">
                   <select class="fsel time-sel-hour">
                     <option>00</option><option>01</option><option>02</option><option>03</option>
@@ -610,7 +630,7 @@
                 </div>
               </div>
               <div class="fg">
-                <label class="fl">End Time</label>
+                <label class="fl" data-i18n="l.end">End Time</label>
                 <div class="time-sel-row">
                   <select class="fsel time-sel-hour">
                     <option>00</option><option>01</option><option>02</option><option>03</option>
@@ -626,12 +646,12 @@
                 </div>
               </div>
             </div>
-            <div class="fg"><label class="fl">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
+            <div class="fg"><label class="fl" data-i18n="l.special">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
           </div>
         </div>
 
-        <button type="submit" class="form-submit">Send My Request →</button>
-        <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
+        <button type="submit" class="form-submit" data-i18n="f.submit">Send My Request →</button>
+        <p class="form-note" data-i18n="f.note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
 
       </form>
     </div>
@@ -643,34 +663,34 @@
 <div class="next-section">
   <div class="next-inner">
     <div class="next-head">
-      <div class="label">What Happens Next</div>
-      <h2 class="display">From request to spotless<br>— in three steps</h2>
-      <p>We keep it simple. No unnecessary back-and-forth, no waiting around.</p>
+      <div class="label" data-i18n="whn.label">What Happens Next</div>
+      <h2 class="display" data-i18n="whn.title">From request to spotless<br>— in three steps</h2>
+      <p data-i18n="whn.desc">We keep it simple. No unnecessary back-and-forth, no waiting around.</p>
     </div>
     <div class="next-grid">
 
       <div class="next-step">
         <div class="next-num">01</div>
         <div class="next-icon">📬</div>
-        <div class="next-title">We review your request</div>
-        <p class="next-desc">Our team reads your request the same day. We'll confirm receipt and reach out to confirm your site visit time — usually within a few hours.</p>
-        <div class="next-timing">Same day</div>
+        <div class="next-title" data-i18n="nx1.t">We review your request</div>
+        <p class="next-desc" data-i18n="nx1.d">Our team reads your request the same day. We'll confirm receipt and reach out to confirm your site visit time — usually within a few hours.</p>
+        <div class="next-timing" data-i18n="nx1.tm">Same day</div>
       </div>
 
       <div class="next-step">
         <div class="next-num">02</div>
         <div class="next-icon">🏢</div>
-        <div class="next-title">Site visit &amp; tailored quote</div>
-        <p class="next-desc">One of our senior team visits your property, walks through the space with you, and builds a precise cleaning plan. You receive a written proposal within 24 hours of the visit.</p>
-        <div class="next-timing">Within 24 hours</div>
+        <div class="next-title" data-i18n="nx2.t">Site visit &amp; tailored quote</div>
+        <p class="next-desc" data-i18n="nx2.d">One of our senior team visits your property, walks through the space with you, and builds a precise cleaning plan. You receive a written proposal within 24 hours of the visit.</p>
+        <div class="next-timing" data-i18n="nx2.tm">Within 24 hours</div>
       </div>
 
       <div class="next-step">
         <div class="next-num">03</div>
         <div class="next-icon">✨</div>
-        <div class="next-title">First clean at your convenience</div>
-        <p class="next-desc">Once you approve the proposal, we schedule your first clean. Most clients are up and running within 48 hours of sign-off — on your schedule, at your preferred time.</p>
-        <div class="next-timing">Within 48 hours of approval</div>
+        <div class="next-title" data-i18n="nx3.t">First clean at your convenience</div>
+        <p class="next-desc" data-i18n="nx3.d">Once you approve the proposal, we schedule your first clean. Most clients are up and running within 48 hours of sign-off — on your schedule, at your preferred time.</p>
+        <div class="next-timing" data-i18n="nx3.tm">Within 48 hours of approval</div>
       </div>
 
     </div>
@@ -680,10 +700,10 @@
 <!-- ═══ CONTACT STRIP ══════════════════════════════════════════════ -->
 <div class="contact-strip">
   <div class="contact-strip-inner">
-    <p class="cs-text">"Prefer to talk it through? We're here Mon–Sat, 7 AM to 8 PM."</p>
+    <p class="cs-text" data-i18n="cs.text">"Prefer to talk it through? We're here Mon–Sat, 7 AM to 8 PM."</p>
     <div class="cs-contacts">
       <div class="cs-contact">
-        <span class="cs-lbl">☎ Call or WhatsApp</span>
+        <span class="cs-lbl" data-i18n="cs.call">☎ Call or WhatsApp</span>
         <a href="tel:+84904915240" class="cs-val">+84 904 915 240</a>
       </div>
       <div class="cs-contact">
@@ -707,12 +727,12 @@
     <div class="f-logo-rule"></div>
   </div>
   <ul class="f-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+  <div class="f-copy" data-i18n="ft.copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
 <!-- ═══ FLOATING BUTTONS ═══════════════════════════════════════════ -->
@@ -739,6 +759,135 @@
     const otherInput = document.getElementById('districtOther');
     otherInput.style.display = sel.value === 'other' ? 'block' : 'none';
   }
+
+  const T = {
+    en: {
+      'nav.services': 'Services',
+      'nav.clients': 'Clients',
+      'nav.included': 'Included',
+      'nav.contact': 'Contact',
+      'nav.cta': 'Get a Quote',
+      'ft.copy': '© 2026 Saigon Clean · Ho Chi Minh City, Vietnam',
+      'hero.ey': '◆ Free Consultation',
+      'hero.title': 'Request Your<br><em>Free Quote</em>',
+      'hero.sub': "We'll visit your space and send a tailored proposal within 24 hours.",
+      'wsc.label': '◆ Why Saigon Clean',
+      'wsc.title': 'The Standard for Premium Commercial Cleaning',
+      'wsc.desc': 'Over 100 businesses across Ho Chi Minh City trust Saigon Clean for reliable, discreet, and consistently excellent service.',
+      'tr1.t': 'Licensed & Insured',
+      'tr1.d': 'Full liability coverage on every job, protecting your business.',
+      'tr2.t': 'Eco-Safe Products',
+      'tr2.d': 'Hospital-grade, environmentally responsible cleaning solutions.',
+      'tr3.t': 'Vetted Staff Only',
+      'tr3.d': 'Background-checked, trained professionals. No subcontractors.',
+      'tr4.t': '24h Response',
+      'tr4.d': 'Site visit and tailored quote within one business day.',
+      'f.ey': '◆ Request a Quote',
+      'f.title': 'Tell Us About Your Space',
+      'fg1.ttl': 'Your Contact Details',
+      'fg2.ttl': 'Property Details',
+      'fg3.ttl': 'Service Requirements',
+      'l.name': 'Full Name',
+      'l.biz': 'Business Name',
+      'l.phone': 'Phone Number',
+      'l.email': 'Email Address',
+      'l.addr': 'Property Address',
+      'l.district': 'District',
+      'l.proptype': 'Property Type',
+      'l.size': 'Approximate Size (m²)',
+      'l.pkg': 'Service Package',
+      'l.freq': 'Preferred Frequency',
+      'l.sdate': 'Preferred Start Date',
+      'l.start': 'Preferred Start Time',
+      'l.end': 'Preferred End Time',
+      'l.special': 'Special Requirements / Notes',
+      'f.submit': 'Send My Request →',
+      'f.note': 'We respond within 4 business hours. No spam, no pressure.',
+      'whn.label': '◆ What Happens Next',
+      'whn.title': 'A Simple, Three-Step Process',
+      'whn.desc': 'No hidden fees, no lock-in contracts. Just honest, professional service.',
+      'nx1.t': 'We Review Your Request',
+      'nx1.d': 'Our team reviews your submission and prepares for the site visit.',
+      'nx1.tm': 'Same day',
+      'nx2.t': 'Site Visit & Tailored Quote',
+      'nx2.d': 'A Saigon Clean manager visits your property and prepares a custom proposal.',
+      'nx2.tm': 'Within 24 hours',
+      'nx3.t': 'First Clean Scheduled',
+      'nx3.d': "Once you approve the quote, we schedule your first clean at your convenience.",
+      'nx3.tm': 'At your convenience',
+      'cs.text': 'Prefer to talk? Reach us directly:',
+      'cs.call': '☎ Call or WhatsApp'
+    },
+    vi: {
+      'nav.services': 'Dịch Vụ',
+      'nav.clients': 'Khách Hàng',
+      'nav.included': 'Bao Gồm',
+      'nav.contact': 'Liên Hệ',
+      'nav.cta': 'Nhận Báo Giá',
+      'ft.copy': '© 2026 Saigon Clean · Thành phố Hồ Chí Minh, Việt Nam',
+      'hero.ey': '◆ Tư Vấn Miễn Phí',
+      'hero.title': 'Yêu Cầu<br><em>Báo Giá Miễn Phí</em>',
+      'hero.sub': 'Chúng tôi sẽ đến thăm không gian của bạn và gửi đề xuất phù hợp trong vòng 24 giờ.',
+      'wsc.label': '◆ Tại Sao Chọn Saigon Clean',
+      'wsc.title': 'Tiêu Chuẩn Vệ Sinh Thương Mại Cao Cấp',
+      'wsc.desc': 'Hơn 100 doanh nghiệp tại TP.HCM tin tưởng Saigon Clean vì dịch vụ đáng tin cậy, chuyên nghiệp và luôn xuất sắc.',
+      'tr1.t': 'Có Giấy Phép & Bảo Hiểm',
+      'tr1.d': 'Bảo hiểm trách nhiệm đầy đủ cho từng công việc, bảo vệ doanh nghiệp của bạn.',
+      'tr2.t': 'Sản Phẩm Thân Thiện Môi Trường',
+      'tr2.d': 'Dung dịch vệ sinh đạt chuẩn y tế, an toàn với môi trường.',
+      'tr3.t': 'Nhân Viên Được Kiểm Tra Kỹ',
+      'tr3.d': 'Chuyên gia được kiểm tra lý lịch và đào tạo bài bản. Không thuê thầu phụ.',
+      'tr4.t': 'Phản Hồi Trong 24 Giờ',
+      'tr4.d': 'Khảo sát tại chỗ và báo giá trong một ngày làm việc.',
+      'f.ey': '◆ Yêu Cầu Báo Giá',
+      'f.title': 'Cho Chúng Tôi Biết Về Không Gian Của Bạn',
+      'fg1.ttl': 'Thông Tin Liên Hệ',
+      'fg2.ttl': 'Thông Tin Bất Động Sản',
+      'fg3.ttl': 'Yêu Cầu Dịch Vụ',
+      'l.name': 'Họ và Tên',
+      'l.biz': 'Tên Doanh Nghiệp',
+      'l.phone': 'Số Điện Thoại',
+      'l.email': 'Địa Chỉ Email',
+      'l.addr': 'Địa Chỉ Bất Động Sản',
+      'l.district': 'Quận / Huyện',
+      'l.proptype': 'Loại Bất Động Sản',
+      'l.size': 'Diện Tích Ước Tính (m²)',
+      'l.pkg': 'Gói Dịch Vụ',
+      'l.freq': 'Tần Suất Mong Muốn',
+      'l.sdate': 'Ngày Bắt Đầu Dự Kiến',
+      'l.start': 'Giờ Bắt Đầu Mong Muốn',
+      'l.end': 'Giờ Kết Thúc Mong Muốn',
+      'l.special': 'Yêu Cầu Đặc Biệt / Ghi Chú',
+      'f.submit': 'Gửi Yêu Cầu →',
+      'f.note': 'Chúng tôi phản hồi trong vòng 4 giờ làm việc. Không spam, không ép buộc.',
+      'whn.label': '◆ Tiếp Theo Là Gì',
+      'whn.title': 'Quy Trình Đơn Giản Ba Bước',
+      'whn.desc': 'Không có phí ẩn, không ràng buộc hợp đồng. Chỉ là dịch vụ trung thực và chuyên nghiệp.',
+      'nx1.t': 'Chúng Tôi Xem Xét Yêu Cầu',
+      'nx1.d': 'Đội ngũ của chúng tôi xem xét hồ sơ và chuẩn bị cho chuyến khảo sát.',
+      'nx1.tm': 'Trong ngày',
+      'nx2.t': 'Khảo Sát & Báo Giá Phù Hợp',
+      'nx2.d': 'Quản lý Saigon Clean đến thăm tài sản của bạn và chuẩn bị đề xuất tùy chỉnh.',
+      'nx2.tm': 'Trong vòng 24 giờ',
+      'nx3.t': 'Lên Lịch Lần Vệ Sinh Đầu Tiên',
+      'nx3.d': 'Sau khi bạn duyệt báo giá, chúng tôi sắp xếp lần vệ sinh đầu tiên theo lịch của bạn.',
+      'nx3.tm': 'Theo lịch của bạn',
+      'cs.text': 'Muốn nói chuyện trực tiếp? Liên hệ ngay:',
+      'cs.call': '☎ Gọi hoặc WhatsApp'
+    }
+  };
+
+  function setLang(lang) {
+    localStorage.setItem('sc_lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('sc_lang') || 'en');
 </script>
 
 </body>

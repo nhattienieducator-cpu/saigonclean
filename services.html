@@ -79,6 +79,19 @@
       padding: 0;
     }
     .nav-links .mobile-cta { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-sw { display: flex; align-items: center; }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.42);
+      padding: 5px 7px; cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      font-family: inherit; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-btn.active { color: #D4AF37; }
+    .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    .lang-sep { color: rgba(255,255,255,0.18); font-size: 10px; pointer-events: none; }
 
     /* ─── SHARED UTILS ─────────────────────────────────────── */
     .label {
@@ -454,29 +467,36 @@
     <div class="nav-logo-rule"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="mobile-cta"><a href="request.html">Get a Quote</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li class="mobile-cta"><a href="request.html" data-i18n="nav.cta">Get a Quote</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
-  <a href="request.html" class="nav-cta">Get a Quote</a>
+  <div class="nav-right">
+    <div class="lang-sw">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
+    <a href="request.html" class="nav-cta" data-i18n="nav.cta">Get a Quote</a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">What We Offer · Ho Chi Minh City</div>
-    <h1 class="hero-title display">
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">What We Offer · Ho Chi Minh City</div>
+    <h1 class="hero-title display" data-i18n="hero.title">
       <em>Five–Star Cleaning</em><br>
       for Saigon's Finest Spaces
     </h1>
-    <p class="hero-sub">
+    <p class="hero-sub" data-i18n="hero.sub">
       From executive boardrooms to luxury hotel suites — we deliver immaculate results, every time, on your schedule.
     </p>
-    <a href="request.html" class="btn btn-white">Get a Free Quote</a>
+    <a href="request.html" class="btn btn-white" data-i18n="hero.cta">Get a Free Quote</a>
   </div>
 </section>
 
@@ -488,12 +508,12 @@
     <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Office Cleaning HCMC">
   </div>
   <div class="sd-body">
-    <div class="sd-tag">Commercial</div>
-    <h2 class="sd-title">Office &amp; Corporate Spaces</h2>
-    <p class="sd-desc">
+    <div class="sd-tag" data-i18n="s1.tag">Commercial</div>
+    <h2 class="sd-title" data-i18n="s1.title">Office &amp; Corporate Spaces</h2>
+    <p class="sd-desc" data-i18n="s1.desc">
       We deliver consistent, professional cleaning for open-plan offices, executive suites, meeting rooms, lobbies, and server rooms across every district in Ho Chi Minh City. Daily, weekly, or custom frequencies — always around your team's schedule.
     </p>
-    <ul class="sd-list">
+    <ul class="sd-list" data-i18n="s1.list">
       <li>Open-plan &amp; private office deep cleans</li>
       <li>Meeting room sanitisation between sessions</li>
       <li>Reception &amp; lobby presentation polish</li>
@@ -501,7 +521,7 @@
       <li>Restroom deep-clean &amp; restocking</li>
       <li>After-hours scheduling available</li>
     </ul>
-    <a href="request.html" class="btn btn-blue">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue" data-i18n="sd.cta">Request a Quote</a>
   </div>
 </div>
 
@@ -511,12 +531,12 @@
     <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=80" alt="Hotel Room Cleaning">
   </div>
   <div class="sd-body">
-    <div class="sd-tag">Hospitality</div>
-    <h2 class="sd-title">Hotels &amp; Serviced Apartments</h2>
-    <p class="sd-desc">
+    <div class="sd-tag" data-i18n="s2.tag">Hospitality</div>
+    <h2 class="sd-title" data-i18n="s2.title">Hotels &amp; Serviced Apartments</h2>
+    <p class="sd-desc" data-i18n="s2.desc">
       Five-star turnover service and daily room servicing for hotels, boutique guesthouses, and serviced apartment complexes. Our trained hospitality teams work to your brand standards with precision and discretion.
     </p>
-    <ul class="sd-list">
+    <ul class="sd-list" data-i18n="s2.list">
       <li>Full room turnover between guests</li>
       <li>Daily servicing &amp; bed-making</li>
       <li>Bathroom deep-clean &amp; amenity replenishment</li>
@@ -524,7 +544,7 @@
       <li>Linen coordination support</li>
       <li>Laundry management &amp; folding</li>
     </ul>
-    <a href="request.html" class="btn btn-blue">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue" data-i18n="sd.cta">Request a Quote</a>
   </div>
 </div>
 
@@ -534,12 +554,12 @@
     <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Coworking Space Cleaning">
   </div>
   <div class="sd-body">
-    <div class="sd-tag">Coworking</div>
-    <h2 class="sd-title">Coworking &amp; Shared Workspaces</h2>
-    <p class="sd-desc">
+    <div class="sd-tag" data-i18n="s3.tag">Coworking</div>
+    <h2 class="sd-title" data-i18n="s3.title">Coworking &amp; Shared Workspaces</h2>
+    <p class="sd-desc" data-i18n="s3.desc">
       High-traffic shared environments demand high-frequency cleaning. We specialise in coworking spaces, innovation hubs, and hot-desking floors — keeping every surface ready for the next member who sits down.
     </p>
-    <ul class="sd-list">
+    <ul class="sd-list" data-i18n="s3.list">
       <li>Hot-desk &amp; pod sanitisation between users</li>
       <li>Phone booth &amp; pod deep-clean</li>
       <li>Event space reset &amp; post-event clean</li>
@@ -547,7 +567,7 @@
       <li>High-touch point disinfection protocols</li>
       <li>Flexible same-day scheduling</li>
     </ul>
-    <a href="request.html" class="btn btn-blue">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue" data-i18n="sd.cta">Request a Quote</a>
   </div>
 </div>
 
@@ -557,12 +577,12 @@
     <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80" alt="Luxury Apartment Cleaning">
   </div>
   <div class="sd-body">
-    <div class="sd-tag">Residential</div>
-    <h2 class="sd-title">Luxury Apartments &amp; Condos</h2>
-    <p class="sd-desc">
+    <div class="sd-tag" data-i18n="s4.tag">Residential</div>
+    <h2 class="sd-title" data-i18n="s4.title">Luxury Apartments &amp; Condos</h2>
+    <p class="sd-desc" data-i18n="s4.desc">
       White-glove cleaning for premium residential properties in Thảo Điền, Phú Mỹ Hưng, Vinhomes, and HCMC's finest towers. Our teams respect your home and your privacy — every visit leaves your space spotless.
     </p>
-    <ul class="sd-list">
+    <ul class="sd-list" data-i18n="s4.list">
       <li>Full-unit deep clean or regular service</li>
       <li>Kitchen appliance cleaning inside &amp; out</li>
       <li>Bathroom &amp; wet area sanitisation</li>
@@ -570,7 +590,7 @@
       <li>Wardrobe &amp; storage area tidying</li>
       <li>Move-in / move-out clean packages</li>
     </ul>
-    <a href="request.html" class="btn btn-blue">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue" data-i18n="sd.cta">Request a Quote</a>
   </div>
 </div>
 
@@ -580,12 +600,12 @@
     <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=1200&q=80" alt="Property Management Cleaning">
   </div>
   <div class="sd-body">
-    <div class="sd-tag">Property</div>
-    <h2 class="sd-title">Property Management &amp; Turnover</h2>
-    <p class="sd-desc">
+    <div class="sd-tag" data-i18n="s5.tag">Property</div>
+    <h2 class="sd-title" data-i18n="s5.title">Property Management &amp; Turnover</h2>
+    <p class="sd-desc" data-i18n="s5.desc">
       End-of-tenancy, between-lease, and ongoing maintenance cleaning for property management companies and landlords overseeing multiple units across HCMC. One point of contact for your entire portfolio.
     </p>
-    <ul class="sd-list">
+    <ul class="sd-list" data-i18n="s5.list">
       <li>End-of-tenancy deep clean &amp; photo-ready finish</li>
       <li>Between-guest or between-tenant turnover</li>
       <li>Portfolio-wide recurring schedules</li>
@@ -593,24 +613,24 @@
       <li>Common-area &amp; carpark cleaning</li>
       <li>Dedicated account manager</li>
     </ul>
-    <a href="request.html" class="btn btn-blue">Request a Quote</a>
+    <a href="request.html" class="btn btn-blue" data-i18n="sd.cta">Request a Quote</a>
   </div>
 </div>
 
 <!-- ═══ PRICING ═══════════════════════════════════════════════════ -->
 <div class="pricing-section">
   <div class="pricing-head">
-    <div class="label">Transparent Pricing</div>
-    <h2 class="display">Simple, fair rates for<br>every type of space</h2>
-    <p>All plans include insured staff, eco-safe products, and a completion checklist. Custom quotes available for larger portfolios.</p>
+    <div class="label" data-i18n="pr.label">Transparent Pricing</div>
+    <h2 class="display" data-i18n="pr.title">Simple, fair rates for<br>every type of space</h2>
+    <p data-i18n="pr.desc">All plans include insured staff, eco-safe products, and a completion checklist. Custom quotes available for larger portfolios.</p>
   </div>
   <div class="pricing-grid">
 
     <!-- Essentials -->
     <div class="pricing-card essentials">
-      <div class="pricing-name">Essentials</div>
+      <div class="pricing-name" data-i18n="pt1.name">Essentials</div>
       <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>329K ~ <small style="font-size:0.55em;">$</small>12.99</div>
-      <div class="pricing-freq">per session · For individuals, apartments, and small spaces up to 100 m²</div>
+      <div class="pricing-freq" data-i18n="pt1.freq">per session · For individuals, apartments, and small spaces up to 100 m²</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Dusting &amp; sweeping</li>
         <li class="pricing-feature">Floor mopping</li>
@@ -621,15 +641,15 @@
         <li class="pricing-feature">Completion checklist</li>
         <li class="pricing-feature">Sofa cleaning <span style="font-size:11px;opacity:0.6;">(additional cost depending on quantity and size)</span></li>
       </ul>
-      <a href="request.html" class="btn">Get Started</a>
+      <a href="request.html" class="btn" data-i18n="pr.start">Get Started</a>
     </div>
 
     <!-- Professional (featured) -->
     <div class="pricing-card featured">
-      <div class="pricing-badge">◆ Most Popular</div>
-      <div class="pricing-name">Professional</div>
+      <div class="pricing-badge" data-i18n="pt2.badge">◆ Most Popular</div>
+      <div class="pricing-name" data-i18n="pt2.name">Professional</div>
       <div class="pricing-amount display">From<br><small style="font-size:0.55em;">₫</small>829K ~ <small style="font-size:0.55em;">$</small>31.99</div>
-      <div class="pricing-freq">per session · For offices &amp; serviced, events, restaurants… spaces up to 400 m²</div>
+      <div class="pricing-freq" data-i18n="pt2.freq">per session · For offices &amp; serviced, events, restaurants… spaces up to 400 m²</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Everything in Essentials</li>
         <li class="pricing-feature">Window &amp; glass cleaning</li>
@@ -639,14 +659,14 @@
         <li class="pricing-feature">Eco-safe products included</li>
         <li class="pricing-feature">Priority scheduling</li>
       </ul>
-      <a href="request.html" class="btn btn-lime">Get Started</a>
+      <a href="request.html" class="btn btn-lime" data-i18n="pr.start">Get Started</a>
     </div>
 
     <!-- Enterprise -->
     <div class="pricing-card enterprise">
-      <div class="pricing-name">Enterprise</div>
+      <div class="pricing-name" data-i18n="pt3.name">Enterprise</div>
       <div class="pricing-amount display">Custom</div>
-      <div class="pricing-freq">tailored quote · hotels, portfolios &amp; large properties, events</div>
+      <div class="pricing-freq" data-i18n="pt3.freq">tailored quote · hotels, portfolios &amp; large properties, events</div>
       <ul class="pricing-features">
         <li class="pricing-feature">Everything in Professional</li>
         <li class="pricing-feature">Dedicated account manager</li>
@@ -655,7 +675,7 @@
         <li class="pricing-feature">SLA &amp; quality guarantee</li>
         <li class="pricing-feature">Monthly performance report</li>
       </ul>
-      <a href="request.html" class="btn">Get a Custom Quote</a>
+      <a href="request.html" class="btn" data-i18n="pt3.cta">Get a Custom Quote</a>
     </div>
 
   </div>
@@ -664,33 +684,33 @@
 <!-- ═══ PROCESS ════════════════════════════════════════════════════ -->
 <div class="process-section">
   <div class="process-head">
-    <div class="label">How It Works</div>
-    <h2 class="display">From first call to<br>spotless space — in four steps</h2>
+    <div class="label" data-i18n="proc.label">How It Works</div>
+    <h2 class="display" data-i18n="proc.title">From first call to<br>spotless space — in four steps</h2>
   </div>
   <div class="process-grid">
     <div class="process-step">
       <div class="process-num">01</div>
       <div class="process-icon">💬</div>
-      <div class="process-title">Enquire</div>
-      <p class="process-desc">Fill in our quick quote form or call us directly. Tell us about your space, size, and cleaning needs. Takes under 2 minutes.</p>
+      <div class="process-title" data-i18n="p1.t">Enquire</div>
+      <p class="process-desc" data-i18n="p1.d">Fill in our quick quote form or call us directly. Tell us about your space, size, and cleaning needs. Takes under 2 minutes.</p>
     </div>
     <div class="process-step">
       <div class="process-num">02</div>
       <div class="process-icon">🏢</div>
-      <div class="process-title">Site Visit &amp; Quote</div>
-      <p class="process-desc">We visit your property within 24 hours, assess your space, and send a detailed tailored quote — no surprises, no obligations.</p>
+      <div class="process-title" data-i18n="p2.t">Site Visit &amp; Quote</div>
+      <p class="process-desc" data-i18n="p2.d">We visit your property within 24 hours, assess your space, and send a detailed tailored quote — no surprises, no obligations.</p>
     </div>
     <div class="process-step">
       <div class="process-num">03</div>
       <div class="process-icon">📅</div>
-      <div class="process-title">Schedule First Clean</div>
-      <p class="process-desc">Once you're happy with the quote, we agree a start date. Your first clean can begin within 48 hours of sign-off.</p>
+      <div class="process-title" data-i18n="p3.t">Schedule First Clean</div>
+      <p class="process-desc" data-i18n="p3.d">Once you're happy with the quote, we agree a start date. Your first clean can begin within 48 hours of sign-off.</p>
     </div>
     <div class="process-step">
       <div class="process-num">04</div>
       <div class="process-icon">✨</div>
-      <div class="process-title">Ongoing Service</div>
-      <p class="process-desc">We show up on time, every time. After each visit you receive a completed checklist and a direct line to your account manager.</p>
+      <div class="process-title" data-i18n="p4.t">Ongoing Service</div>
+      <p class="process-desc" data-i18n="p4.d">We show up on time, every time. After each visit you receive a completed checklist and a direct line to your account manager.</p>
     </div>
   </div>
 </div>
@@ -698,61 +718,61 @@
 <!-- ═══ WHAT'S INCLUDED ════════════════════════════════════════════ -->
 <div id="included">
   <div class="included-head">
-    <div class="label">Every Service Includes</div>
-    <h2 class="display" style="font-size:clamp(36px,4vw,58px);max-width:500px;line-height:1.1;">
+    <div class="label" data-i18n="inc.label">Every Service Includes</div>
+    <h2 class="display" style="font-size:clamp(36px,4vw,58px);max-width:500px;line-height:1.1;" data-i18n="inc.title">
       What comes with<br>every clean
     </h2>
   </div>
   <div class="included-rail">
-    <div class="inc-item"><div class="inc-icon">🧹</div><div class="inc-name">Dusting &amp; Sweeping</div></div>
-    <div class="inc-item"><div class="inc-icon">🪣</div><div class="inc-name">Floor Mopping</div></div>
-    <div class="inc-item"><div class="inc-icon">🧴</div><div class="inc-name">Surface Sanitizing</div></div>
-    <div class="inc-item"><div class="inc-icon">🚿</div><div class="inc-name">Bathroom Deep Clean</div></div>
-    <div class="inc-item"><div class="inc-icon">🪟</div><div class="inc-name">Window Cleaning</div></div>
-    <div class="inc-item"><div class="inc-icon">🗑️</div><div class="inc-name">Waste Removal</div></div>
-    <div class="inc-item"><div class="inc-icon">✨</div><div class="inc-name">Streak-Free Finish</div></div>
-    <div class="inc-item"><div class="inc-icon">🌿</div><div class="inc-name">Eco-Safe Products</div></div>
-    <div class="inc-item"><div class="inc-icon">🔒</div><div class="inc-name">Insured Staff</div></div>
-    <div class="inc-item"><div class="inc-icon">📋</div><div class="inc-name">Checklist Report</div></div>
+    <div class="inc-item"><div class="inc-icon">🧹</div><div class="inc-name" data-i18n="in1">Dusting &amp; Sweeping</div></div>
+    <div class="inc-item"><div class="inc-icon">🪣</div><div class="inc-name" data-i18n="in2">Floor Mopping</div></div>
+    <div class="inc-item"><div class="inc-icon">🧴</div><div class="inc-name" data-i18n="in3">Surface Sanitizing</div></div>
+    <div class="inc-item"><div class="inc-icon">🚿</div><div class="inc-name" data-i18n="in4">Bathroom Deep Clean</div></div>
+    <div class="inc-item"><div class="inc-icon">🪟</div><div class="inc-name" data-i18n="in5">Window Cleaning</div></div>
+    <div class="inc-item"><div class="inc-icon">🗑️</div><div class="inc-name" data-i18n="in6">Waste Removal</div></div>
+    <div class="inc-item"><div class="inc-icon">✨</div><div class="inc-name" data-i18n="in7">Streak-Free Finish</div></div>
+    <div class="inc-item"><div class="inc-icon">🌿</div><div class="inc-name" data-i18n="in8">Eco-Safe Products</div></div>
+    <div class="inc-item"><div class="inc-icon">🔒</div><div class="inc-name" data-i18n="in9">Insured Staff</div></div>
+    <div class="inc-item"><div class="inc-icon">📋</div><div class="inc-name" data-i18n="in10">Checklist Report</div></div>
   </div>
 </div>
 
 <!-- ═══ FAQ ════════════════════════════════════════════════════════ -->
 <div class="faq-section">
   <div class="faq-head">
-    <div class="label">FAQ</div>
-    <h2 class="display">Common questions,<br>honest answers</h2>
+    <div class="label" data-i18n="faq.label">FAQ</div>
+    <h2 class="display" data-i18n="faq.title">Common questions,<br>honest answers</h2>
   </div>
   <div class="faq-grid">
 
     <div class="faq-item">
-      <div class="faq-q">Is there a minimum contract period?</div>
-      <p class="faq-a">No lock-in contracts. We offer month-to-month agreements for recurring services. One-off and event cleans are always available with no commitment required.</p>
+      <div class="faq-q" data-i18n="fq1.q">Is there a minimum contract period?</div>
+      <p class="faq-a" data-i18n="fq1.a">No lock-in contracts. We offer month-to-month agreements for recurring services. One-off and event cleans are always available with no commitment required.</p>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Are your staff insured?</div>
-      <p class="faq-a">Yes. All Saigon Clean staff carry full liability insurance. We are also covered for accidental damage during service, so your property and contents are protected.</p>
+      <div class="faq-q" data-i18n="fq2.q">Are your staff insured?</div>
+      <p class="faq-a" data-i18n="fq2.a">Yes. All Saigon Clean staff carry full liability insurance. We are also covered for accidental damage during service, so your property and contents are protected.</p>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Do you supply cleaning products and equipment?</div>
-      <p class="faq-a">We supply all products and professional-grade equipment. Our products are eco-safe, non-toxic, and approved for use in hospitality and food-service environments.</p>
+      <div class="faq-q" data-i18n="fq3.q">Do you supply cleaning products and equipment?</div>
+      <p class="faq-a" data-i18n="fq3.a">We supply all products and professional-grade equipment. Our products are eco-safe, non-toxic, and approved for use in hospitality and food-service environments.</p>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Can you clean outside of business hours?</div>
-      <p class="faq-a">Absolutely. We offer early-morning, evening, and weekend scheduling. Most of our commercial clients prefer after-hours or before-open cleans to avoid disruption.</p>
+      <div class="faq-q" data-i18n="fq4.q">Can you clean outside of business hours?</div>
+      <p class="faq-a" data-i18n="fq4.a">Absolutely. We offer early-morning, evening, and weekend scheduling. Most of our commercial clients prefer after-hours or before-open cleans to avoid disruption.</p>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">What is your cancellation policy?</div>
-      <p class="faq-a">We ask for 24 hours notice to reschedule or cancel a session without charge. For recurring contracts, a 7-day notice is required to pause or end service.</p>
+      <div class="faq-q" data-i18n="fq5.q">What is your cancellation policy?</div>
+      <p class="faq-a" data-i18n="fq5.a">We ask for 24 hours notice to reschedule or cancel a session without charge. For recurring contracts, a 7-day notice is required to pause or end service.</p>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Which districts do you cover?</div>
-      <p class="faq-a">We cover all districts in Ho Chi Minh City including Quận 1, 2, 3, 4, 7, Bình Thạnh, Thủ Đức, and Phú Mỹ Hưng. Contact us for outlying areas — we'll do our best to accommodate.</p>
+      <div class="faq-q" data-i18n="fq6.q">Which districts do you cover?</div>
+      <p class="faq-a" data-i18n="fq6.a">We cover all districts in Ho Chi Minh City including Quận 1, 2, 3, 4, 7, Bình Thạnh, Thủ Đức, and Phú Mỹ Hưng. Contact us for outlying areas — we'll do our best to accommodate.</p>
     </div>
 
   </div>
@@ -760,12 +780,12 @@
 
 <!-- ═══ CTA BANNER ════════════════════════════════════════════════ -->
 <div class="cta-banner">
-  <div class="label">Start Today</div>
-  <h2>Ready to get started?</h2>
-  <p>Get a tailored quote for your space within 24 hours — no obligation, no pressure.</p>
+  <div class="label" data-i18n="cta.label">Start Today</div>
+  <h2 data-i18n="cta.title">Ready to get started?</h2>
+  <p data-i18n="cta.desc">Get a tailored quote for your space within 24 hours — no obligation, no pressure.</p>
   <div class="cta-banner-btns">
-    <a href="request.html" class="btn btn-lime">Request a Free Quote</a>
-    <a href="contact.html" class="btn btn-white">Talk to the Team</a>
+    <a href="request.html" class="btn btn-lime" data-i18n="cta.btn1">Request a Free Quote</a>
+    <a href="contact.html" class="btn btn-white" data-i18n="cta.btn2">Talk to the Team</a>
   </div>
 </div>
 
@@ -778,12 +798,12 @@
     <div class="f-logo-rule"></div>
   </div>
   <ul class="f-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="index.html#clients">Clients</a></li>
-    <li><a href="index.html#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="index.html#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="index.html#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+  <div class="f-copy" data-i18n="ft.copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
 <script>
@@ -797,6 +817,122 @@
     const isOpen = navLinks.classList.toggle('open');
     hamburger.textContent = isOpen ? '✕' : '☰';
   });
+
+  /* ── i18n ──────────────────────────────────────────────────── */
+  const T = {
+    en: {
+      'nav.services':'Services','nav.clients':'Clients','nav.included':'Included',
+      'nav.contact':'Contact','nav.cta':'Get a Quote',
+      'hero.eyebrow':'What We Offer · Ho Chi Minh City',
+      'hero.title':'<em>Five–Star Cleaning</em><br>for Saigon\'s Finest Spaces',
+      'hero.sub':'From executive boardrooms to luxury hotel suites — we deliver immaculate results, every time, on your schedule.',
+      'hero.cta':'Get a Free Quote',
+      's1.tag':'Commercial','s1.title':'Office &amp; Corporate Spaces',
+      's1.desc':'We deliver consistent, professional cleaning for open-plan offices, executive suites, meeting rooms, lobbies, and server rooms across every district in Ho Chi Minh City. Daily, weekly, or custom frequencies — always around your team\'s schedule.',
+      's1.list':'<li>Open-plan &amp; private office deep cleans</li><li>Meeting room sanitisation between sessions</li><li>Reception &amp; lobby presentation polish</li><li>Pantry &amp; breakroom hygiene maintenance</li><li>Restroom deep-clean &amp; restocking</li><li>After-hours scheduling available</li>',
+      's2.tag':'Hospitality','s2.title':'Hotels &amp; Serviced Apartments',
+      's2.desc':'Five-star turnover service and daily room servicing for hotels, boutique guesthouses, and serviced apartment complexes. Our trained hospitality teams work to your brand standards with precision and discretion.',
+      's2.list':'<li>Full room turnover between guests</li><li>Daily servicing &amp; bed-making</li><li>Bathroom deep-clean &amp; amenity replenishment</li><li>Corridor, lift &amp; common-area maintenance</li><li>Linen coordination support</li><li>Laundry management &amp; folding</li>',
+      's3.tag':'Coworking','s3.title':'Coworking &amp; Shared Workspaces',
+      's3.desc':'High-traffic shared environments demand high-frequency cleaning. We specialise in coworking spaces, innovation hubs, and hot-desking floors — keeping every surface ready for the next member who sits down.',
+      's3.list':'<li>Hot-desk &amp; pod sanitisation between users</li><li>Phone booth &amp; pod deep-clean</li><li>Event space reset &amp; post-event clean</li><li>Kitchen &amp; lounge area daily service</li><li>High-touch point disinfection protocols</li><li>Flexible same-day scheduling</li>',
+      's4.tag':'Residential','s4.title':'Luxury Apartments &amp; Condos',
+      's4.desc':'White-glove cleaning for premium residential properties in Thảo Điền, Phú Mỹ Hưng, Vinhomes, and HCMC\'s finest towers. Our teams respect your home and your privacy — every visit leaves your space spotless.',
+      's4.list':'<li>Full-unit deep clean or regular service</li><li>Kitchen appliance cleaning inside &amp; out</li><li>Bathroom &amp; wet area sanitisation</li><li>Balcony &amp; terrace cleaning</li><li>Wardrobe &amp; storage area tidying</li><li>Move-in / move-out clean packages</li>',
+      's5.tag':'Property','s5.title':'Property Management &amp; Turnover',
+      's5.desc':'End-of-tenancy, between-lease, and ongoing maintenance cleaning for property management companies and landlords overseeing multiple units across HCMC. One point of contact for your entire portfolio.',
+      's5.list':'<li>End-of-tenancy deep clean &amp; photo-ready finish</li><li>Between-guest or between-tenant turnover</li><li>Portfolio-wide recurring schedules</li><li>Damage inspection checklist support</li><li>Common-area &amp; carpark cleaning</li><li>Dedicated account manager</li>',
+      'sd.cta':'Request a Quote',
+      'pr.label':'Transparent Pricing','pr.title':'Simple, fair rates for<br>every type of space',
+      'pr.desc':'All plans include insured staff, eco-safe products, and a completion checklist. Custom quotes available for larger portfolios.',
+      'pr.start':'Get Started',
+      'pt1.name':'Essentials','pt1.freq':'per session · For individuals, apartments, and small spaces up to 100 m²',
+      'pt2.badge':'◆ Most Popular','pt2.name':'Professional','pt2.freq':'per session · For offices &amp; serviced, events, restaurants… spaces up to 400 m²',
+      'pt3.name':'Enterprise','pt3.freq':'tailored quote · hotels, portfolios &amp; large properties, events','pt3.cta':'Get a Custom Quote',
+      'proc.label':'How It Works','proc.title':'From first call to<br>spotless space — in four steps',
+      'p1.t':'Enquire','p1.d':'Fill in our quick quote form or call us directly. Tell us about your space, size, and cleaning needs. Takes under 2 minutes.',
+      'p2.t':'Site Visit &amp; Quote','p2.d':'We visit your property within 24 hours, assess your space, and send a detailed tailored quote — no surprises, no obligations.',
+      'p3.t':'Schedule First Clean','p3.d':'Once you\'re happy with the quote, we agree a start date. Your first clean can begin within 48 hours of sign-off.',
+      'p4.t':'Ongoing Service','p4.d':'We show up on time, every time. After each visit you receive a completed checklist and a direct line to your account manager.',
+      'inc.label':'Every Service Includes','inc.title':'What comes with<br>every clean',
+      'in1':'Dusting &amp; Sweeping','in2':'Floor Mopping','in3':'Surface Sanitizing',
+      'in4':'Bathroom Deep Clean','in5':'Window Cleaning','in6':'Waste Removal',
+      'in7':'Streak-Free Finish','in8':'Eco-Safe Products','in9':'Insured Staff','in10':'Checklist Report',
+      'faq.label':'FAQ','faq.title':'Common questions,<br>honest answers',
+      'fq1.q':'Is there a minimum contract period?','fq1.a':'No lock-in contracts. We offer month-to-month agreements for recurring services. One-off and event cleans are always available with no commitment required.',
+      'fq2.q':'Are your staff insured?','fq2.a':'Yes. All Saigon Clean staff carry full liability insurance. We are also covered for accidental damage during service, so your property and contents are protected.',
+      'fq3.q':'Do you supply cleaning products and equipment?','fq3.a':'We supply all products and professional-grade equipment. Our products are eco-safe, non-toxic, and approved for use in hospitality and food-service environments.',
+      'fq4.q':'Can you clean outside of business hours?','fq4.a':'Absolutely. We offer early-morning, evening, and weekend scheduling. Most of our commercial clients prefer after-hours or before-open cleans to avoid disruption.',
+      'fq5.q':'What is your cancellation policy?','fq5.a':'We ask for 24 hours notice to reschedule or cancel a session without charge. For recurring contracts, a 7-day notice is required to pause or end service.',
+      'fq6.q':'Which districts do you cover?','fq6.a':'We cover all districts in Ho Chi Minh City including Quận 1, 2, 3, 4, 7, Bình Thạnh, Thủ Đức, and Phú Mỹ Hưng. Contact us for outlying areas — we\'ll do our best to accommodate.',
+      'cta.label':'Start Today','cta.title':'Ready to get started?',
+      'cta.desc':'Get a tailored quote for your space within 24 hours — no obligation, no pressure.',
+      'cta.btn1':'Request a Free Quote','cta.btn2':'Talk to the Team',
+      'ft.copy':'© 2026 Saigon Clean · Ho Chi Minh City, Vietnam',
+    },
+    vi: {
+      'nav.services':'Dịch Vụ','nav.clients':'Khách Hàng','nav.included':'Bao Gồm',
+      'nav.contact':'Liên Hệ','nav.cta':'Nhận Báo Giá',
+      'hero.eyebrow':'Chúng Tôi Cung Cấp · Hồ Chí Minh',
+      'hero.title':'<em>Vệ Sinh 5 Sao</em><br>cho Những Không Gian Đẳng Cấp Nhất Sài Gòn',
+      'hero.sub':'Từ phòng họp giám đốc đến phòng khách sạn cao cấp — chúng tôi mang lại kết quả hoàn hảo, mọi lúc, theo lịch của bạn.',
+      'hero.cta':'Nhận Báo Giá Miễn Phí',
+      's1.tag':'Thương Mại','s1.title':'Văn Phòng &amp; Doanh Nghiệp',
+      's1.desc':'Chúng tôi cung cấp dịch vụ vệ sinh chuyên nghiệp, nhất quán cho văn phòng mở, phòng giám đốc, phòng họp, sảnh và phòng máy chủ trên khắp các quận tại TP.HCM. Hàng ngày, hàng tuần hoặc tần suất tùy chỉnh — luôn theo lịch của nhóm bạn.',
+      's1.list':'<li>Vệ sinh chuyên sâu văn phòng mở &amp; phòng riêng</li><li>Khử trùng phòng họp giữa các buổi</li><li>Vệ sinh lễ tân &amp; sảnh</li><li>Vệ sinh pantry &amp; phòng nghỉ giải lao</li><li>Vệ sinh chuyên sâu nhà vệ sinh &amp; bổ sung vật tư</li><li>Có thể lên lịch ngoài giờ làm việc</li>',
+      's2.tag':'Khách Sạn','s2.title':'Khách Sạn &amp; Căn Hộ Dịch Vụ',
+      's2.desc':'Dịch vụ bàn giao phòng 5 sao và vệ sinh phòng hàng ngày cho khách sạn, nhà khách boutique và khu căn hộ dịch vụ. Đội ngũ khách sạn được đào tạo của chúng tôi làm việc theo tiêu chuẩn thương hiệu của bạn với sự chính xác và tế nhị.',
+      's2.list':'<li>Bàn giao phòng đầy đủ giữa các lần nhận khách</li><li>Vệ sinh hàng ngày &amp; trải giường</li><li>Vệ sinh chuyên sâu phòng tắm &amp; bổ sung tiện nghi</li><li>Bảo trì hành lang, thang máy &amp; khu vực chung</li><li>Hỗ trợ quản lý đồ vải</li><li>Quản lý giặt ủi &amp; gấp</li>',
+      's3.tag':'Không Gian Chung','s3.title':'Không Gian Làm Việc Chung &amp; Coworking',
+      's3.desc':'Môi trường chia sẻ có lưu lượng cao đòi hỏi vệ sinh thường xuyên. Chúng tôi chuyên về không gian coworking, trung tâm đổi mới và tầng làm việc linh hoạt — giữ cho mỗi bề mặt sẵn sàng cho thành viên tiếp theo.',
+      's3.list':'<li>Khử trùng bàn làm việc &amp; pod giữa các người dùng</li><li>Vệ sinh chuyên sâu buồng điện thoại &amp; pod</li><li>Dọn dẹp không gian sự kiện &amp; sau sự kiện</li><li>Vệ sinh bếp &amp; khu vực nghỉ hàng ngày</li><li>Quy trình khử trùng các điểm tiếp xúc cao</li><li>Lập lịch linh hoạt trong ngày</li>',
+      's4.tag':'Nhà Ở','s4.title':'Căn Hộ Cao Cấp &amp; Chung Cư',
+      's4.desc':'Dịch vụ vệ sinh cao cấp cho các bất động sản nhà ở tại Thảo Điền, Phú Mỹ Hưng, Vinhomes và các tòa nhà đẳng cấp nhất TP.HCM. Đội ngũ của chúng tôi tôn trọng nhà và sự riêng tư của bạn — mỗi lần ghé thăm để lại không gian sạch bóng.',
+      's4.list':'<li>Vệ sinh chuyên sâu hoặc dịch vụ định kỳ toàn bộ căn hộ</li><li>Vệ sinh thiết bị bếp bên trong &amp; bên ngoài</li><li>Khử trùng phòng tắm &amp; khu ướt</li><li>Vệ sinh ban công &amp; sân thượng</li><li>Dọn dẹp tủ quần áo &amp; khu lưu trữ</li><li>Gói vệ sinh dọn vào / dọn ra</li>',
+      's5.tag':'Bất Động Sản','s5.title':'Quản Lý Bất Động Sản &amp; Bàn Giao',
+      's5.desc':'Vệ sinh cuối hợp đồng, giữa các lần thuê và bảo trì liên tục cho các công ty quản lý bất động sản và chủ nhà quản lý nhiều đơn vị tại TP.HCM. Một đầu mối liên hệ cho toàn bộ danh mục của bạn.',
+      's5.list':'<li>Vệ sinh chuyên sâu cuối hợp đồng &amp; hoàn thiện sẵn sàng chụp ảnh</li><li>Bàn giao giữa các lần nhận khách hoặc người thuê</li><li>Lịch định kỳ cho toàn bộ danh mục</li><li>Hỗ trợ danh sách kiểm tra thiệt hại</li><li>Vệ sinh khu vực chung &amp; bãi đỗ xe</li><li>Người quản lý tài khoản chuyên dụng</li>',
+      'sd.cta':'Yêu Cầu Báo Giá',
+      'pr.label':'Giá Minh Bạch','pr.title':'Mức giá đơn giản, hợp lý<br>cho mọi loại không gian',
+      'pr.desc':'Tất cả các gói bao gồm nhân viên được bảo hiểm, sản phẩm an toàn sinh thái và danh sách kiểm tra hoàn thành. Báo giá tùy chỉnh có sẵn cho danh mục lớn hơn.',
+      'pr.start':'Bắt Đầu Ngay',
+      'pt1.name':'Cơ Bản','pt1.freq':'mỗi buổi · Dành cho cá nhân, căn hộ và không gian nhỏ dưới 100 m²',
+      'pt2.badge':'◆ Phổ Biến Nhất','pt2.name':'Chuyên Nghiệp','pt2.freq':'mỗi buổi · Dành cho văn phòng &amp; căn hộ dịch vụ, sự kiện, nhà hàng… không gian dưới 400 m²',
+      'pt3.name':'Doanh Nghiệp','pt3.freq':'báo giá riêng · khách sạn, danh mục &amp; bất động sản lớn, sự kiện','pt3.cta':'Nhận Báo Giá Riêng',
+      'proc.label':'Cách Thức Hoạt Động','proc.title':'Từ cuộc gọi đầu tiên đến<br>không gian sạch bóng — trong bốn bước',
+      'p1.t':'Liên Hệ','p1.d':'Điền vào biểu mẫu báo giá nhanh hoặc gọi trực tiếp cho chúng tôi. Cho chúng tôi biết về không gian, kích thước và nhu cầu vệ sinh của bạn. Chỉ mất dưới 2 phút.',
+      'p2.t':'Khảo Sát &amp; Báo Giá','p2.d':'Chúng tôi đến thăm bất động sản của bạn trong vòng 24 giờ, đánh giá không gian và gửi báo giá chi tiết phù hợp — không bất ngờ, không ràng buộc.',
+      'p3.t':'Lên Lịch Lần Vệ Sinh Đầu','p3.d':'Khi bạn hài lòng với báo giá, chúng tôi thống nhất ngày bắt đầu. Lần vệ sinh đầu tiên có thể bắt đầu trong vòng 48 giờ sau khi ký kết.',
+      'p4.t':'Dịch Vụ Liên Tục','p4.d':'Chúng tôi có mặt đúng giờ, mọi lần. Sau mỗi lần ghé thăm, bạn nhận được danh sách kiểm tra hoàn thành và đường dây liên hệ trực tiếp với người quản lý tài khoản.',
+      'inc.label':'Mọi Dịch Vụ Đều Bao Gồm','inc.title':'Những gì đi kèm<br>với mỗi lần vệ sinh',
+      'in1':'Lau Bụi &amp; Quét Dọn','in2':'Lau Sàn','in3':'Khử Trùng Bề Mặt',
+      'in4':'Vệ Sinh Phòng Tắm Chuyên Sâu','in5':'Lau Cửa Sổ','in6':'Thu Gom Rác',
+      'in7':'Hoàn Thiện Không Để Lại Vết','in8':'Sản Phẩm An Toàn Sinh Thái',
+      'in9':'Nhân Viên Được Bảo Hiểm','in10':'Báo Cáo Kiểm Tra',
+      'faq.label':'Câu Hỏi Thường Gặp','faq.title':'Câu hỏi thường gặp,<br>câu trả lời trung thực',
+      'fq1.q':'Có yêu cầu thời hạn hợp đồng tối thiểu không?','fq1.a':'Không có hợp đồng ràng buộc. Chúng tôi cung cấp thỏa thuận hàng tháng cho dịch vụ định kỳ. Dịch vụ một lần và vệ sinh sự kiện luôn có sẵn mà không cần cam kết.',
+      'fq2.q':'Nhân viên của bạn có được bảo hiểm không?','fq2.a':'Có. Tất cả nhân viên Saigon Clean đều có bảo hiểm trách nhiệm đầy đủ. Chúng tôi cũng được bảo hiểm cho thiệt hại vô tình trong quá trình dịch vụ, đảm bảo tài sản và tài sản của bạn được bảo vệ.',
+      'fq3.q':'Bạn có cung cấp sản phẩm và thiết bị vệ sinh không?','fq3.a':'Chúng tôi cung cấp tất cả sản phẩm và thiết bị chuyên nghiệp. Sản phẩm của chúng tôi an toàn sinh thái, không độc hại và được phê duyệt cho môi trường khách sạn và dịch vụ thực phẩm.',
+      'fq4.q':'Bạn có thể vệ sinh ngoài giờ làm việc không?','fq4.a':'Hoàn toàn có thể. Chúng tôi cung cấp lịch buổi sáng sớm, buổi tối và cuối tuần. Hầu hết khách hàng thương mại của chúng tôi thích dọn dẹp sau giờ làm hoặc trước giờ mở cửa để tránh gián đoạn.',
+      'fq5.q':'Chính sách hủy của bạn là gì?','fq5.a':'Chúng tôi yêu cầu báo trước 24 giờ để thay đổi lịch hoặc hủy buổi mà không tính phí. Đối với hợp đồng định kỳ, cần thông báo trước 7 ngày để tạm dừng hoặc chấm dứt dịch vụ.',
+      'fq6.q':'Bạn phục vụ những quận nào?','fq6.a':'Chúng tôi phục vụ tất cả các quận tại Thành phố Hồ Chí Minh bao gồm Quận 1, 2, 3, 4, 7, Bình Thạnh, Thủ Đức và Phú Mỹ Hưng. Liên hệ với chúng tôi cho các khu vực ngoại ô — chúng tôi sẽ cố gắng hết sức.',
+      'cta.label':'Bắt Đầu Ngay Hôm Nay','cta.title':'Sẵn sàng bắt đầu?',
+      'cta.desc':'Nhận báo giá phù hợp cho không gian của bạn trong vòng 24 giờ — không ràng buộc, không áp lực.',
+      'cta.btn1':'Yêu Cầu Báo Giá Miễn Phí','cta.btn2':'Nói Chuyện Với Đội Ngũ',
+      'ft.copy':'© 2026 Saigon Clean · Thành Phố Hồ Chí Minh, Việt Nam',
+    }
+  };
+  function setLang(lang) {
+    localStorage.setItem('sc_lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('sc_lang') || 'en');
 </script>
 
 <a href="index.html" class="back-home">← Home</a>

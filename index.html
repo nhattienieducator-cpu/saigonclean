@@ -87,6 +87,19 @@
       padding: 0;
     }
     .nav-links .mobile-cta { display: none; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .lang-sw { display: flex; align-items: center; }
+    .lang-btn {
+      background: none; border: none;
+      color: rgba(255,255,255,0.42);
+      padding: 5px 7px; cursor: pointer;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+      font-family: inherit; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .lang-btn.active { color: #D4AF37; }
+    .lang-btn:hover { color: rgba(255,255,255,0.85); }
+    .lang-sep { color: rgba(255,255,255,0.18); font-size: 10px; pointer-events: none; }
 
     /* ─── SHARED UTILS ─────────────────────────────────────── */
     .label {
@@ -476,39 +489,46 @@
     <div class="nav-logo-rule"></div>
   </a>
   <ul class="nav-links">
-    <li><a href="services.html">Services</a></li>
-    <li><a href="#clients">Clients</a></li>
-    <li><a href="#included">Included</a></li>
-    <li><a href="contact.html">Contact</a></li>
-    <li class="mobile-cta"><a href="request.html">Get a Quote</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+    <li class="mobile-cta"><a href="request.html" data-i18n="nav.cta">Get a Quote</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
-  <a href="request.html" class="nav-cta">Get a Quote</a>
+  <div class="nav-right">
+    <div class="lang-sw">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
+    <a href="request.html" class="nav-cta" data-i18n="nav.cta">Get a Quote</a>
+  </div>
 </nav>
 
 <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Ho Chi Minh City · Premium Commercial Cleaning</div>
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Ho Chi Minh City · Premium Commercial Cleaning</div>
     <h1 class="hero-title display">
-      <span style="color:#D4AF37;">Spotless Spaces,</span><br>
-      <em>Lasting Impressions</em>
+      <span style="color:#D4AF37;" data-i18n="hero.t1">Spotless Spaces,</span><br>
+      <em data-i18n="hero.t2">Lasting Impressions</em>
     </h1>
-    <div class="hero-sub">
+    <div class="hero-sub" data-i18n="hero.sub">
       Offices <span>·</span> Hotels <span>·</span> Serviced Apartments <span>·</span> Coworking Spaces
     </div>
     <div class="hero-btns">
-      <a href="#contact" class="btn btn-fill">Get a Free Quote</a>
-      <a href="#services" class="btn">Our Services</a>
+      <a href="#contact" class="btn btn-fill" data-i18n="hero.cta1">Get a Free Quote</a>
+      <a href="#services" class="btn" data-i18n="hero.cta2">Our Services</a>
     </div>
   </div>
-  <div class="hero-scroll">Scroll</div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Scroll</div>
 </section>
 
 <!-- ═══ QUOTE BAR ══════════════════════════════════════════════════ -->
 <div class="quote-bar">
-  <p class="quote-bar-text">
+  <p class="quote-bar-text" data-i18n="qbar.text">
     "Trusted by 100+ premium offices, hotels, and coworking spaces across Hồ Chí Minh City."
   </p>
   <a href="tel:+84904915240" class="btn" style="white-space:nowrap;">+84 904 915 240</a>
@@ -518,12 +538,12 @@
 <div id="services">
   <div class="services-intro">
     <div>
-      <div class="label">What We Do</div>
-      <h2 class="display services-intro-title">
+      <div class="label" data-i18n="sv.label">What We Do</div>
+      <h2 class="display services-intro-title" data-i18n="sv.title">
         Cleaning services designed<br>for Saigon's finest spaces
       </h2>
     </div>
-    <p class="services-intro-desc">
+    <p class="services-intro-desc" data-i18n="sv.desc">
       We bring five-star cleaning standards to Saigon's most prestigious commercial properties — on your schedule, with your standards.
     </p>
   </div>
@@ -533,45 +553,45 @@
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1400&q=80" alt="Office Cleaning HCMC">
       <div class="card-body">
-        <div class="card-tag">Commercial</div>
-        <div class="card-title">Office & Corporate Spaces</div>
-        <div class="card-desc">Daily, weekly, or custom schedules for open-plan offices, meeting rooms, lobbies, and executive suites across all districts.</div>
+        <div class="card-tag" data-i18n="c1.tag">Commercial</div>
+        <div class="card-title" data-i18n="c1.title">Office & Corporate Spaces</div>
+        <div class="card-desc" data-i18n="c1.desc">Daily, weekly, or custom schedules for open-plan offices, meeting rooms, lobbies, and executive suites across all districts.</div>
       </div>
     </div>
     <!-- Card 2 -->
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=900&q=80" alt="Hotel Cleaning">
       <div class="card-body">
-        <div class="card-tag">Hospitality</div>
-        <div class="card-title">Hotels & Serviced Apartments</div>
-        <div class="card-desc">5-star turnover and daily servicing for every room, every day.</div>
+        <div class="card-tag" data-i18n="c2.tag">Hospitality</div>
+        <div class="card-title" data-i18n="c2.title">Hotels & Serviced Apartments</div>
+        <div class="card-desc" data-i18n="c2.desc">5-star turnover and daily servicing for every room, every day.</div>
       </div>
     </div>
     <!-- Card 3 -->
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt="Coworking Space Cleaning">
       <div class="card-body">
-        <div class="card-tag">Coworking</div>
-        <div class="card-title">Shared Workspaces</div>
-        <div class="card-desc">High-frequency cleaning for high-traffic shared environments.</div>
+        <div class="card-tag" data-i18n="c3.tag">Coworking</div>
+        <div class="card-title" data-i18n="c3.title">Shared Workspaces</div>
+        <div class="card-desc" data-i18n="c3.desc">High-frequency cleaning for high-traffic shared environments.</div>
       </div>
     </div>
     <!-- Card 4 -->
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Apartment Cleaning">
       <div class="card-body">
-        <div class="card-tag">Residential</div>
-        <div class="card-title">Luxury Apartments & Condos</div>
-        <div class="card-desc">White-glove service for premium residential properties.</div>
+        <div class="card-tag" data-i18n="c4.tag">Residential</div>
+        <div class="card-title" data-i18n="c4.title">Luxury Apartments & Condos</div>
+        <div class="card-desc" data-i18n="c4.desc">White-glove service for premium residential properties.</div>
       </div>
     </div>
     <!-- Card 5 -->
     <div class="card">
       <img class="card-img" src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80" alt="Property Management Cleaning">
       <div class="card-body">
-        <div class="card-tag">Property</div>
-        <div class="card-title">Property Management</div>
-        <div class="card-desc">End-of-tenancy, turnover, and ongoing cleaning for managed portfolios.</div>
+        <div class="card-tag" data-i18n="c5.tag">Property</div>
+        <div class="card-title" data-i18n="c5.title">Property Management</div>
+        <div class="card-desc" data-i18n="c5.desc">End-of-tenancy, turnover, and ongoing cleaning for managed portfolios.</div>
       </div>
     </div>
   </div>
@@ -581,50 +601,50 @@
 <div class="stats">
   <div class="stat">
     <div class="stat-num">100+</div>
-    <div class="stat-lbl">Active Clients</div>
+    <div class="stat-lbl" data-i18n="st1">Active Clients</div>
   </div>
   <div class="stat">
     <div class="stat-num">4.8★</div>
-    <div class="stat-lbl">Average Rating</div>
+    <div class="stat-lbl" data-i18n="st2">Average Rating</div>
   </div>
   <div class="stat">
     <div class="stat-num">24h</div>
-    <div class="stat-lbl">First Booking</div>
+    <div class="stat-lbl" data-i18n="st3">First Booking</div>
   </div>
   <div class="stat">
     <div class="stat-num">100%</div>
-    <div class="stat-lbl">Satisfaction Guarantee</div>
+    <div class="stat-lbl" data-i18n="st4">Satisfaction Guarantee</div>
   </div>
 </div>
 
 <!-- ═══ PULL QUOTE ═════════════════════════════════════════════════ -->
 <div class="pull-quote">
-  <div class="label">Our Promise</div>
-  <p>
+  <div class="label" data-i18n="pq.label">Our Promise</div>
+  <p data-i18n="pq.text">
     "We don't just clean spaces — we help Saigon's most prestigious offices, hotels, and residences make a <strong>lasting impression</strong> on every visitor who walks through the door."
   </p>
-  <a href="#contact" class="btn btn-fill">Start with a Free Quote</a>
+  <a href="#contact" class="btn btn-fill" data-i18n="pq.cta">Start with a Free Quote</a>
 </div>
 
 <!-- ═══ WHAT'S INCLUDED ════════════════════════════════════════════ -->
 <div id="included">
   <div class="included-head">
-    <div class="label">Every Service Includes</div>
-    <h2 class="display" style="font-size:clamp(36px,4vw,58px);max-width:500px;line-height:1.1;">
+    <div class="label" data-i18n="inc.label">Every Service Includes</div>
+    <h2 class="display" style="font-size:clamp(36px,4vw,58px);max-width:500px;line-height:1.1;" data-i18n="inc.title">
       What comes with<br>every clean
     </h2>
   </div>
   <div class="included-rail">
-    <div class="inc-item"><div class="inc-icon">🧹</div><div class="inc-name">Dusting & Sweeping</div></div>
-    <div class="inc-item"><div class="inc-icon">🪣</div><div class="inc-name">Floor Mopping</div></div>
-    <div class="inc-item"><div class="inc-icon">🧴</div><div class="inc-name">Surface Sanitizing</div></div>
-    <div class="inc-item"><div class="inc-icon">🚿</div><div class="inc-name">Bathroom Deep Clean</div></div>
-    <div class="inc-item"><div class="inc-icon">🪟</div><div class="inc-name">Window Cleaning</div></div>
-    <div class="inc-item"><div class="inc-icon">🗑️</div><div class="inc-name">Waste Removal</div></div>
-    <div class="inc-item"><div class="inc-icon">✨</div><div class="inc-name">Streak-Free Finish</div></div>
-    <div class="inc-item"><div class="inc-icon">🌿</div><div class="inc-name">Eco-Safe Products</div></div>
-    <div class="inc-item"><div class="inc-icon">🔒</div><div class="inc-name">Insured Staff</div></div>
-    <div class="inc-item"><div class="inc-icon">📋</div><div class="inc-name">Checklist Report</div></div>
+    <div class="inc-item"><div class="inc-icon">🧹</div><div class="inc-name" data-i18n="in1">Dusting &amp; Sweeping</div></div>
+    <div class="inc-item"><div class="inc-icon">🪣</div><div class="inc-name" data-i18n="in2">Floor Mopping</div></div>
+    <div class="inc-item"><div class="inc-icon">🧴</div><div class="inc-name" data-i18n="in3">Surface Sanitizing</div></div>
+    <div class="inc-item"><div class="inc-icon">🚿</div><div class="inc-name" data-i18n="in4">Bathroom Deep Clean</div></div>
+    <div class="inc-item"><div class="inc-icon">🪟</div><div class="inc-name" data-i18n="in5">Window Cleaning</div></div>
+    <div class="inc-item"><div class="inc-icon">🗑️</div><div class="inc-name" data-i18n="in6">Waste Removal</div></div>
+    <div class="inc-item"><div class="inc-icon">✨</div><div class="inc-name" data-i18n="in7">Streak-Free Finish</div></div>
+    <div class="inc-item"><div class="inc-icon">🌿</div><div class="inc-name" data-i18n="in8">Eco-Safe Products</div></div>
+    <div class="inc-item"><div class="inc-icon">🔒</div><div class="inc-name" data-i18n="in9">Insured Staff</div></div>
+    <div class="inc-item"><div class="inc-icon">📋</div><div class="inc-name" data-i18n="in10">Checklist Report</div></div>
   </div>
 </div>
 
@@ -632,12 +652,12 @@
 <div id="clients">
   <div class="clients-head">
     <div>
-      <div class="label">Our Network</div>
-      <h2 class="display" style="font-size:clamp(38px,4.5vw,62px);line-height:1.05;">
+      <div class="label" data-i18n="cl.label">Our Network</div>
+      <h2 class="display" style="font-size:clamp(38px,4.5vw,62px);line-height:1.05;" data-i18n="cl.title">
         Trusted by Saigon's<br>leading businesses
       </h2>
     </div>
-    <a href="#contact" class="btn">Become a Client</a>
+    <a href="#contact" class="btn" data-i18n="cl.cta">Become a Client</a>
   </div>
 
   <div class="clients-grid">
@@ -647,7 +667,7 @@
       <div class="cl-name">Saigon Office</div>
       <div class="cl-addr">1 Trần Khánh Dư, Tân Định, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">125 reviews</span><span class="cl-phone">+84 908 600 359</span></div>
-      <a href="https://saigonoffice.com.vn/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://saigonoffice.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -655,7 +675,7 @@
       <div class="cl-name">G Office — Saigon Trade Center</div>
       <div class="cl-addr">37 Tôn Đức Thắng, Sài Gòn, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">97 reviews</span><span class="cl-phone">+84 28 2220 0919</span></div>
-      <a href="https://goffice.vn/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://goffice.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -663,7 +683,7 @@
       <div class="cl-name">Somerset Ho Chi Minh City</div>
       <div class="cl-addr">8A Nguyễn Bỉnh Khiêm, Sài Gòn, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.4</span><span class="cl-reviews">1,363 reviews</span><span class="cl-phone">+84 28 3822 8899</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -671,7 +691,7 @@
       <div class="cl-name">Sedona Suites Ho Chi Minh City</div>
       <div class="cl-addr">67 Lê Lợi, Sài Gòn, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">824 reviews</span><span class="cl-phone">+84 28 3822 9888</span></div>
-      <a href="https://www.sedonavietnam.com/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://www.sedonavietnam.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -679,7 +699,7 @@
       <div class="cl-name">Somerset Vista Ho Chi Minh City</div>
       <div class="cl-addr">628C Võ Nguyên Giáp, An Khánh, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">809 reviews</span><span class="cl-phone">+84 28 6255 9900</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -687,7 +707,7 @@
       <div class="cl-name">Oakwood Hotel & Apartments Saigon</div>
       <div class="cl-addr">330A Đ. Ung Văn Khiêm, Thạnh Mỹ Tây, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.7</span><span class="cl-reviews">495 reviews</span><span class="cl-phone">+84 28 3512 0011</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -695,7 +715,7 @@
       <div class="cl-name">TINI COWORKING</div>
       <div class="cl-addr">152 Võ Văn Kiệt, Bến Thành, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.8</span><span class="cl-reviews">181 reviews</span><span class="cl-phone">+84 965 678 910</span></div>
-      <a href="https://tinicoworking.com/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://tinicoworking.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -703,7 +723,7 @@
       <div class="cl-name">Vietnamhouse Inc.</div>
       <div class="cl-addr">Hoàng Sa/9 ward, Sài Gòn, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">333 reviews</span><span class="cl-phone">+84 28 3911 2100</span></div>
-      <a href="https://vietnamhouse.jp/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://vietnamhouse.jp/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -711,7 +731,7 @@
       <div class="cl-name">the Hive Thao Dien</div>
       <div class="cl-addr">94 Xuân Thủy, An Khánh, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">196 reviews</span><span class="cl-phone">+84 28 3620 3481</span></div>
-      <a href="https://thehive.com.vn/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://thehive.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -719,7 +739,7 @@
       <div class="cl-name">IPS — Independent Property Service</div>
       <div class="cl-addr">04 Đường Số 4, KBT Sông Ông Lớn, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">52 reviews</span><span class="cl-phone">+84 918 807 863</span></div>
-      <a href="https://ipscorp.vn/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://ipscorp.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -727,7 +747,7 @@
       <div class="cl-name">cirCO Hoang Dieu</div>
       <div class="cl-addr">384 Hoàng Diệu, Khánh Hội, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">312 reviews</span><span class="cl-phone">+84 28 7108 9899</span></div>
-      <a href="http://circo.co/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="http://circo.co/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
     <div class="cl-card">
@@ -735,50 +755,50 @@
       <div class="cl-name">Garden View Court Suites HCMC</div>
       <div class="cl-addr">101 Nguyễn Du, Bến Thành, Hồ Chí Minh</div>
       <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">316 reviews</span><span class="cl-phone">+84 28 3822 0022</span></div>
-      <a href="https://www.gardenviewcourt.com.vn/" target="_blank" class="cl-link">Visit Website ↗</a>
+      <a href="https://www.gardenviewcourt.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
     </div>
 
   </div>
 
   <div class="clients-more">
-    <p style="font-size:15px;font-weight:500;color:rgba(0,0,0,0.55);margin-bottom:24px;letter-spacing:0.04em;">◆ Showing 12 of 100 clients in our HCMC network</p>
-    <a href="#contact" class="btn">Enquire About Partnership</a>
+    <p style="font-size:15px;font-weight:500;color:rgba(0,0,0,0.55);margin-bottom:24px;letter-spacing:0.04em;" data-i18n="cl.showing">◆ Showing 12 of 100 clients in our HCMC network</p>
+    <a href="#contact" class="btn" data-i18n="cl.partner">Enquire About Partnership</a>
   </div>
 </div>
 
 <!-- ═══ CONTACT ════════════════════════════════════════════════════ -->
 <div id="contact" class="contact">
   <div class="contact-left">
-    <div class="label">Get In Touch</div>
-    <h2 class="display contact-title">
+    <div class="label" data-i18n="ct.label">Get In Touch</div>
+    <h2 class="display contact-title" data-i18n="ct.title">
       Ready for a<br>
       <em>spotless space?</em>
     </h2>
-    <p class="contact-desc">
+    <p class="contact-desc" data-i18n="ct.desc">
       We'll visit your space, understand your needs, and send a tailored quote within 24 hours. No obligation, no pressure.
     </p>
     <div class="contact-info">
-      <div class="ci"><div class="ci-lbl">☎ Phone</div><div class="ci-val">+84 904 915 240</div></div>
-      <div class="ci"><div class="ci-lbl">✉ Email</div><div class="ci-val">hello@saigonclean.vn</div></div>
-      <div class="ci"><div class="ci-lbl">◎ Service Area</div><div class="ci-val">All Districts, Ho Chi Minh City</div></div>
-      <div class="ci"><div class="ci-lbl">◷ Hours</div><div class="ci-val">Mon – Sat, 7:00 AM – 8:00 PM</div></div>
+      <div class="ci"><div class="ci-lbl" data-i18n="ci.phone">☎ Phone</div><div class="ci-val">+84 904 915 240</div></div>
+      <div class="ci"><div class="ci-lbl" data-i18n="ci.email">✉ Email</div><div class="ci-val">hello@saigonclean.vn</div></div>
+      <div class="ci"><div class="ci-lbl" data-i18n="ci.area">◎ Service Area</div><div class="ci-val" data-i18n="ci.aval">All Districts, Ho Chi Minh City</div></div>
+      <div class="ci"><div class="ci-lbl" data-i18n="ci.hours">◷ Hours</div><div class="ci-val" data-i18n="ci.hval">Mon – Sat, 7:00 AM – 8:00 PM</div></div>
     </div>
   </div>
 
   <div class="contact-right">
     <div class="form-header">
-      <div class="form-header-eyebrow">✦ Request a Quote</div>
-      <div class="form-header-title">Your spotless space<br><em>awaits</em></div>
+      <div class="form-header-eyebrow" data-i18n="f.ey">✦ Request a Quote</div>
+      <div class="form-header-title" data-i18n="f.title">Your spotless space<br><em>awaits</em></div>
     </div>
     <form onsubmit="return false;">
-      <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-      <div class="fg"><label class="fl">Business Name</label><input class="fi" type="text" placeholder="Company / Property name"></div>
-      <div class="fg"><label class="fl">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
-      <div class="fg"><label class="fl">Your Address</label><input class="fi" type="text" placeholder="Street, Ward, District — Ho Chi Minh City"></div>
+      <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+      <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" placeholder="Company / Property name"></div>
+      <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
+      <div class="fg"><label class="fl" data-i18n="l.addr">Your Address</label><input class="fi" type="text" placeholder="Street, Ward, District — Ho Chi Minh City"></div>
       <div class="fg">
-        <label class="fl">Service Type</label>
+        <label class="fl" data-i18n="l.svc">Service Type</label>
         <select class="fsel">
-          <option value="">Select a service…</option>
+          <option value="" data-i18n="o.sel">Select a service…</option>
           <option>Office &amp; Corporate Cleaning</option>
           <option>Hotel &amp; Serviced Apartment</option>
           <option>Coworking Space</option>
@@ -791,12 +811,12 @@
         </select>
       </div>
       <div class="fg">
-        <label class="fl">Preferred Date</label>
+        <label class="fl" data-i18n="l.date">Preferred Date</label>
         <input class="fi" type="date">
       </div>
       <div class="fg fg-row">
         <div class="fg-half">
-          <label class="fl">Start Time</label>
+          <label class="fl" data-i18n="l.start">Start Time</label>
           <div class="time-sel-row">
             <select class="fsel time-sel-hour">
               <option>00</option><option>01</option><option>02</option><option>03</option>
@@ -812,7 +832,7 @@
           </div>
         </div>
         <div class="fg-half">
-          <label class="fl">End Time</label>
+          <label class="fl" data-i18n="l.end">End Time</label>
           <div class="time-sel-row">
             <select class="fsel time-sel-hour">
               <option>00</option><option>01</option><option>02</option><option>03</option>
@@ -828,8 +848,8 @@
           </div>
         </div>
       </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="Tell us about your space and cleaning needs…"></textarea></div>
-      <button type="submit" class="form-submit">Send My Request →</button>
+      <div class="fg"><label class="fl" data-i18n="l.msg">Message</label><textarea class="fta" placeholder="Tell us about your space and cleaning needs…"></textarea></div>
+      <button type="submit" class="form-submit" data-i18n="f.submit">Send My Request →</button>
     </form>
   </div>
 </div>
@@ -843,12 +863,12 @@
     <div class="f-logo-rule"></div>
   </div>
   <ul class="f-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#clients">Clients</a></li>
-    <li><a href="#included">Included</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#services" data-i18n="nav.services">Services</a></li>
+    <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
+    <li><a href="#included" data-i18n="nav.included">Included</a></li>
+    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
   </ul>
-  <div class="f-copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
+  <div class="f-copy" data-i18n="ft.copy">© 2026 Saigon Clean · Ho Chi Minh City, Vietnam</div>
 </footer>
 
 <script>
@@ -862,6 +882,116 @@
     const isOpen = navLinks.classList.toggle('open');
     hamburger.textContent = isOpen ? '✕' : '☰';
   });
+
+  /* ── i18n ──────────────────────────────────────────────────── */
+  const T = {
+    en: {
+      'nav.services':'Services','nav.clients':'Clients','nav.included':'Included',
+      'nav.contact':'Contact','nav.cta':'Get a Quote',
+      'hero.eyebrow':'Ho Chi Minh City · Premium Commercial Cleaning',
+      'hero.t1':'Spotless Spaces,','hero.t2':'Lasting Impressions',
+      'hero.sub':'Offices <span>·</span> Hotels <span>·</span> Serviced Apartments <span>·</span> Coworking Spaces',
+      'hero.cta1':'Get a Free Quote','hero.cta2':'Our Services','hero.scroll':'Scroll',
+      'qbar.text':'"Trusted by 100+ premium offices, hotels, and coworking spaces across Hồ Chí Minh City."',
+      'sv.label':'What We Do',
+      'sv.title':'Cleaning services designed<br>for Saigon\'s finest spaces',
+      'sv.desc':'We bring five-star cleaning standards to Saigon\'s most prestigious commercial properties — on your schedule, with your standards.',
+      'c1.tag':'Commercial','c1.title':'Office &amp; Corporate Spaces',
+      'c1.desc':'Daily, weekly, or custom schedules for open-plan offices, meeting rooms, lobbies, and executive suites across all districts.',
+      'c2.tag':'Hospitality','c2.title':'Hotels &amp; Serviced Apartments',
+      'c2.desc':'5-star turnover and daily servicing for every room, every day.',
+      'c3.tag':'Coworking','c3.title':'Shared Workspaces',
+      'c3.desc':'High-frequency cleaning for high-traffic shared environments.',
+      'c4.tag':'Residential','c4.title':'Luxury Apartments &amp; Condos',
+      'c4.desc':'White-glove service for premium residential properties.',
+      'c5.tag':'Property','c5.title':'Property Management',
+      'c5.desc':'End-of-tenancy, turnover, and ongoing cleaning for managed portfolios.',
+      'st1':'Active Clients','st2':'Average Rating','st3':'First Booking','st4':'Satisfaction Guarantee',
+      'pq.label':'Our Promise',
+      'pq.text':'"We don\'t just clean spaces — we help Saigon\'s most prestigious offices, hotels, and residences make a <strong>lasting impression</strong> on every visitor who walks through the door."',
+      'pq.cta':'Start with a Free Quote',
+      'inc.label':'Every Service Includes',
+      'inc.title':'What comes with<br>every clean',
+      'in1':'Dusting &amp; Sweeping','in2':'Floor Mopping','in3':'Surface Sanitizing',
+      'in4':'Bathroom Deep Clean','in5':'Window Cleaning','in6':'Waste Removal',
+      'in7':'Streak-Free Finish','in8':'Eco-Safe Products','in9':'Insured Staff','in10':'Checklist Report',
+      'cl.label':'Our Network',
+      'cl.title':'Trusted by Saigon\'s<br>leading businesses',
+      'cl.cta':'Become a Client',
+      'cl.showing':'◆ Showing 12 of 100 clients in our HCMC network',
+      'cl.partner':'Enquire About Partnership','cl.visit':'Visit Website ↗',
+      'ct.label':'Get In Touch',
+      'ct.title':'Ready for a<br><em>spotless space?</em>',
+      'ct.desc':'We\'ll visit your space, understand your needs, and send a tailored quote within 24 hours. No obligation, no pressure.',
+      'ci.phone':'☎ Phone','ci.email':'✉ Email','ci.area':'◎ Service Area','ci.hours':'◷ Hours',
+      'ci.aval':'All Districts, Ho Chi Minh City','ci.hval':'Mon – Sat, 7:00 AM – 8:00 PM',
+      'f.ey':'✦ Request a Quote','f.title':'Your spotless space<br><em>awaits</em>',
+      'l.name':'Your Name','l.biz':'Business Name','l.phone':'Phone Number',
+      'l.addr':'Your Address','l.svc':'Service Type','l.date':'Preferred Date',
+      'l.start':'Start Time','l.end':'End Time','l.msg':'Message',
+      'o.sel':'Select a service…','f.submit':'Send My Request →',
+      'ft.copy':'© 2026 Saigon Clean · Ho Chi Minh City, Vietnam',
+    },
+    vi: {
+      'nav.services':'Dịch Vụ','nav.clients':'Khách Hàng','nav.included':'Bao Gồm',
+      'nav.contact':'Liên Hệ','nav.cta':'Nhận Báo Giá',
+      'hero.eyebrow':'Hồ Chí Minh · Dịch Vụ Vệ Sinh Thương Mại Cao Cấp',
+      'hero.t1':'Không Gian Sạch Bóng,','hero.t2':'Ấn Tượng Lâu Dài',
+      'hero.sub':'Văn Phòng <span>·</span> Khách Sạn <span>·</span> Căn Hộ Dịch Vụ <span>·</span> Không Gian Làm Việc Chung',
+      'hero.cta1':'Nhận Báo Giá Miễn Phí','hero.cta2':'Dịch Vụ Của Chúng Tôi','hero.scroll':'Cuộn',
+      'qbar.text':'"Được tin tưởng bởi hơn 100 văn phòng, khách sạn và không gian làm việc trên khắp Thành phố Hồ Chí Minh."',
+      'sv.label':'Chúng Tôi Làm Gì',
+      'sv.title':'Dịch vụ vệ sinh được thiết kế<br>cho những không gian đẳng cấp nhất Sài Gòn',
+      'sv.desc':'Chúng tôi mang tiêu chuẩn vệ sinh 5 sao đến các bất động sản thương mại danh tiếng nhất Sài Gòn — theo lịch của bạn, theo tiêu chuẩn của bạn.',
+      'c1.tag':'Thương Mại','c1.title':'Văn Phòng &amp; Doanh Nghiệp',
+      'c1.desc':'Lịch vệ sinh hàng ngày, hàng tuần hoặc tùy chỉnh cho văn phòng mở, phòng họp, sảnh và phòng giám đốc trên khắp các quận.',
+      'c2.tag':'Khách Sạn','c2.title':'Khách Sạn &amp; Căn Hộ Dịch Vụ',
+      'c2.desc':'Dịch vụ bàn giao phòng 5 sao và vệ sinh hàng ngày cho từng phòng, mỗi ngày.',
+      'c3.tag':'Không Gian Chung','c3.title':'Không Gian Làm Việc Chung',
+      'c3.desc':'Vệ sinh thường xuyên cho môi trường làm việc chung đông người.',
+      'c4.tag':'Nhà Ở','c4.title':'Căn Hộ Cao Cấp &amp; Chung Cư',
+      'c4.desc':'Dịch vụ cao cấp dành cho các bất động sản nhà ở hạng sang.',
+      'c5.tag':'Bất Động Sản','c5.title':'Quản Lý Bất Động Sản',
+      'c5.desc':'Vệ sinh cuối hợp đồng, bàn giao và vệ sinh định kỳ cho danh mục bất động sản được quản lý.',
+      'st1':'Khách Hàng Hiện Tại','st2':'Đánh Giá Trung Bình','st3':'Đặt Lịch Đầu Tiên','st4':'Cam Kết Hài Lòng',
+      'pq.label':'Cam Kết Của Chúng Tôi',
+      'pq.text':'"Chúng tôi không chỉ vệ sinh không gian — chúng tôi giúp những văn phòng, khách sạn và khu nhà ở danh tiếng nhất Sài Gòn tạo nên <strong>ấn tượng lâu dài</strong> với từng vị khách bước qua cánh cửa."',
+      'pq.cta':'Bắt Đầu Với Báo Giá Miễn Phí',
+      'inc.label':'Mọi Dịch Vụ Đều Bao Gồm',
+      'inc.title':'Những gì đi kèm<br>với mỗi lần vệ sinh',
+      'in1':'Lau Bụi &amp; Quét Dọn','in2':'Lau Sàn','in3':'Khử Trùng Bề Mặt',
+      'in4':'Vệ Sinh Phòng Tắm Chuyên Sâu','in5':'Lau Cửa Sổ','in6':'Thu Gom Rác',
+      'in7':'Hoàn Thiện Không Để Lại Vết','in8':'Sản Phẩm An Toàn Sinh Thái',
+      'in9':'Nhân Viên Được Bảo Hiểm','in10':'Báo Cáo Kiểm Tra',
+      'cl.label':'Mạng Lưới Của Chúng Tôi',
+      'cl.title':'Được tin tưởng bởi các<br>doanh nghiệp hàng đầu Sài Gòn',
+      'cl.cta':'Trở Thành Khách Hàng',
+      'cl.showing':'◆ Hiển thị 12 trong 100 khách hàng trong mạng lưới TP.HCM',
+      'cl.partner':'Hỏi Về Hợp Tác','cl.visit':'Xem Trang Web ↗',
+      'ct.label':'Liên Hệ Với Chúng Tôi',
+      'ct.title':'Sẵn sàng cho một<br><em>không gian sạch bóng?</em>',
+      'ct.desc':'Chúng tôi sẽ đến thăm không gian của bạn, hiểu nhu cầu của bạn và gửi báo giá phù hợp trong vòng 24 giờ. Không ràng buộc, không áp lực.',
+      'ci.phone':'☎ Điện Thoại','ci.email':'✉ Email','ci.area':'◎ Khu Vực Phục Vụ','ci.hours':'◷ Giờ Làm Việc',
+      'ci.aval':'Tất Cả Các Quận, Thành Phố Hồ Chí Minh','ci.hval':'Thứ Hai – Thứ Bảy, 7:00 SA – 8:00 CH',
+      'f.ey':'✦ Yêu Cầu Báo Giá','f.title':'Không gian sạch bóng của bạn<br><em>đang chờ</em>',
+      'l.name':'Họ và Tên','l.biz':'Tên Doanh Nghiệp','l.phone':'Số Điện Thoại',
+      'l.addr':'Địa Chỉ','l.svc':'Loại Dịch Vụ','l.date':'Ngày Ưa Thích',
+      'l.start':'Giờ Bắt Đầu','l.end':'Giờ Kết Thúc','l.msg':'Tin Nhắn',
+      'o.sel':'Chọn dịch vụ…','f.submit':'Gửi Yêu Cầu →',
+      'ft.copy':'© 2026 Saigon Clean · Thành Phố Hồ Chí Minh, Việt Nam',
+    }
+  };
+  function setLang(lang) {
+    localStorage.setItem('sc_lang', lang);
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = T[lang][el.dataset.i18n];
+      if (v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    document.documentElement.lang = lang;
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang(localStorage.getItem('sc_lang') || 'en');
 </script>
 
 </body>
