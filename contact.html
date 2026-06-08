@@ -105,6 +105,10 @@
       border: 1px solid #25D366; background: #25D366; color: #fff;
     }
     .btn-whatsapp:hover { background: transparent; color: #25D366; }
+    .btn-zalo {
+      border: 1px solid #0068FF; background: #0068FF; color: #fff;
+    }
+    .btn-zalo:hover { background: transparent; color: #0068FF; }
 
     /* ─── HERO (HALF HEIGHT) ───────────────────────────────── */
     .hero {
@@ -140,13 +144,81 @@
       line-height: 1.7;
     }
 
+    /* ─── CONTACT OUTER (image strips + form) ──────────────── */
+    .contact-outer {
+      display: grid; grid-template-columns: 480px 1fr 480px;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-img-strip { display: flex; flex-direction: column; }
+    .cis-item {
+      flex: 1; position: relative; overflow: hidden;
+      background: #111;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .contact-img-strip.right .cis-item {
+      border-right: none; border-left: 1px solid rgba(255,255,255,0.08);
+    }
+    .cis-item img,
+    .cis-item video {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      transition: transform 0.7s ease;
+    }
+    /* Both strips: fill full cell, crop to center */
+    .contact-img-strip.left .cis-item img,
+    .contact-img-strip.right .cis-item img,
+    .contact-img-strip.right .cis-item video {
+      object-fit: cover;
+      object-position: center center;
+    }
+    .cis-item:hover img,
+    .cis-item:hover video { transform: scale(1.04); }
+    .cis-grad {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .cis-badge {
+      position: absolute; bottom: 14px; left: 14px; right: 14px;
+    }
+    .cis-badge-brand {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.38em; text-transform: uppercase;
+      color: #D4AF37; margin-bottom: 5px;
+    }
+    .cis-badge-label {
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+    .cis-uniform {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(31,122,80,0.9);
+      padding: 4px 10px;
+      font-size: 7px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: #fff;
+    }
+
     /* ─── CONTACT SPLIT ────────────────────────────────────── */
     .contact-split {
       display: grid; grid-template-columns: 1fr 1fr;
-      border-bottom: 1px solid var(--border);
     }
-    .contact-info-col { padding: 80px 60px; border-right: 1px solid var(--border); }
-    .contact-form-col { padding: 80px 60px; background: var(--card); }
+    .contact-info-col { padding: 80px 52px; border-right: 1px solid var(--border); }
+    .contact-form-col {
+      background: var(--card);
+      display: flex; flex-direction: column;
+    }
+    .form-inner { padding: 80px 52px 52px; }
+    .form-img {
+      flex: 1; min-height: 260px; overflow: hidden;
+    }
+    .form-img img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center center;
+      display: block;
+    }
 
     .contact-title { font-size: clamp(36px, 4vw, 60px); margin-bottom: 16px; }
     .contact-desc { font-size: 14px; color: var(--muted); line-height: 1.8; max-width: 400px; margin-bottom: 48px; }
@@ -162,21 +234,21 @@
     .ci-val a { transition: color 0.2s; }
     .ci-val a:hover { color: var(--accent); }
 
-    /* Map placeholder */
-    .map-placeholder {
-      margin-top: 44px; height: 260px;
-      background: rgba(0,0,0,0.04);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 12px;
-      color: var(--muted);
+    /* Map */
+    .map-embed {
+      margin-top: 44px; border: 1px solid var(--border); overflow: hidden;
     }
-    .map-placeholder-icon { font-size: 36px; }
-    .map-placeholder-text { font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+    .map-embed iframe { display: block; width: 100%; height: 260px; border: 0; }
+    .map-link-bar {
+      padding: 10px 14px; background: rgba(0,0,0,0.03);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .map-link-addr { font-size: 11px; color: var(--muted); font-weight: 500; }
     .map-link {
       font-size: 11px; font-weight: 600;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-top: 4px; transition: opacity 0.2s;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); transition: opacity 0.2s;
     }
     .map-link:hover { opacity: 0.7; }
 
@@ -228,34 +300,35 @@
       border-bottom: 1px solid var(--border);
     }
     .dc-card {
-      background: var(--bg2); padding: 72px 60px;
-      display: flex; flex-direction: column; justify-content: center;
+      background: var(--bg2); padding: 48px 44px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      text-align: center;
     }
     .dc-card.light { background: #fff; }
     .dc-label {
-      font-size: 10px; font-weight: 700;
+      font-size: 12px; font-weight: 700;
       letter-spacing: 0.42em; text-transform: uppercase;
-      color: #c8ff57; margin-bottom: 18px;
+      color: #c8ff57; margin-bottom: 14px;
     }
     .dc-card.light .dc-label { color: var(--accent); }
     .dc-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 3vw, 44px);
+      font-size: clamp(28px, 2.8vw, 42px);
       font-weight: 300; font-style: italic;
-      line-height: 1.15; color: #fff; margin-bottom: 12px;
+      line-height: 1.15; color: #fff; margin-bottom: 10px;
     }
     .dc-card.light .dc-title { color: #0a0a0a; }
-    .dc-sub { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 36px; }
+    .dc-sub { font-size: 15px; color: rgba(255,255,255,0.45); line-height: 1.7; margin-bottom: 24px; max-width: 340px; }
     .dc-card.light .dc-sub { color: var(--muted); }
     .dc-phone {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 4vw, 60px); font-weight: 300;
+      font-size: clamp(28px, 3vw, 44px); font-weight: 300;
       color: #c8ff57; line-height: 1;
-      margin-bottom: 28px; display: block;
+      margin-bottom: 20px; display: block;
       transition: opacity 0.2s;
     }
     .dc-phone:hover { opacity: 0.8; }
-    .dc-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .dc-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 
     /* ─── FEEDBACK / MAILBOX ─────────────────────────────────── */
     .feedback-section {
@@ -306,11 +379,13 @@
     @media (max-width: 1024px) {
       nav { padding: 22px 28px; }
       .nav-links { gap: 24px; }
+      .contact-outer { grid-template-columns: 1fr; }
+      .contact-img-strip { display: none; }
       .contact-split { grid-template-columns: 1fr; }
       .contact-info-col { border-right: none; border-bottom: 1px solid var(--border); padding: 56px 28px; }
-      .contact-form-col { padding: 56px 28px; }
+      .form-inner { padding: 56px 28px 40px; }
       .direct-contact { grid-template-columns: 1fr; }
-      .dc-card { padding: 56px 28px; }
+      .dc-card { padding: 40px 24px; }
       .feedback-section { flex-direction: column; padding: 60px 28px; gap: 32px; }
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
     }
@@ -320,6 +395,19 @@
       .fg-row { grid-template-columns: 1fr; }
       .dc-btns { flex-direction: column; }
     }
+    .back-home {
+      position: fixed; bottom: 32px; left: 32px; z-index: 300;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 11px 22px;
+      background: rgba(10,10,10,0.85); color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      text-decoration: none;
+    }
+    .back-home:hover { background: #D4AF37; color: #0a0a0a; border-color: #D4AF37; }
   </style>
 </head>
 <body>
@@ -347,13 +435,35 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Contact · Ho Chi Minh City</div>
     <h1 class="hero-title display">
-      <em>Get</em> In Touch
+      <span style="color:#D4AF37;">Get</span> <span style="color:#c8ff57;">In</span> <span style="color:#ffffff;">Touch</span>
     </h1>
     <p class="hero-sub">We're here Mon–Sat, 7:00 AM – 8:00 PM. Reach us by phone, email, or fill in the form below.</p>
   </div>
 </section>
 
 <!-- ═══ CONTACT SPLIT ══════════════════════════════════════════════ -->
+<div class="contact-outer">
+
+<!-- Left image strip (3 photos) -->
+<div class="contact-img-strip left">
+  <div class="cis-item">
+    <img src="frame/1.png" alt="Saigon Clean — Apartment cleaning">
+    <div class="cis-uniform">Saigon ◆ Clean</div>
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">Residential</div></div>
+  </div>
+  <div class="cis-item">
+    <img src="frame/2.jpg" alt="Saigon Clean — Hotel lobby">
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">Commercial</div></div>
+  </div>
+  <div class="cis-item">
+    <img src="frame/3.png" alt="Saigon Clean — Office cleaning">
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">Office Spaces</div></div>
+  </div>
+</div>
+
 <div class="contact-split">
 
   <div class="contact-info-col">
@@ -370,8 +480,16 @@
       <div class="ci-val"><a href="tel:+84904915240">+84 904 915 240</a></div>
     </div>
     <div class="ci">
+      <div class="ci-lbl">💬 Zalo</div>
+      <div class="ci-val"><a href="https://zalo.me/0904915240" target="_blank">+84 904 915 240</a></div>
+    </div>
+    <div class="ci">
       <div class="ci-lbl">✉ Email</div>
       <div class="ci-val"><a href="mailto:hello@saigonclean.vn">hello@saigonclean.vn</a></div>
+    </div>
+    <div class="ci">
+      <div class="ci-lbl">📍 Address</div>
+      <div class="ci-val">Vinhomes Grand Park, District 9, Ho Chi Minh City</div>
     </div>
     <div class="ci">
       <div class="ci-lbl">◎ Service Area</div>
@@ -386,42 +504,75 @@
       <div class="ci-val">24/7 by arrangement</div>
     </div>
 
-    <div class="map-placeholder">
-      <div class="map-placeholder-icon">📍</div>
-      <div class="map-placeholder-text">Ho Chi Minh City, Vietnam</div>
-      <a href="https://maps.google.com/?q=Ho+Chi+Minh+City,+Vietnam" target="_blank" class="map-link">Open in Google Maps ↗</a>
+    <div class="map-embed">
+      <iframe
+        src="https://maps.google.com/maps?q=Vinhomes+Grand+Park+District+9+Ho+Chi+Minh+City&output=embed"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <div class="map-link-bar">
+        <span class="map-link-addr">Vinhomes Grand Park, District 9, HCMC</span>
+        <a href="https://maps.google.com/?q=Vinhomes+Grand+Park+District+9+Ho+Chi+Minh+City" target="_blank" class="map-link">Open in Google Maps ↗</a>
+      </div>
     </div>
   </div>
 
   <div class="contact-form-col">
-    <div class="form-header">
-      <div class="form-header-eyebrow">✦ Send a Message</div>
-      <div class="form-header-title">We read every<br><em>message personally</em></div>
-    </div>
+    <div class="form-inner">
+      <div class="form-header">
+        <div class="form-header-eyebrow">✦ Send a Message</div>
+        <div class="form-header-title">We read every<br><em>message personally</em></div>
+      </div>
 
-    <form onsubmit="return false;">
-      <div class="fg-row">
-        <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-        <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
-      </div>
-      <div class="fg"><label class="fl">Company / Property</label><input class="fi" type="text" placeholder="Your business or property name"></div>
-      <div class="fg">
-        <label class="fl">Subject</label>
-        <select class="fsel">
-          <option value="">Select a topic…</option>
-          <option>Request a Quote</option>
-          <option>Existing Client — Service Query</option>
-          <option>Partnership Enquiry</option>
-          <option>Feedback or Complaint</option>
-          <option>Careers &amp; Employment</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="How can we help? Describe your space, needs, or any questions you have…"></textarea></div>
-      <button type="submit" class="form-submit">Send Message →</button>
-      <p class="form-note">We respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
-    </form>
+      <form onsubmit="return false;">
+        <div class="fg-row">
+          <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
+          <div class="fg"><label class="fl">Phone or Email</label><input class="fi" type="text" placeholder="+84 900 000 000 or you@company.com"></div>
+        </div>
+        <div class="fg"><label class="fl">Company / Property</label><input class="fi" type="text" placeholder="Your business or property name"></div>
+        <div class="fg">
+          <label class="fl">Subject</label>
+          <select class="fsel">
+            <option value="">Select a topic…</option>
+            <option>Request a Quote</option>
+            <option>Existing Client — Service Query</option>
+            <option>Partnership Enquiry</option>
+            <option>Feedback or Complaint</option>
+            <option>Careers &amp; Employment</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">Message</label><textarea class="fta" placeholder="How can we help? Describe your space, needs, or any questions you have…"></textarea></div>
+        <button type="submit" class="form-submit">Send Message →</button>
+        <p class="form-note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM<br>Or reach us on Zalo: <a href="https://zalo.me/0904915240" target="_blank" style="color:var(--accent);">+84 904 915 240</a></p>
+      </form>
+    </div>
+    <div class="form-img">
+      <img src="frame/7.jpg" alt="SaigonClean office meeting">
+    </div>
   </div>
+
+</div>
+
+<!-- Right image strip (3 photos) -->
+<div class="contact-img-strip right">
+  <div class="cis-item">
+    <video autoplay muted loop playsinline>
+      <source src="frame/4.mov" type="video/mp4">
+    </video>
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">In Action</div></div>
+  </div>
+  <div class="cis-item">
+    <img src="frame/5.jpg" alt="Saigon Clean — Community team">
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">Our Team</div></div>
+  </div>
+  <div class="cis-item">
+    <img src="frame/6.png" alt="Saigon Clean — Join Us">
+    <div class="cis-grad"></div>
+    <div class="cis-badge"><div class="cis-badge-brand">Saigon Clean</div><div class="cis-badge-label">Join Us</div></div>
+  </div>
+</div>
 
 </div>
 
@@ -429,13 +580,14 @@
 <div class="direct-contact">
 
   <div class="dc-card">
-    <div class="dc-label">◆ Call or WhatsApp</div>
+    <div class="dc-label">◆ Call, WhatsApp or Zalo</div>
     <div class="dc-title">Prefer to talk<br>to a real person?</div>
     <p class="dc-sub">Our team is available Monday to Saturday, 7 AM to 8 PM. For urgent cleaning requests or large-scale quotes, a call is the fastest route.</p>
     <a href="tel:+84904915240" class="dc-phone">+84 904 915 240</a>
     <div class="dc-btns">
       <a href="tel:+84904915240" class="btn btn-white">Call Now</a>
       <a href="https://wa.me/84904915240" target="_blank" class="btn btn-whatsapp">WhatsApp</a>
+      <a href="https://zalo.me/0904915240" target="_blank" class="btn btn-zalo">Zalo</a>
     </div>
   </div>
 
@@ -466,7 +618,7 @@
       Whether it's a compliment, a concern, or a suggestion — we want to hear it. Every piece of client feedback is reviewed by our operations team within 48 hours. We take quality seriously, and your experience matters.
     </p>
   </div>
-  <div>
+  <div style="text-align:center;">
     <p style="font-size:13px;color:var(--muted);margin-bottom:16px;line-height:1.75;">Send feedback directly to our operations inbox:</p>
     <a href="mailto:feedback@saigonclean.vn" class="feedback-email">feedback@saigonclean.vn</a>
     <p style="font-size:12px;color:rgba(0,0,0,0.28);margin-top:12px;">Response within 48 hours · All feedback is confidential</p>
@@ -496,6 +648,8 @@
     nav.classList.toggle('scrolled', window.scrollY > 70);
   }, { passive: true });
 </script>
+
+<a href="index.html" class="back-home">← Home</a>
 
 </body>
 </html>
