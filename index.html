@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SAIGON CLEAN — Premium Commercial Cleaning · Ho Chi Minh City</title>
+  <meta name="description" content="Five-star commercial cleaning for offices, hotels, and serviced apartments across Ho Chi Minh City. Trusted by 100+ premium businesses. Free quote in 24h.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saigon Clean">
+  <meta property="og:url" content="https://saigonclean.org/">
+  <meta property="og:title" content="SAIGON CLEAN — Premium Commercial Cleaning · Ho Chi Minh City">
+  <meta property="og:description" content="Five-star commercial cleaning for offices, hotels, and serviced apartments across Ho Chi Minh City. Trusted by 100+ premium businesses.">
+  <meta property="og:image" content="https://saigonclean.org/frame/2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAIGON CLEAN — Premium Commercial Cleaning · Ho Chi Minh City">
+  <meta name="twitter:description" content="Five-star commercial cleaning for offices, hotels, and serviced apartments across Ho Chi Minh City.">
+  <meta name="twitter:image" content="https://saigonclean.org/frame/2.jpg">
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -327,32 +343,35 @@
       letter-spacing: 0.35em; text-transform: uppercase;
       color: var(--accent); margin-bottom: 10px;
     }
-    .cl-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 21px; font-weight: 400;
-      line-height: 1.25; margin-bottom: 8px;
-    }
-    .cl-addr {
+    .cl-icon { font-size: 30px; margin-bottom: 14px; line-height: 1; }
+    .cl-district {
       font-size: 12px; color: var(--muted);
-      line-height: 1.55; margin-bottom: 18px;
+      margin: 4px 0 16px; line-height: 1.4;
     }
     .cl-meta { display: flex; align-items: center; gap: 10px; }
     .cl-stars { font-size: 11px; font-weight: 700; color: var(--accent); }
     .cl-reviews { font-size: 11px; color: rgba(0,0,0,0.28); }
-    .cl-phone { font-size: 11px; color: var(--muted); margin-left: auto; }
-    .cl-link {
-      display: inline-block; margin-top: 14px;
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(0,0,0,0.3);
-      border-bottom: 1px solid rgba(0,0,0,0.15);
-      padding-bottom: 2px; transition: color 0.2s, border-color 0.2s;
+    .cl-badge {
+      margin-top: 16px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.32em; text-transform: uppercase;
+      color: var(--accent);
     }
-    .cl-link:hover { color: var(--accent); border-color: var(--accent); }
     .clients-more {
       text-align: center; padding: 52px;
       border-top: 1px solid var(--border);
     }
+
+    .form-success {
+      text-align: center; padding: 56px 32px;
+      font-size: 15px; line-height: 1.7; color: var(--text);
+    }
+    .form-success strong { display: block; font-size: 18px; margin-top: 10px; margin-bottom: 6px; }
+    .form-error {
+      color: #b33; font-size: 12px;
+      margin-top: 10px; text-align: center;
+    }
+    .grecaptcha-badge { visibility: hidden; }
 
     /* ─── CONTACT ───────────────────────────────────────────── */
     .contact { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
@@ -663,99 +682,99 @@
   <div class="clients-grid">
 
     <div class="cl-card">
+      <div class="cl-icon">🏢</div>
       <div class="cl-cat">Office Space</div>
-      <div class="cl-name">Saigon Office</div>
-      <div class="cl-addr">1 Trần Khánh Dư, Tân Định, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">125 reviews</span><span class="cl-phone">+84 908 600 359</span></div>
-      <a href="https://saigonoffice.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">125 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">💻</div>
       <div class="cl-cat">Coworking Space</div>
-      <div class="cl-name">G Office — Saigon Trade Center</div>
-      <div class="cl-addr">37 Tôn Đức Thắng, Sài Gòn, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">97 reviews</span><span class="cl-phone">+84 28 2220 0919</span></div>
-      <a href="https://goffice.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">97 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🛎️</div>
       <div class="cl-cat">Serviced Accommodation</div>
-      <div class="cl-name">Somerset Ho Chi Minh City</div>
-      <div class="cl-addr">8A Nguyễn Bỉnh Khiêm, Sài Gòn, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.4</span><span class="cl-reviews">1,363 reviews</span><span class="cl-phone">+84 28 3822 8899</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.4</span><span class="cl-reviews">1,363 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🏨</div>
       <div class="cl-cat">Hotel</div>
-      <div class="cl-name">Sedona Suites Ho Chi Minh City</div>
-      <div class="cl-addr">67 Lê Lợi, Sài Gòn, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">824 reviews</span><span class="cl-phone">+84 28 3822 9888</span></div>
-      <a href="https://www.sedonavietnam.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">824 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🏠</div>
       <div class="cl-cat">Serviced Apartment</div>
-      <div class="cl-name">Somerset Vista Ho Chi Minh City</div>
-      <div class="cl-addr">628C Võ Nguyên Giáp, An Khánh, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">809 reviews</span><span class="cl-phone">+84 28 6255 9900</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">Thu Duc (District 2), Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">809 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🏨</div>
       <div class="cl-cat">Hotel</div>
-      <div class="cl-name">Oakwood Hotel & Apartments Saigon</div>
-      <div class="cl-addr">330A Đ. Ung Văn Khiêm, Thạnh Mỹ Tây, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.7</span><span class="cl-reviews">495 reviews</span><span class="cl-phone">+84 28 3512 0011</span></div>
-      <a href="https://www.discoverasr.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">Binh Thanh, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.7</span><span class="cl-reviews">495 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">💻</div>
       <div class="cl-cat">Coworking Space</div>
-      <div class="cl-name">TINI COWORKING</div>
-      <div class="cl-addr">152 Võ Văn Kiệt, Bến Thành, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.8</span><span class="cl-reviews">181 reviews</span><span class="cl-phone">+84 965 678 910</span></div>
-      <a href="https://tinicoworking.com/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.8</span><span class="cl-reviews">181 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🔑</div>
       <div class="cl-cat">Property Management</div>
-      <div class="cl-name">Vietnamhouse Inc.</div>
-      <div class="cl-addr">Hoàng Sa/9 ward, Sài Gòn, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">333 reviews</span><span class="cl-phone">+84 28 3911 2100</span></div>
-      <a href="https://vietnamhouse.jp/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 3, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">333 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">💻</div>
       <div class="cl-cat">Coworking Space</div>
-      <div class="cl-name">the Hive Thao Dien</div>
-      <div class="cl-addr">94 Xuân Thủy, An Khánh, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">196 reviews</span><span class="cl-phone">+84 28 3620 3481</span></div>
-      <a href="https://thehive.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">Thu Duc, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.5</span><span class="cl-reviews">196 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🔑</div>
       <div class="cl-cat">Property Management</div>
-      <div class="cl-name">IPS — Independent Property Service</div>
-      <div class="cl-addr">04 Đường Số 4, KBT Sông Ông Lớn, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">52 reviews</span><span class="cl-phone">+84 918 807 863</span></div>
-      <a href="https://ipscorp.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 7, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.9</span><span class="cl-reviews">52 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">💻</div>
       <div class="cl-cat">Coworking Space</div>
-      <div class="cl-name">cirCO Hoang Dieu</div>
-      <div class="cl-addr">384 Hoàng Diệu, Khánh Hội, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">312 reviews</span><span class="cl-phone">+84 28 7108 9899</span></div>
-      <a href="http://circo.co/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 4, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">312 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
     <div class="cl-card">
+      <div class="cl-icon">🏨</div>
       <div class="cl-cat">Hotel</div>
-      <div class="cl-name">Garden View Court Suites HCMC</div>
-      <div class="cl-addr">101 Nguyễn Du, Bến Thành, Hồ Chí Minh</div>
-      <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">316 reviews</span><span class="cl-phone">+84 28 3822 0022</span></div>
-      <a href="https://www.gardenviewcourt.com.vn/" target="_blank" class="cl-link" data-i18n="cl.visit">Visit Website ↗</a>
+      <div class="cl-district">District 1, Ho Chi Minh City</div>
+      <div class="cl-meta"><span class="cl-stars">★ 4.3</span><span class="cl-reviews">316 reviews</span></div>
+      <div class="cl-badge" data-i18n="cl.badge">◆ Verified Partner</div>
     </div>
 
   </div>
@@ -790,14 +809,14 @@
       <div class="form-header-eyebrow" data-i18n="f.ey">✦ Request a Quote</div>
       <div class="form-header-title" data-i18n="f.title">Your spotless space<br><em>awaits</em></div>
     </div>
-    <form onsubmit="return false;">
-      <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-      <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" placeholder="Company / Property name"></div>
-      <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
-      <div class="fg"><label class="fl" data-i18n="l.addr">Your Address</label><input class="fi" type="text" placeholder="Street, Ward, District — Ho Chi Minh City"></div>
+    <form id="homeQuoteForm">
+      <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" name="name" placeholder="Nguyen Van A" required></div>
+      <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" name="biz" placeholder="Company / Property name"></div>
+      <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" name="phone" placeholder="+84 900 000 000" required></div>
+      <div class="fg"><label class="fl" data-i18n="l.addr">Your Address</label><input class="fi" type="text" name="addr" placeholder="Street, Ward, District — Ho Chi Minh City"></div>
       <div class="fg">
         <label class="fl" data-i18n="l.svc">Service Type</label>
-        <select class="fsel">
+        <select class="fsel" name="service">
           <option value="" data-i18n="o.sel">Select a service…</option>
           <option>Office &amp; Corporate Cleaning</option>
           <option>Hotel &amp; Serviced Apartment</option>
@@ -812,19 +831,19 @@
       </div>
       <div class="fg">
         <label class="fl" data-i18n="l.date">Preferred Date</label>
-        <input class="fi" type="date">
+        <input class="fi" type="date" name="date">
       </div>
       <div class="fg fg-row">
         <div class="fg-half">
           <label class="fl" data-i18n="l.start">Start Time</label>
           <div class="time-sel-row">
-            <select class="fsel time-sel-hour">
+            <select class="fsel time-sel-hour" name="startHour">
               <option>00</option><option>01</option><option>02</option><option>03</option>
               <option>04</option><option>05</option><option>06</option><option>07</option>
               <option>08</option><option>09</option><option>10</option><option>11</option>
               <option>12</option>
             </select>
-            <select class="fsel time-sel-period">
+            <select class="fsel time-sel-period" name="startPeriod">
               <option value="">AM/PM</option>
               <option>AM</option>
               <option>PM</option>
@@ -834,13 +853,13 @@
         <div class="fg-half">
           <label class="fl" data-i18n="l.end">End Time</label>
           <div class="time-sel-row">
-            <select class="fsel time-sel-hour">
+            <select class="fsel time-sel-hour" name="endHour">
               <option>00</option><option>01</option><option>02</option><option>03</option>
               <option>04</option><option>05</option><option>06</option><option>07</option>
               <option>08</option><option>09</option><option>10</option><option>11</option>
               <option>12</option>
             </select>
-            <select class="fsel time-sel-period">
+            <select class="fsel time-sel-period" name="endPeriod">
               <option value="">AM/PM</option>
               <option>AM</option>
               <option>PM</option>
@@ -848,8 +867,9 @@
           </div>
         </div>
       </div>
-      <div class="fg"><label class="fl" data-i18n="l.msg">Message</label><textarea class="fta" placeholder="Tell us about your space and cleaning needs…"></textarea></div>
+      <div class="fg"><label class="fl" data-i18n="l.msg">Message</label><textarea class="fta" name="message" placeholder="Tell us about your space and cleaning needs…"></textarea></div>
       <button type="submit" class="form-submit" data-i18n="f.submit">Send My Request →</button>
+      <p style="font-size:10px;color:rgba(0,0,0,0.28);text-align:center;margin-top:10px;">Protected by reCAPTCHA — <a href="https://policies.google.com/privacy" style="color:inherit;" target="_blank">Privacy</a> · <a href="https://policies.google.com/terms" style="color:inherit;" target="_blank">Terms</a></p>
     </form>
   </div>
 </div>
@@ -918,8 +938,9 @@
       'cl.label':'Our Network',
       'cl.title':'Trusted by Saigon\'s<br>leading businesses',
       'cl.cta':'Become a Client',
-      'cl.showing':'◆ Showing 12 of 100 clients in our HCMC network',
-      'cl.partner':'Enquire About Partnership','cl.visit':'Visit Website ↗',
+      'cl.showing':'◆ 12 verified partners across our HCMC network',
+      'cl.badge':'◆ Verified Partner',
+      'cl.partner':'Enquire About Partnership',
       'ct.label':'Get In Touch',
       'ct.title':'Ready for a<br><em>spotless space?</em>',
       'ct.desc':'We\'ll visit your space, understand your needs, and send a tailored quote within 24 hours. No obligation, no pressure.',
@@ -966,8 +987,9 @@
       'cl.label':'Mạng Lưới Của Chúng Tôi',
       'cl.title':'Được tin tưởng bởi các<br>doanh nghiệp hàng đầu Sài Gòn',
       'cl.cta':'Trở Thành Khách Hàng',
-      'cl.showing':'◆ Hiển thị 12 trong 100 khách hàng trong mạng lưới TP.HCM',
-      'cl.partner':'Hỏi Về Hợp Tác','cl.visit':'Xem Trang Web ↗',
+      'cl.showing':'◆ 12 đối tác xác thực trong mạng lưới TP.HCM',
+      'cl.badge':'◆ Đối Tác Xác Thực',
+      'cl.partner':'Hỏi Về Hợp Tác',
       'ct.label':'Liên Hệ Với Chúng Tôi',
       'ct.title':'Sẵn sàng cho một<br><em>không gian sạch bóng?</em>',
       'ct.desc':'Chúng tôi sẽ đến thăm không gian của bạn, hiểu nhu cầu của bạn và gửi báo giá phù hợp trong vòng 24 giờ. Không ràng buộc, không áp lực.',
@@ -992,6 +1014,84 @@
   }
   document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
   setLang(localStorage.getItem('sc_lang') || 'en');
+
+  /* ── Form → Google Sheets ──────────────────────────────────── */
+  const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+  const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
+
+  document.getElementById('homeQuoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('[type=submit]');
+    const lang = localStorage.getItem('sc_lang') || 'en';
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = lang === 'vi' ? 'Đang gửi…' : 'Sending…';
+
+    try {
+      const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'homepage_quote' });
+      const fd = new FormData(form);
+      const payload = {
+        source: 'homepage',
+        lang,
+        token,
+        name: fd.get('name'),
+        biz: fd.get('biz'),
+        phone: fd.get('phone'),
+        addr: fd.get('addr'),
+        service: fd.get('service'),
+        date: fd.get('date'),
+        startTime: (fd.get('startHour') || '') + ' ' + (fd.get('startPeriod') || ''),
+        endTime: (fd.get('endHour') || '') + ' ' + (fd.get('endPeriod') || ''),
+        message: fd.get('message')
+      };
+
+      await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+
+      form.innerHTML = `<div class="form-success">
+        <div style="font-size:36px">✓</div>
+        <strong>${lang === 'vi' ? 'Đã nhận yêu cầu!' : 'Request received!'}</strong>
+        <span style="color:var(--muted)">${lang === 'vi' ? 'Chúng tôi sẽ liên hệ trong vòng 4 giờ làm việc.' : "We'll be in touch within 4 business hours."}</span>
+      </div>`;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = origText;
+      let errEl = form.querySelector('.form-error');
+      if (!errEl) { errEl = document.createElement('p'); errEl.className = 'form-error'; form.appendChild(errEl); }
+      errEl.textContent = lang === 'vi' ? 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi cho chúng tôi.' : 'Something went wrong. Please try again or call us directly.';
+    }
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Saigon Clean",
+  "description": "Premium commercial cleaning services for offices, hotels, serviced apartments, and coworking spaces in Ho Chi Minh City.",
+  "url": "https://saigonclean.org",
+  "telephone": "+84904915240",
+  "email": "hello@saigonclean.vn",
+  "image": "https://saigonclean.org/frame/2.jpg",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "City",
+    "name": "Ho Chi Minh City"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ho Chi Minh City",
+    "addressCountry": "VN"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+    "opens": "07:00",
+    "closes": "20:00"
+  },
+  "sameAs": [],
+  "hasMap": "https://maps.google.com/?q=Ho+Chi+Minh+City"
+}
 </script>
 
 </body>

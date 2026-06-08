@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Request a Free Quote — SAIGON CLEAN · Ho Chi Minh City</title>
+  <meta name="description" content="Request a free cleaning quote from Saigon Clean. We'll visit your space and send a tailored proposal within 24 hours. No obligation.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Saigon Clean">
+  <meta property="og:url" content="https://saigonclean.org/request.html">
+  <meta property="og:title" content="Request a Free Quote — SAIGON CLEAN · Ho Chi Minh City">
+  <meta property="og:description" content="Request a free cleaning quote from Saigon Clean. We'll visit your space and send a tailored proposal within 24 hours. No obligation.">
+  <meta property="og:image" content="https://saigonclean.org/frame/2.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Request a Free Quote — SAIGON CLEAN · Ho Chi Minh City">
+  <meta name="twitter:description" content="Get a tailored cleaning proposal within 24 hours. No obligation.">
+  <meta name="twitter:image" content="https://saigonclean.org/frame/2.jpg">
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_RECAPTCHA_SITE_KEY" async defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -239,6 +255,13 @@
       font-size: 12px; color: rgba(0,0,0,0.3);
       text-align: center; margin-top: 14px; line-height: 1.6;
     }
+    .form-success {
+      text-align: center; padding: 64px 32px;
+      font-size: 15px; line-height: 1.8;
+    }
+    .form-success strong { display: block; font-size: 20px; margin: 10px 0 6px; }
+    .form-error { color: #b33; font-size: 12px; text-align: center; margin-top: 10px; }
+    .grecaptcha-badge { visibility: hidden; }
 
     /* ─── WHAT HAPPENS NEXT ─────────────────────────────────── */
     .next-section {
@@ -497,7 +520,7 @@
         <div class="form-header-title" data-i18n="f.title">Tell us about<br><em>your space</em></div>
       </div>
 
-      <form onsubmit="return false;">
+      <form id="requestQuoteForm">
 
         <!-- Contact Details -->
         <div class="fgroup">
@@ -507,12 +530,12 @@
           </div>
           <div class="fgroup-bd">
             <div class="fg-row">
-              <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" placeholder="Nguyen Van A"></div>
-              <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" placeholder="Company / Property"></div>
+              <div class="fg"><label class="fl" data-i18n="l.name">Your Name</label><input class="fi" type="text" name="name" placeholder="Nguyen Van A" required></div>
+              <div class="fg"><label class="fl" data-i18n="l.biz">Business Name</label><input class="fi" type="text" name="biz" placeholder="Company / Property"></div>
             </div>
             <div class="fg-row">
-              <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" placeholder="+84 900 000 000"></div>
-              <div class="fg"><label class="fl" data-i18n="l.email">Email Address</label><input class="fi" type="email" placeholder="you@company.com"></div>
+              <div class="fg"><label class="fl" data-i18n="l.phone">Phone Number</label><input class="fi" type="tel" name="phone" placeholder="+84 900 000 000" required></div>
+              <div class="fg"><label class="fl" data-i18n="l.email">Email Address</label><input class="fi" type="email" name="email" placeholder="you@company.com"></div>
             </div>
           </div>
         </div>
@@ -524,7 +547,7 @@
             <span class="fgroup-ttl" data-i18n="fg2.ttl">Property Details</span>
           </div>
           <div class="fgroup-bd">
-            <div class="fg"><label class="fl" data-i18n="l.addr">Full Address</label><input class="fi" type="text" placeholder="Street, Ward — Ho Chi Minh City"></div>
+            <div class="fg"><label class="fl" data-i18n="l.addr">Full Address</label><input class="fi" type="text" name="addr" placeholder="Street, Ward — Ho Chi Minh City"></div>
             <div class="fg-row">
               <div class="fg">
                 <label class="fl" data-i18n="l.district">District</label>
@@ -559,7 +582,7 @@
               </div>
               <div class="fg">
                 <label class="fl" data-i18n="l.proptype">Property Type</label>
-                <select class="fsel">
+                <select class="fsel" name="proptype">
                   <option value="">Select type…</option>
                   <option>Office / Corporate</option>
                   <option>Hotel</option>
@@ -574,7 +597,7 @@
                 </select>
               </div>
             </div>
-            <div class="fg"><label class="fl" data-i18n="l.size">Approximate Size (m²)</label><input class="fi" type="text" placeholder="e.g. 250 m²"></div>
+            <div class="fg"><label class="fl" data-i18n="l.size">Approximate Size (m²)</label><input class="fi" type="text" name="size" placeholder="e.g. 250 m²"></div>
           </div>
         </div>
 
@@ -587,7 +610,7 @@
           <div class="fgroup-bd">
             <div class="fg">
               <label class="fl" data-i18n="l.pkg">Service Package</label>
-              <select class="fsel">
+              <select class="fsel" name="pkg">
                 <option value="">Select a package…</option>
                 <option>Essentials</option>
                 <option>Professional</option>
@@ -597,7 +620,7 @@
             <div class="fg-row">
               <div class="fg">
                 <label class="fl" data-i18n="l.freq">Preferred Frequency</label>
-                <select class="fsel">
+                <select class="fsel" name="freq">
                   <option value="">Select frequency…</option>
                   <option>Daily</option>
                   <option>Several times per week</option>
@@ -609,7 +632,7 @@
               </div>
               <div class="fg">
                 <label class="fl" data-i18n="l.sdate">Preferred Start Date</label>
-                <input class="fi" type="date">
+                <input class="fi" type="date" name="date">
               </div>
             </div>
             <div class="fg-row">
@@ -646,12 +669,13 @@
                 </div>
               </div>
             </div>
-            <div class="fg"><label class="fl" data-i18n="l.special">Special Requirements</label><textarea class="fta" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
+            <div class="fg"><label class="fl" data-i18n="l.special">Special Requirements</label><textarea class="fta" name="message" placeholder="Any specific needs, access instructions, or questions for our team…"></textarea></div>
           </div>
         </div>
 
         <button type="submit" class="form-submit" data-i18n="f.submit">Send My Request →</button>
         <p class="form-note" data-i18n="f.note">We'll respond within a few hours · Mon–Sat, 7 AM–8 PM</p>
+        <p style="font-size:10px;color:rgba(0,0,0,0.28);text-align:center;margin-top:8px;">Protected by reCAPTCHA — <a href="https://policies.google.com/privacy" style="color:inherit;" target="_blank">Privacy</a> · <a href="https://policies.google.com/terms" style="color:inherit;" target="_blank">Terms</a></p>
 
       </form>
     </div>
@@ -759,6 +783,59 @@
     const otherInput = document.getElementById('districtOther');
     otherInput.style.display = sel.value === 'other' ? 'block' : 'none';
   }
+
+  /* ── Form → Google Sheets ──────────────────────────────────── */
+  const SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL';
+  const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
+
+  document.getElementById('requestQuoteForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('[type=submit]');
+    const lang = localStorage.getItem('sc_lang') || 'en';
+    const origText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = lang === 'vi' ? 'Đang gửi…' : 'Sending…';
+
+    try {
+      const token = await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'request_quote' });
+      const fd = new FormData(form);
+      const district = document.getElementById('districtSel').value === 'other'
+        ? document.getElementById('districtOther').value
+        : fd.get('district') || document.getElementById('districtSel').value;
+      const payload = {
+        source: 'request-page',
+        lang,
+        token,
+        name: fd.get('name'),
+        biz: fd.get('biz'),
+        phone: fd.get('phone'),
+        email: fd.get('email'),
+        addr: fd.get('addr'),
+        district,
+        proptype: fd.get('proptype'),
+        size: fd.get('size'),
+        pkg: fd.get('pkg'),
+        freq: fd.get('freq'),
+        date: fd.get('date'),
+        message: fd.get('message')
+      };
+
+      await fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(payload) });
+
+      form.innerHTML = `<div class="form-success">
+        <div style="font-size:40px">✓</div>
+        <strong>${lang === 'vi' ? 'Đã nhận yêu cầu!' : 'Request received!'}</strong>
+        <span style="color:var(--muted)">${lang === 'vi' ? 'Chúng tôi sẽ liên hệ trong vòng 4 giờ làm việc.' : "We'll be in touch within 4 business hours."}</span>
+      </div>`;
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = origText;
+      let errEl = form.querySelector('.form-error');
+      if (!errEl) { errEl = document.createElement('p'); errEl.className = 'form-error'; form.appendChild(errEl); }
+      errEl.textContent = lang === 'vi' ? 'Có lỗi xảy ra. Vui lòng thử lại hoặc gọi cho chúng tôi.' : 'Something went wrong. Please try again or call us directly.';
+    }
+  });
 
   const T = {
     en: {
