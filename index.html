@@ -78,6 +78,15 @@
       transition: opacity 0.2s;
     }
     .nav-cta:hover { opacity: 0.85; }
+    .nav-hamburger {
+      display: none;
+      background: none; border: 1px solid rgba(255,255,255,0.25);
+      color: #fff; font-size: 20px; line-height: 1;
+      width: 40px; height: 40px;
+      align-items: center; justify-content: center;
+      padding: 0;
+    }
+    .nav-links .mobile-cta { display: none; }
 
     /* ─── SHARED UTILS ─────────────────────────────────────── */
     .label {
@@ -429,7 +438,24 @@
       footer { flex-direction: column; gap: 20px; text-align: center; padding: 36px 28px; }
     }
     @media (max-width: 640px) {
-      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links {
+        display: none; position: fixed; top: 66px; left: 0; right: 0;
+        flex-direction: column; gap: 0;
+        background: rgba(10,10,10,0.96); backdrop-filter: blur(12px);
+        padding: 8px 0 16px; z-index: 190;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .nav-links li a { display: block; padding: 13px 24px; }
+      .nav-links .mobile-cta { display: block; }
+      .nav-links .mobile-cta a {
+        margin: 8px 24px 0; display: block;
+        background: #c8ff57; color: #0a0a0a;
+        text-align: center; padding: 13px;
+      }
       nav { padding: 18px 22px; }
       .card-grid { grid-template-columns: 1fr; }
       .card:nth-child(1) { grid-column: span 1; }
@@ -454,7 +480,9 @@
     <li><a href="#clients">Clients</a></li>
     <li><a href="#included">Included</a></li>
     <li><a href="contact.html">Contact</a></li>
+    <li class="mobile-cta"><a href="request.html">Get a Quote</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">&#9776;</button>
   <a href="request.html" class="nav-cta">Get a Quote</a>
 </nav>
 
@@ -828,6 +856,12 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 70);
   }, { passive: true });
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    hamburger.textContent = isOpen ? '✕' : '☰';
+  });
 </script>
 
 </body>
